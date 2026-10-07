@@ -151,10 +151,13 @@
   }
 
   .ZAppTabBorder .ZLeftIcon {
-    padding-left: 10px;
+    padding-left: 8px;
   }
 
-  .ZAppTabBorder .ZWidgetTitle {
+  /* 12 px de part et d'autre du contenu, 8 px entre l'icône et le libellé. L'icône
+     porte déjà 4 px de marge à gauche, d'où les 8 px de la cellule. */
+  .ZAppTab .ZAppTabBorder .ZWidgetTitle {
+    padding-left: 8px;
     padding-right: 12px;
     color: inherit;
   }
@@ -166,9 +169,10 @@
     color: var(--zm-text);
   }
 
-  /* Onglet actif : libellé en gras et court trait de marque, centré sous le texte */
+  /* Onglet actif : libellé en gras et trait de marque sur toute la largeur de l'onglet */
   .ZSelected .ZAppTabBorder {
-    background: linear-gradient(var(--zm-accent), var(--zm-accent)) center bottom 4px / calc(100% - 24px) 3px no-repeat;
+    background: linear-gradient(var(--zm-accent), var(--zm-accent)) center bottom / 100% 3px no-repeat;
+    border-radius: var(--zm-radius) var(--zm-radius) 0 0;
     color: var(--zm-text);
   }
 

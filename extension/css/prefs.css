@@ -1,5 +1,5 @@
-/* Préférences : pour l'instant le socle seulement (fonds, traits, libellés), afin que
-   ces écrans restent cohérents avec le reste. */
+/* Préférences et filtres. Les pages partagent les mêmes briques (titre de section,
+   libellé à gauche, champ à droite) ; les écrans propres à une page viennent ensuite. */
 :root:not(#zm, [data-zm-off]) {
   .ZmPrefView,
   .ZOptionsSectionMain {
@@ -10,24 +10,51 @@
     background-color: var(--zm-surface);
   }
 
-  .ZOptionsSectionTabView .ZmPreferencesPage {
-    border-color: var(--zm-border);
-    border-radius: var(--zm-radius);
+  .ZOptionsSectionMain {
+    padding: 4px 1em 1em;
+  }
+
+  .ZOptionsSectionTable {
+    margin-bottom: 1em;
+  }
+
+  /* --- Titre de section : un texte et un filet, sans le bandeau en image --- */
+  .ImgPrefsHeader,
+  .ImgPrefsHeader_L,
+  .ImgPrefsHeader_R {
+    background: none;
+  }
+
+  .ZOptionsHeaderRow td {
+    border-bottom: 1px solid var(--zm-border);
   }
 
   .ZOptionsHeader {
+    padding: 14px 0 8px;
     color: var(--zm-text);
     font-size: var(--zm-font-size-lg);
     font-weight: 600;
   }
 
+  /* --- Libellés et champs --- */
   .ZOptionsLabel,
   .ZOptionsLabelTop,
   .ZOptionsLabelNarrow,
   .ZOptionsTableLabel {
-    color: var(--zm-text);
-    font-weight: 500;
+    padding: 3px 4px 3px 0;
+    color: var(--zm-text-muted);
+    font-weight: 400;
     line-height: var(--zm-control-h);
+  }
+
+  .ZOptionsField {
+    padding: 3px 0;
+    color: var(--zm-text);
+  }
+
+  .ZOptionsField .Text,
+  .ZOptionsSectionTable label {
+    color: var(--zm-text);
   }
 
   .ZOptionsTableLabel {
@@ -38,8 +65,13 @@
     color: var(--zm-text-muted);
   }
 
+  /* Séparateurs entre groupes de réglages */
+  .ZmPreferencesPage hr,
   .ZmPrefView .horizSep {
-    border-bottom-color: var(--zm-border);
+    height: 0;
+    margin: 8px 0;
+    border: 0;
+    border-bottom: 1px solid var(--zm-border-soft);
   }
 
   .ZmPrefView .colorBox {
@@ -47,7 +79,70 @@
     border-radius: 3px;
   }
 
+  /* --- Pages à onglets (filtres entrants et sortants…) --- */
+  .ZOptionsSectionTabView .ZmPreferencesPage {
+    border-color: var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  /* --- Listes : comptes, signatures, zimlets --- */
+  .ZmSignatureListView {
+    background-color: var(--zm-surface);
+  }
+
   .ZmPrefZimletListView .Row {
     height: var(--zm-row-h);
+  }
+
+  .ZOptionsOfflineAccts {
+    color: var(--zm-text-muted);
+  }
+
+  /* --- Dialogue de règle de filtre --- */
+  .ZmFilterRuleDialog .FilterRuleSection {
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZmFilterRuleDialog .paddedTableCell {
+    padding: 3px 4px;
+  }
+
+  /* --- Raccourcis clavier --- */
+  .shortcutTable,
+  .shortcutListHeaderTd-prefs,
+  .shortcutKeys-prefs,
+  .shortcutDescription-prefs {
+    border-color: var(--zm-border-soft);
+  }
+
+  .shortcutTable th {
+    border-bottom-color: var(--zm-border);
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .shortcutListHeader-prefs {
+    background-color: var(--zm-surface-alt);
+    color: var(--zm-text);
+    font-size: var(--zm-font-size);
+  }
+
+  .shortcutKeys-prefs,
+  .shortcutDescription-prefs {
+    background-color: var(--zm-surface);
+    color: var(--zm-text);
+  }
+
+  /* Touches dessinées comme des touches */
+  .shortcutKey-prefs {
+    padding: 1px 6px;
+    background-color: var(--zm-surface-alt);
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-border-strong);
+    border-radius: var(--zm-radius);
+    color: var(--zm-text);
+    font-family: var(--zm-font-mono);
+    font-size: var(--zm-font-size-sm);
   }
 }

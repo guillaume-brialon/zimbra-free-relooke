@@ -174,6 +174,11 @@ addEventListener("load", () => {
     document.querySelector(".DwtListView-Rows .ImgCheckboxUnchecked")?.setAttribute("class", "ImgCheckboxChecked");
   }
   if (params.get("view") === "prefs") document.getElementById("bench-view")?.click();
+  // ?page=N affiche la N-ième page de préférences déjà construite dans le snapshot.
+  if (params.has("page")) {
+    const pages = [...document.querySelectorAll("#DWT35_page > .ZmPreferencesPage")].filter((p) => p.textContent.trim());
+    pages.forEach((p, i) => (p.style.display = i === Number(params.get("page")) ? "block" : "none"));
+  }
   if (params.has("show")) document.getElementById("bench-showcase").click();
 });
 addEventListener("resize", fit);

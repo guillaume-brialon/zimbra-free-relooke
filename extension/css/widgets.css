@@ -426,11 +426,13 @@
     padding-left: 5px;
   }
 
-  /* En-têtes de colonnes discrets, Outlook n'en montrant presque pas. */
+  /* En-têtes de colonnes discrets, Outlook n'en montrant presque pas. La marge gauche
+     reste celle de Zimbra (3 px) : chaque pixel ajouté élargit la colonne et décale
+     un peu plus les suivantes par rapport aux lignes. */
   .DwtListView-Column,
   .DwtListView-ColumnHover,
   .DwtListView-ColumnActive {
-    padding-left: 4px;
+    padding-left: 3px;
     background-color: var(--zm-surface);
     border-bottom: 1px solid var(--zm-border);
   }
