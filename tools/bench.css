@@ -1,0 +1,41 @@
+/* Propre au banc d'essai, jamais livré dans l'extension. */
+
+#bench-bar {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2147483647;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 8px;
+  background: #1f2328;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+}
+
+#bench-bar button,
+#bench-bar a {
+  font: 12px/1 system-ui, sans-serif !important;
+  color: #fff !important;
+  background: #3a4048;
+  border: 0;
+  border-radius: 5px;
+  padding: 6px 9px;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+#bench-bar [aria-pressed="true"] {
+  background: #245b8f;
+}
+
+/* Les encarts publicitaires ne chargent rien ici : on matérialise leur emplacement. */
+iframe[src*="passback.free.fr"] {
+  background: repeating-linear-gradient(45deg, #f3d9d9, #f3d9d9 10px, #fbeaea 10px, #fbeaea 20px);
+}
+
+/* Éléments injectés par d'autres extensions au moment du snapshot. */
+.SignalSpamSideBar,
+#verifromMask {
+  display: none !important;
+}

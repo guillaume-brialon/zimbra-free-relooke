@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Zimbra Free, en plus moderne",
+  "short_name": "Zimbra moderne",
+  "version": "0.1.0",
+  "description": "Rafraîchit l'apparence du webmail Zimbra de Free (zimbra.free.fr) : couleurs, typographie, espacements.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://zimbra.free.fr/zimbra/*"],
+      "exclude_matches": [
+        "*://zimbra.free.fr/zimbra/h/*",
+        "*://zimbra.free.fr/zimbra/m/*"
+      ],
+      "run_at": "document_start",
+      "css": [
+        "css/tokens.css",
+        "css/base.css",
+        "css/layout.css",
+        "css/widgets.css",
+        "css/mail.css",
+        "css/prefs.css"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Zimbra moderne",
+    "default_icon": "icons/icon.svg",
+    "default_popup": "popup/popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "zimbra-moderne@brialon.com",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

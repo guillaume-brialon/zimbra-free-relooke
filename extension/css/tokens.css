@@ -1,0 +1,70 @@
+/* Variables du thème. Tout le reste s'y réfère : changer la palette se fait ici.
+   Formes et proportions : outlook.com. Couleurs : thème clair de brialon.com, dont les
+   noms d'origine sont rappelés en commentaire. */
+:root {
+  --zm-font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --zm-font-mono: "Cascadia Mono", Consolas, ui-monospace, "Liberation Mono", Menlo, monospace;
+  --zm-font-size: 13px;
+  --zm-font-size-sm: 12px;
+  --zm-font-size-lg: 16px;
+
+  /* Surfaces */
+  --zm-bg: #f3f6fa;            /* --ground */
+  --zm-surface: #ffffff;       /* --surface */
+  --zm-surface-alt: #f7f9fc;
+  --zm-hover: #e6eef7;         /* --brand-wash */
+  --zm-pressed: #d2deea;       /* --line */
+
+  /* Traits */
+  --zm-border-soft: #e6ecf3;
+  --zm-border: #d2deea;        /* --line */
+  --zm-border-strong: #a3bcdc; /* --line-strong */
+
+  /* Texte */
+  --zm-text: #102539;          /* --ink */
+  --zm-text-muted: #4d6177;    /* --muted */
+  --zm-text-disabled: #8b9bad;
+
+  /* Couleur de marque */
+  --zm-accent: #245b8f;        /* --brand */
+  --zm-accent-hover: #174876;
+  --zm-accent-deep: #003261;   /* --brand-deep */
+  --zm-accent-soft: #d6e4f2;
+  --zm-on-accent: #ffffff;
+  --zm-focus: #5a88c0;         /* --focus */
+  --zm-focus-ring: 0 0 0 2px rgba(90, 136, 192, .45);
+
+  /* États */
+  --zm-success: #4e912b;       /* --meadow-deep */
+  --zm-success-bright: #61a936; /* --meadow */
+  --zm-danger: #b3372b;
+  --zm-danger-soft: #fbeae8;
+  --zm-warning-soft: #fff6d9;
+  --zm-warning-border: #ead492;
+
+  /* Bandeau supérieur : la « bande » bleu nuit du site, sur laquelle le logo blanc ressort */
+  --zm-header-bg: #003261;         /* --band */
+  --zm-header-text: #e8f0f9;       /* --band-ink */
+  --zm-header-text-muted: #a3bcdc; /* --band-muted */
+  --zm-header-line: #2c5a8a;       /* --band-frame */
+
+  /* Formes */
+  --zm-radius: 4px;
+  --zm-radius-lg: 8px;
+  --zm-shadow-card: 0 0 2px rgba(16, 37, 57, .12), 0 1px 2px rgba(16, 37, 57, .14);
+  --zm-shadow-pop: 0 0 2px rgba(16, 37, 57, .12), 0 8px 16px rgba(16, 37, 57, .14);
+  --zm-shadow-dialog: 0 0 8px rgba(16, 37, 57, .12), 0 32px 64px rgba(16, 37, 57, .2);
+
+  /* Dimensions */
+  --zm-header-h: 48px;
+  --zm-tabs-h: 40px;
+  --zm-toolbar-h: 46px;
+  --zm-control-h: 28px;
+  --zm-toolbar-control-h: 32px;
+  --zm-row-h: 30px;
+  --zm-tree-row-h: 30px;
+  --zm-gap: 8px;
+  /* Marge interne des panneaux arrondis : Zimbra y cale un bloc à coins droits, qu'il
+     faut tenir à l'écart des arrondis. */
+  --zm-card-pad: 3px;
+}

@@ -1,0 +1,12 @@
+# Dépendances et paquets générés
+node_modules/
+dist/
+
+# Snapshots du webmail et captures d'écran : ils contiennent des données personnelles
+# (adresses, objets de mails, contacts, agenda) et le CSS de Zimbra, qui n'est pas le
+# nôtre. Le banc d'essai (tools/bench.mjs) les lit à la racine du dossier.
+/*.html
+/*.png
+/site.css
+/Zimlets-nodev_all.css
+/captures/

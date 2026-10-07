@@ -1,0 +1,53 @@
+/* Préférences : pour l'instant le socle seulement (fonds, traits, libellés), afin que
+   ces écrans restent cohérents avec le reste. */
+:root:not(#zm, [data-zm-off]) {
+  .ZmPrefView,
+  .ZOptionsSectionMain {
+    background: var(--zm-surface);
+  }
+
+  .ZmPrefView .DwtTabTable {
+    background-color: var(--zm-surface);
+  }
+
+  .ZOptionsSectionTabView .ZmPreferencesPage {
+    border-color: var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZOptionsHeader {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .ZOptionsLabel,
+  .ZOptionsLabelTop,
+  .ZOptionsLabelNarrow,
+  .ZOptionsTableLabel {
+    color: var(--zm-text);
+    font-weight: 500;
+    line-height: var(--zm-control-h);
+  }
+
+  .ZOptionsTableLabel {
+    background-color: var(--zm-surface-alt);
+  }
+
+  .ZOptionsInfo {
+    color: var(--zm-text-muted);
+  }
+
+  .ZmPrefView .horizSep {
+    border-bottom-color: var(--zm-border);
+  }
+
+  .ZmPrefView .colorBox {
+    border: 1px solid var(--zm-border-strong);
+    border-radius: 3px;
+  }
+
+  .ZmPrefZimletListView .Row {
+    height: var(--zm-row-h);
+  }
+}

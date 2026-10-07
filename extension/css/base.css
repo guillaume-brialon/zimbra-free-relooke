@@ -1,0 +1,210 @@
+/* Typographie de base.
+   Spécificité volontairement minimale (0,0,2) : on remplace les règles d'origine du type
+   « DIV, TD… { font-size: 11px } » sans écraser les tailles que Zimbra fixe par classe. */
+html:where(:not([data-zm-off])) :is(p, th, td, div, span, select, input, textarea, button, a) {
+  font-family: var(--zm-font);
+}
+
+html:where(:not([data-zm-off])) :is(p, th, td, div, select, input, textarea, button) {
+  font-size: var(--zm-font-size);
+}
+
+/* Partout ailleurs, les règles sont imbriquées dans ce préfixe :
+   - :not(#zm) n'exclut rien mais apporte la spécificité d'un identifiant, ce qui fait
+     gagner nos règles sur celles de Zimbra quel que soit l'ordre des feuilles ;
+   - [data-zm-off] est posé par content.js quand le thème est désactivé. */
+:root:not(#zm, [data-zm-off]) {
+  color-scheme: light;
+  scrollbar-color: var(--zm-border-strong) transparent;
+
+  body {
+    background: var(--zm-bg);
+    color: var(--zm-text);
+  }
+
+  /* Zimbra le demande via -moz-box-sizing ; on l'écrit sous sa forme standard. */
+  .ZWidget,
+  .ZWidget *,
+  #skin_outer * {
+    box-sizing: border-box;
+  }
+
+  /* Liens */
+  a:link,
+  a:visited,
+  .FakeAnchor,
+  .Object,
+  .AttLink:link,
+  .AttLink:visited {
+    color: var(--zm-accent);
+  }
+
+  a:hover,
+  .Object-hover,
+  .AttLink:hover {
+    color: var(--zm-accent-hover);
+  }
+
+  .Text {
+    color: var(--zm-text);
+  }
+
+  .DisabledText,
+  .ZmFinePrint {
+    color: var(--zm-text-disabled);
+  }
+
+  .ZmHead,
+  .ZmBigger {
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .ZmFieldLabel,
+  .ZmFieldLabelLeft,
+  .ZmFieldLabelRight,
+  .ZmFieldLabelCenter,
+  legend {
+    color: var(--zm-text);
+  }
+
+  .ZmImportant,
+  .redAsteric {
+    color: var(--zm-danger);
+  }
+
+  fieldset {
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  /* Champs de saisie */
+  input[type="text"],
+  input[type="password"],
+  input[type="file"],
+  textarea,
+  select {
+    font-size: var(--zm-font-size);
+  }
+
+  input[type="text"],
+  input[type="password"],
+  .ZFieldInput,
+  .DwtSimpleInput,
+  textarea {
+    padding: 4px 8px;
+    color: var(--zm-text);
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-border-strong);
+    border-radius: var(--zm-radius);
+    outline: none;
+    transition: border-color .12s, box-shadow .12s;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  .ZFieldInput,
+  .DwtSimpleInput {
+    height: var(--zm-control-h);
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  .ZFieldInput:focus,
+  .DwtSimpleInput:focus,
+  textarea:focus {
+    /* Comme sur Outlook : le champ actif se signale par un trait de marque en pied. */
+    border-bottom-color: var(--zm-accent);
+    box-shadow: inset 0 -1px 0 var(--zm-accent);
+  }
+
+  input[readonly],
+  input[disabled],
+  textarea[readonly],
+  textarea[disabled],
+  .ZDisabled .ZFieldInput,
+  .DwtInputField-disabled input,
+  .DwtInputField-disabled textarea {
+    color: var(--zm-text-disabled);
+    background-color: var(--zm-surface-alt);
+    border-color: var(--zm-border);
+  }
+
+  .DwtInputField-hint input,
+  .DwtInputField-hint textarea,
+  .DwtSimpleInput-hint,
+  .ZHint .ZFieldInput {
+    color: var(--zm-text-muted);
+    font-style: normal;
+  }
+
+  .DwtInputField-error input,
+  .DwtInputField-error textarea,
+  .DwtInputField-errorhint input,
+  .DwtInputField-errorhint textarea,
+  .DwtSimpleInput-error,
+  .ZError .ZFieldInput {
+    background-color: var(--zm-danger-soft);
+    border-color: var(--zm-danger);
+  }
+
+  .ZRequired .ZFieldInput {
+    background-color: var(--zm-surface);
+  }
+
+  .ZField {
+    height: var(--zm-control-h);
+  }
+
+  /* Champs qui gèrent eux-mêmes leur cadre : on n'y impose pas le nôtre. */
+  .DwtSpinner input[type="text"] {
+    height: auto;
+    padding: 1px 2px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  select {
+    height: var(--zm-control-h);
+    padding: 0 6px;
+    color: var(--zm-text);
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-border-strong);
+    border-radius: var(--zm-radius);
+  }
+
+  select[size],
+  select[multiple] {
+    height: auto;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--zm-accent);
+  }
+
+  .ZRadioLabelDisabled {
+    color: var(--zm-text-disabled);
+  }
+
+  /* Séparateurs */
+  .horizSep {
+    border-bottom-color: var(--zm-border);
+  }
+
+  .vertSep {
+    height: 18px;
+    margin-left: 4px;
+    padding-right: 4px;
+    border-left-color: var(--zm-border);
+  }
+
+  .NoResults {
+    padding-top: 24px;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size);
+  }
+}

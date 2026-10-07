@@ -1,0 +1,14 @@
+{
+  "name": "zimbra-moderne",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bench": "node tools/bench.mjs",
+    "start": "web-ext run --source-dir extension --start-url https://zimbra.free.fr/",
+    "lint": "web-ext lint --source-dir extension",
+    "build": "web-ext build --source-dir extension --artifacts-dir dist --overwrite-dest"
+  },
+  "devDependencies": {
+    "web-ext": "^8.0.0"
+  }
+}

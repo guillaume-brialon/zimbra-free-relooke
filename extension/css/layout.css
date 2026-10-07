@@ -1,0 +1,332 @@
+/* Grandes zones de la page : bandeau, onglets d'applications, arbre, barre d'outils.
+   Zimbra cale ses panneaux (positionnés en absolu) à l'intérieur de ces conteneurs,
+   bordures et marges internes déduites, en les mesurant au chargement : on peut donc en
+   changer les dimensions ici.
+   Disposition reprise d'outlook.com : bandeau de marque, volet des dossiers posé à même
+   le fond, barre d'outils et contenu dans des panneaux blancs arrondis. */
+:root:not(#zm, [data-zm-off]) {
+  #skin_outer {
+    background: var(--zm-bg);
+  }
+
+  /* --- Écran de chargement --- */
+  .SplashScreen,
+  #skin_container_splash_screen {
+    background: var(--zm-bg);
+  }
+
+  .SplashScreen .center,
+  .SplashScreen .center-small {
+    background: var(--zm-surface);
+    border-radius: var(--zm-radius-lg);
+    box-shadow: var(--zm-shadow-pop);
+  }
+
+  .SplashScreen .message {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .SplashScreen .content,
+  .SplashScreen .copyright {
+    color: var(--zm-text-muted);
+  }
+
+  /* --- Bandeau supérieur --- */
+  #skin_spacing_top_row {
+    height: var(--zm-header-h);
+    background: var(--zm-header-bg);
+  }
+
+  #skin_spacing_top_row .divider {
+    border-left-color: var(--zm-header-line);
+  }
+
+  #skin_container_username {
+    padding: 0 0 3px;
+  }
+
+  #skin_container_username *,
+  .BannerTextUser {
+    color: var(--zm-header-text);
+    font-weight: 600;
+  }
+
+  .BannerTextQuota {
+    color: var(--zm-header-text-muted);
+  }
+
+  .BannerBar {
+    height: auto;
+    padding-top: 0;
+  }
+
+  .BannerBar .quotabar {
+    height: 3px;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: var(--zm-header-line) !important;
+  }
+
+  .BannerBar .quotaUsed {
+    background-color: var(--zm-success-bright);
+  }
+
+  .BannerBar .quotaWarning {
+    background-color: #f2c14e;
+  }
+
+  .BannerBar .quotaCritical {
+    background-color: #ef6b5e;
+  }
+
+  #skin_container_links a,
+  #skin_container_links .ZWidgetTitle {
+    color: var(--zm-header-text);
+  }
+
+  #skin_container_links a:hover {
+    color: #fff;
+  }
+
+  /* Recherche de personnes : teintée au repos, blanche dès qu'on y écrit */
+  .ZmPeopleSearchToolbarDiv {
+    height: var(--zm-control-h);
+    margin: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--zm-radius);
+  }
+
+  .ZmPeopleSearchToolbarTable {
+    background-color: var(--zm-hover);
+    transition: background-color .12s;
+  }
+
+  .ZmPeopleSearchToolbarTable:focus-within {
+    background-color: var(--zm-surface);
+  }
+
+  input[type="text"].people_search_input,
+  input[type="text"].people_search_input:focus {
+    padding: 0 8px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* --- Onglets d'applications, posés sur le fond --- */
+  #skin_spacing_app_row {
+    padding: 0 var(--zm-gap);
+    background: none;
+  }
+
+  #skin_spacing_app_chooser {
+    padding: 0;
+  }
+
+  #skin_border_app_chooser {
+    height: var(--zm-tabs-h);
+    border: 0;
+    border-radius: 0;
+  }
+
+  #skin_container_app_chooser {
+    height: var(--zm-tabs-h);
+  }
+
+  .ZButton.ZAppTab {
+    height: var(--zm-tabs-h);
+    margin-right: 2px;
+  }
+
+  .ZAppTabSpacer {
+    height: var(--zm-tabs-h);
+  }
+
+  .ZAppTabBorder {
+    background: none;
+    border-radius: var(--zm-radius);
+    color: var(--zm-text-muted);
+  }
+
+  .ZAppTabBorder .ZLeftIcon {
+    padding-left: 10px;
+  }
+
+  .ZAppTabBorder .ZWidgetTitle {
+    padding-right: 12px;
+    color: inherit;
+  }
+
+  .ZHover .ZAppTabBorder,
+  .ZFocused .ZAppTabBorder,
+  .ZActive .ZAppTabBorder {
+    background: var(--zm-hover);
+    color: var(--zm-text);
+  }
+
+  /* Onglet actif : libellé en gras et court trait de marque, centré sous le texte */
+  .ZSelected .ZAppTabBorder {
+    background: linear-gradient(var(--zm-accent), var(--zm-accent)) center bottom 4px / calc(100% - 24px) 3px no-repeat;
+    color: var(--zm-text);
+  }
+
+  .ZSelected .ZAppTabBorder .ZWidgetTitle {
+    font-weight: 600;
+  }
+
+  .ZDisabled .ZAppTabBorder {
+    background: none;
+    color: var(--zm-text-disabled);
+  }
+
+  .ZAlert .ZAppTabBorder {
+    background-color: var(--zm-warning-soft);
+  }
+
+  /* --- Bande de séparation sous les onglets --- */
+  #skin_spacing_filler {
+    height: 4px;
+    background: none;
+  }
+
+  /* --- Colonne de gauche : dossiers et mini-calendrier, sans cadre --- */
+  #skin_td_tree {
+    width: 228px;
+    padding-left: var(--zm-gap);
+  }
+
+  #skin_spacing_tree {
+    padding-bottom: var(--zm-gap);
+  }
+
+  #skin_container_tree,
+  #skin_container_tree_footer {
+    background: none;
+    border: 0;
+  }
+
+  #skin_container_tree_footer {
+    height: 176px;
+  }
+
+  #skin_spacing_tree_footer {
+    padding-bottom: var(--zm-gap);
+  }
+
+  #skin_container_tree_top {
+    background: none;
+    border-radius: 0;
+    color: var(--zm-text);
+  }
+
+  /* --- Colonne principale --- */
+  #skin_td_main {
+    padding: 0 var(--zm-gap) var(--zm-gap) 0;
+  }
+
+  #skin_tr_search #skin_spacing_search {
+    padding: 0 0 var(--zm-gap);
+  }
+
+  #skin_container_search {
+    background: none;
+  }
+
+  /* Barre d'outils et contenu : deux panneaux blancs arrondis, légèrement ombrés */
+  #skin_spacing_app_top_toolbar {
+    padding-bottom: var(--zm-gap);
+  }
+
+  #skin_container_search_builder_toolbar,
+  #skin_container_app_top_toolbar {
+    height: var(--zm-toolbar-h);
+    padding: var(--zm-card-pad) 6px;
+    background: var(--zm-surface);
+    border: 0;
+    border-radius: var(--zm-radius-lg);
+    box-shadow: var(--zm-shadow-card);
+  }
+
+  #skin_container_search_builder,
+  #skin_container_app_main {
+    padding: var(--zm-card-pad);
+    background: var(--zm-surface);
+    border: 0;
+    border-radius: var(--zm-radius-lg);
+    box-shadow: var(--zm-shadow-card);
+  }
+
+  /* Barres d'outils secondaires, qui reprenaient la même image de fond */
+  .ToolbarBg,
+  .ZmAppToolBar_cw,
+  .ZmMsgViewToolBar_cw,
+  .ZmInviteToolBar,
+  .ZmShareToolBar,
+  .ZmMailMsgView .ZToolbar,
+  .ZmMailMsgView .ZmToolBar,
+  .ZmDumpsterDialog-toolbar,
+  .VersionHistoryToolbar,
+  .ZSubPanelHead {
+    background: var(--zm-surface-alt);
+    border-color: var(--zm-border);
+  }
+
+  /* Dans une barre d'outils calée sur son conteneur, les boutons se centrent en hauteur. */
+  .ZToolbar > .ZToolbarTable,
+  .ZmAppToolBar > .ZToolbarTable {
+    height: 100%;
+  }
+
+  /* Barre des tâches (bas de page) */
+  .ZmTaskbar {
+    background: var(--zm-surface);
+    border: 0;
+    border-radius: var(--zm-radius-lg);
+    box-shadow: var(--zm-shadow-card);
+    color: var(--zm-text);
+  }
+
+  .ZmTaskbarButtonParent .ZToolbarButtonTable .ZWidgetTitle {
+    color: var(--zm-text);
+  }
+
+  /* --- Poignées de redimensionnement : un simple filet, qui s'épaissit au survol --- */
+  .DwtVerticalSash,
+  .DwtHorizontalSash {
+    border: 0;
+    transition: background-color .12s;
+  }
+
+  /* Fond opaque : rien de ce qui passe dessous ne doit se voir de part et d'autre du filet. */
+  .DwtVerticalSash {
+    background: linear-gradient(var(--zm-border), var(--zm-border)) center / 100% 1px no-repeat var(--zm-surface);
+  }
+
+  .DwtHorizontalSash {
+    background: linear-gradient(var(--zm-border), var(--zm-border)) center / 1px 100% no-repeat var(--zm-surface);
+  }
+
+  /* Celle qui sépare les dossiers de la colonne principale se confond avec la gouttière. */
+  .console_inset_app_l .DwtHorizontalSash {
+    background: none;
+  }
+
+  .DwtVerticalSash:hover,
+  .DwtHorizontalSash:hover,
+  .console_inset_app_l .DwtHorizontalSash:hover {
+    background: var(--zm-pressed);
+  }
+
+  .DwtVerticalSash div,
+  .DwtHorizontalSash div {
+    visibility: hidden;
+  }
+}
+
+/* --- Encarts publicitaires ---
+   Masqués par défaut ; content.js pose data-zm-ads si l'utilisateur veut les garder. */
+:root:not([data-zm-ads], [data-zm-off]) iframe[src*="passback.free.fr"] {
+  display: none !important;
+}

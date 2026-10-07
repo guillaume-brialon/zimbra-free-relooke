@@ -1,0 +1,898 @@
+/* Composants partagés par toutes les applications : boutons, menus, listes, arbres,
+   onglets, boîtes de dialogue, infobulles, mini-calendrier.
+   Zimbra pose les états sur la racine du composant : ZHover, ZFocused, ZActive,
+   ZSelected, ZDisabled. L'ordre des règles ci-dessous fixe leur priorité. */
+:root:not(#zm, [data-zm-off]) {
+  .ZWidgetTitle {
+    color: var(--zm-text);
+  }
+
+  /* Segoe UI place ses lettres un peu sous le milieu de la ligne : à côté d'une icône
+     ou dans un bouton, le libellé paraît trop bas. Deux pixels de marge en pied le
+     remontent d'un pixel. */
+  .ZHasText .ZWidgetTitle {
+    padding: 0 6px 2px;
+  }
+
+  .ZDisabled .ZWidgetTitle {
+    color: var(--zm-text-disabled);
+  }
+
+  /* --- Boutons --- */
+  .ZButton,
+  .DwtButton,
+  .xform_button {
+    height: var(--zm-control-h);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZButtonBorder,
+  .DwtButton {
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZHover .ZButtonBorder,
+  .DwtButton-hover {
+    background: var(--zm-hover);
+    border: 1px solid var(--zm-border-strong);
+  }
+
+  .ZFocused .ZButtonBorder,
+  .DwtButton-focused {
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-focus);
+    box-shadow: var(--zm-focus-ring);
+  }
+
+  .ZActive .ZButtonBorder,
+  .DwtButton-active {
+    background: var(--zm-pressed);
+    border: 1px solid var(--zm-border-strong);
+  }
+
+  .ZSelected .ZButtonBorder,
+  .DwtButton-selected {
+    background: var(--zm-accent-soft) !important;
+    border: 1px solid var(--zm-accent);
+  }
+
+  .ZDisabled .ZButtonBorder,
+  .DwtButton-disabled {
+    background: var(--zm-surface-alt);
+    border: 1px solid var(--zm-border);
+    box-shadow: none;
+  }
+
+  .ZButtonTable .ZWidgetTitle,
+  .ZHover .ZButtonTable .ZWidgetTitle,
+  .ZFocused .ZButtonTable .ZWidgetTitle,
+  .ZActive .ZButtonTable .ZWidgetTitle,
+  .ZSelected .ZButtonTable .ZWidgetTitle,
+  .DwtButton .Text {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .ZDisabled .ZButtonTable .ZWidgetTitle,
+  .DwtButton-disabled .Text {
+    color: var(--zm-text-disabled);
+  }
+
+  /* Dans le bandeau, « Aide » reste un simple lien. */
+  #skin_container_links .ZButtonTable .ZWidgetTitle {
+    font-weight: 400;
+  }
+
+  .ZHasText .ZButtonTable {
+    min-width: 72px;
+  }
+
+  .DwtComboBox .ZButton {
+    height: var(--zm-control-h);
+    width: 24px;
+  }
+
+  .DwtComboBox .ZHasText .ZButtonTable,
+  .DwtComboBox .ZButtonTable {
+    min-width: 0;
+  }
+
+  /* --- Boutons de barre d'outils --- */
+  .ZToolbarButton {
+    height: var(--zm-toolbar-control-h);
+    border-radius: var(--zm-radius);
+  }
+
+  /* Dans la barre de recherche, ils s'alignent sur le champ. */
+  .ZmSearchToolbar .ZToolbarButton,
+  .ZmSearchToolbar .ZButton {
+    height: var(--zm-control-h);
+  }
+
+  .ZToolbarButtonBorder,
+  .ZDisabled .ZToolbarButtonBorder {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: var(--zm-radius);
+  }
+
+  .ZHover .ZToolbarButtonBorder,
+  .ZFocused .ZToolbarButtonBorder {
+    background: var(--zm-hover);
+    border: 1px solid transparent;
+  }
+
+  .ZActive .ZToolbarButtonBorder {
+    background: var(--zm-pressed);
+    border: 1px solid transparent;
+  }
+
+  .ZSelected .ZToolbarButtonBorder {
+    background: var(--zm-accent-soft) !important;
+    border: 1px solid transparent;
+  }
+
+  .ZDisabled .ZToolbarButtonBorder {
+    background: none !important;
+  }
+
+  .ZToolbarButtonTable .ZWidgetTitle,
+  .ZHover .ZToolbarButtonTable .ZWidgetTitle,
+  .ZFocused .ZToolbarButtonTable .ZWidgetTitle,
+  .ZActive .ZToolbarButtonTable .ZWidgetTitle {
+    color: var(--zm-text);
+  }
+
+  .ZDisabled .ZToolbarButtonTable .ZWidgetTitle {
+    color: var(--zm-text-disabled);
+  }
+
+  .ZToolbarSeparator {
+    border-color: var(--zm-border);
+  }
+
+  /* « Nouveau » et « Envoyer » : l'action principale de l'écran, en plein */
+  [id$="__NEW_MENU"] .ZToolbarButtonBorder,
+  [id$="__SEND"] .ZToolbarButtonBorder {
+    background: var(--zm-accent);
+  }
+
+  [id$="__NEW_MENU"]:is(.ZHover, .ZFocused, .ZActive) .ZToolbarButtonBorder,
+  [id$="__SEND"]:is(.ZHover, .ZFocused, .ZActive) .ZToolbarButtonBorder {
+    background: var(--zm-accent-hover);
+  }
+
+  /* Sélecteurs volontairement lourds : le libellé doit rester blanc dans tous les états
+     (survol, focus, clic), face aux règles générales des boutons de barre d'outils. */
+  [id$="__NEW_MENU"].ZWidget .ZToolbarButtonTable .ZWidgetTitle,
+  [id$="__SEND"].ZWidget .ZToolbarButtonTable .ZWidgetTitle {
+    padding: 0 8px 2px 14px;
+    color: var(--zm-on-accent);
+    font-weight: 600;
+  }
+
+  [id$="__SEND"].ZWidget .ZToolbarButtonTable .ZWidgetTitle {
+    padding: 0 14px 2px;
+  }
+
+  [id$="__NEW_MENU"] .ZLeftIcon,
+  [id$="__SEND"] .ZLeftIcon {
+    display: none;
+  }
+
+  /* Chevron redessiné : l'image de Zimbra est sombre, et sa variante de survol porte
+     un trait horizontal. */
+  [id$="__NEW_MENU"] .ZDropDown div {
+    background: var(--zm-on-accent);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 3.6l3 3 3-3' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 10px no-repeat;
+  }
+
+  /* --- Listes déroulantes (ZSelect) --- */
+  .ZSelectAutoSizingContainer {
+    height: calc(var(--zm-control-h) + 2px);
+  }
+
+  .ZSelect {
+    height: var(--zm-control-h);
+  }
+
+  .ZSelectBorder {
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-border-strong);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZHover .ZSelectBorder {
+    background: var(--zm-hover);
+    border: 1px solid var(--zm-border-strong);
+  }
+
+  .ZFocused .ZSelectBorder {
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-accent);
+    box-shadow: inset 0 -1px 0 var(--zm-accent);
+  }
+
+  .ZActive .ZSelectBorder {
+    background: var(--zm-pressed);
+    border: 1px solid var(--zm-border-strong);
+  }
+
+  .ZDisabled .ZSelectBorder {
+    background: var(--zm-surface-alt);
+    border: 1px solid var(--zm-border);
+    box-shadow: none;
+  }
+
+  .ZSelectTable .ZWidgetTitle,
+  .ZHover .ZSelectTable .ZWidgetTitle,
+  .ZFocused .ZSelectTable .ZWidgetTitle,
+  .ZActive .ZSelectTable .ZWidgetTitle {
+    padding: 0 8px 2px;
+    color: var(--zm-text);
+    font-weight: 400;
+  }
+
+  /* Selon les écrans, la liste déroulante est bâtie sur le gabarit d'un bouton. */
+  .ZSelect .ZButtonBorder {
+    border-bottom-color: var(--zm-border-strong);
+  }
+
+  .ZSelect .ZButtonTable .ZWidgetTitle {
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .ZDisabled .ZSelectTable .ZWidgetTitle {
+    color: var(--zm-text-disabled);
+  }
+
+  /* --- Menus --- */
+  .DwtMenu,
+  .ActionMenu,
+  .DwtSelectMenu,
+  .dynselect_menu,
+  .oselect_menu,
+  .ZmAutocompleteListView {
+    padding: 4px;
+    background: var(--zm-surface);
+    border: 0;
+    border-radius: var(--zm-radius-lg);
+    box-shadow: var(--zm-shadow-pop);
+  }
+
+  .ZMenuItemBorder,
+  .ZDisabled .ZMenuItemBorder {
+    padding: 0 4px;
+    background: none;
+    border: 0;
+    border-radius: var(--zm-radius);
+  }
+
+  .ZMenuItem .ZWidgetTitle,
+  .ZMenuItem .ZWidgetIcon {
+    height: 30px;
+  }
+
+  .ZHover .ZMenuItemBorder,
+  .ZFocused .ZMenuItemBorder,
+  .ZActive .ZMenuItemBorder {
+    background: var(--zm-hover);
+    border: 0;
+  }
+
+  .ZSelected .ZMenuItemBorder {
+    background: var(--zm-accent-soft) !important;
+    border: 0;
+  }
+
+  .ZDisabled .ZMenuItemBorder {
+    background: none !important;
+  }
+
+  .ZMenuItemTable .ZWidgetTitle,
+  .ZHover .ZMenuItemTable .ZWidgetTitle,
+  .ZFocused .ZMenuItemTable .ZWidgetTitle,
+  .ZActive .ZMenuItemTable .ZWidgetTitle {
+    color: var(--zm-text);
+  }
+
+  .ZDisabled .ZMenuItemTable .ZWidgetTitle {
+    color: var(--zm-text-disabled);
+  }
+
+  .ZMenuItem-Separator,
+  .DwtMenuItem-Separator {
+    border-bottom-color: var(--zm-border);
+  }
+
+  .DwtMenuCascadeCell {
+    border-left-color: var(--zm-border);
+  }
+
+  /* Suggestions de saisie */
+  .acRow,
+  .acRow-selected {
+    height: 30px;
+  }
+
+  .acRow {
+    background-color: var(--zm-surface);
+  }
+
+  .acRow-selected {
+    background-color: var(--zm-accent-soft) !important;
+  }
+
+  .ZmAutocompleteListView td {
+    border: 0;
+    color: var(--zm-text);
+  }
+
+  /* --- Onglets (préférences, dialogues) --- */
+  .ZTabBar {
+    padding-top: 0;
+    background: none;
+  }
+
+  .ZTabBarPrefix,
+  .ZTabBarSuffix {
+    border: solid var(--zm-border);
+    border-width: 0 0 1px;
+  }
+
+  .ZTab {
+    height: 34px;
+  }
+
+  .ZTabBorder,
+  .ZOptionsSectionTabView .ZTabBorder {
+    background: none;
+    border: solid var(--zm-border);
+    border-width: 0 0 1px;
+    border-radius: 0;
+    color: var(--zm-text-muted);
+  }
+
+  .ZTabTable .ZWidgetTitle {
+    padding: 0 14px 2px;
+    color: inherit;
+    font-weight: 500;
+  }
+
+  .ZHover .ZTabBorder,
+  .ZActive .ZTabBorder {
+    background: var(--zm-hover);
+    color: var(--zm-text);
+  }
+
+  .ZSelected .ZTabBorder,
+  .ZFocused .ZTabBorder,
+  .ZOptionsSectionTabView .ZSelected .ZTabBorder {
+    background: none;
+    border-bottom-color: var(--zm-accent);
+    border-radius: 0;
+    color: var(--zm-accent);
+    box-shadow: inset 0 -1px 0 var(--zm-accent);
+  }
+
+  .ZDisabled .ZTabBorder {
+    color: var(--zm-text-disabled);
+  }
+
+  .DwtTabViewPage,
+  .DwtTabViewPage .TitleBar,
+  .DwtPropertyPage,
+  .DwtWizardDialogPageDiv {
+    background-color: var(--zm-surface);
+  }
+
+  .DwtTabBar,
+  .DwtTabTable,
+  .DwtPropertyPage .TitleBar {
+    background-color: var(--zm-surface-alt);
+  }
+
+  /* --- Listes --- */
+  .DwtListView,
+  .DwtChooserListView {
+    background-color: var(--zm-surface);
+  }
+
+  .DwtChooserListView,
+  .ZmFilterListView {
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  /* Hauteur d'origine, à ne pas changer : Zimbra la retranche telle quelle (24 px) pour
+     dimensionner la zone des lignes. Plus haute, l'en-tête pousserait le bas de la
+     liste sous le volet de lecture. */
+  .DwtListView-ColHeader {
+    height: 24px;
+    box-shadow: inset 0 -1px 0 var(--zm-border);
+  }
+
+  /* Petite marge à gauche des lignes, pour que leur contenu ne colle pas au bord (ni au
+     liseré des mails non lus). L'en-tête reçoit la même, les colonnes restent alignées. */
+  .DwtListView-ColHeader,
+  .Row,
+  .RowDouble {
+    padding-left: 5px;
+  }
+
+  /* En-têtes de colonnes discrets, Outlook n'en montrant presque pas. */
+  .DwtListView-Column,
+  .DwtListView-ColumnHover,
+  .DwtListView-ColumnActive {
+    padding-left: 4px;
+    background-color: var(--zm-surface);
+    border-bottom: 1px solid var(--zm-border);
+  }
+
+  .DwtListView-ColumnHover {
+    background-color: var(--zm-hover);
+  }
+
+  .DwtListView-ColumnActive {
+    background-color: var(--zm-surface-alt);
+  }
+
+  .DwtListView-Column td,
+  .DwtListView-ColumnHover td,
+  .DwtListView-ColumnActive td {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+    font-weight: 400;
+  }
+
+  .DwtListView-ColumnActive td {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  /* Traits entre colonnes : Zimbra les dessine avec deux blocs colorés en ligne. */
+  .DwtListView-Sash div {
+    height: 14px !important;
+    background-color: var(--zm-border-soft) !important;
+  }
+
+  .DwtListView-Sash + .DwtListView-Sash div {
+    background-color: transparent !important;
+  }
+
+  .Row {
+    height: var(--zm-row-h);
+    background-color: var(--zm-surface);
+    border-width: 0 0 1px;
+    border-color: var(--zm-border-soft);
+  }
+
+  .RowDouble {
+    background-color: var(--zm-surface);
+    border-width: 0 0 1px;
+    border-color: var(--zm-border-soft);
+  }
+
+  /* Le tableau d'une ligne occupe toute sa hauteur, pour que son contenu s'y centre. */
+  .Row > table {
+    height: 100%;
+  }
+
+  .Row:hover,
+  .RowDouble:hover {
+    background-color: var(--zm-bg);
+  }
+
+  .Row td,
+  .RowDouble td,
+  .DwtListView-Rows td {
+    color: var(--zm-text);
+  }
+
+  .selected,
+  .Row-selected,
+  .Row-selected-dragProxy,
+  .Row-selected-disabled {
+    background-color: var(--zm-accent-soft) !important;
+    border-color: var(--zm-border-soft) !important;
+  }
+
+  .Row-focused {
+    border-width: 0 0 1px;
+    border-color: var(--zm-border-soft);
+  }
+
+  .Row-selected-actioned,
+  .Row-dragProxy,
+  .Row-matched-dragProxy {
+    background-color: var(--zm-pressed) !important;
+    border-color: var(--zm-border-soft) !important;
+  }
+
+  .Unread {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .Trash {
+    color: var(--zm-text-disabled);
+  }
+
+  .ZmSearchResult {
+    background-color: var(--zm-warning-soft);
+  }
+
+  /* --- Cases à cocher et coches de menu ---
+     Zimbra les affiche avec des images ; on les redessine en CSS. La case fait 14 px,
+     car les colonnes qui la contiennent rognent tout ce qui dépasse. */
+  .ImgCheckboxUnchecked,
+  .ImgCheckboxChecked {
+    box-sizing: border-box;
+    width: 14px !important;
+    height: 14px !important;
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-border-strong);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .ImgCheckboxUnchecked:hover {
+    border-color: var(--zm-accent);
+  }
+
+  .ImgCheckboxChecked {
+    background: var(--zm-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 7.4l2.6 2.6L11 4.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+    border-color: var(--zm-accent);
+  }
+
+  .ImgMenuCheck,
+  .ImgMenuRadio {
+    background: var(--zm-accent);
+  }
+
+  .ImgMenuCheck {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9'%3E%3Cpath d='M1.2 4.8l2.2 2.2 4.4-4.8' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .ImgMenuRadio {
+    border-radius: 50%;
+    scale: .7;
+  }
+
+  /* --- Arbres (dossiers, recherches, tags) --- */
+  .DwtTree,
+  .ZmOverviewContainer,
+  .pickerOverview {
+    background: none;
+    border: 0;
+  }
+
+  .ZmVoiceOverviewContainer .ZmOverview,
+  .ZmOverviewContainer .ZmOverview,
+  .dialogOverviewContainer .OverviewTree {
+    padding: 0 6px;
+  }
+
+  .DwtTreeItem,
+  .DwtTreeItem-selected,
+  .DwtTreeItem-selected-focused,
+  .DwtTreeItem-actioned,
+  .DwtTreeItem-dragOver {
+    height: var(--zm-tree-row-h);
+    border-radius: var(--zm-radius);
+    color: var(--zm-text);
+  }
+
+  .DwtTreeItem > table,
+  .DwtTreeItem-selected > table,
+  .DwtTreeItem-selected-focused > table,
+  .DwtTreeItem-actioned > table,
+  .DwtTreeItem-dragOver > table {
+    height: 100%;
+  }
+
+  .DwtTreeItem:hover {
+    background-color: var(--zm-hover);
+  }
+
+  /* Les noms trop longs sont coupés par « … » au lieu d'élargir l'arbre : une cellule
+     de largeur maximale nulle ne pèse plus dans le calcul de la largeur du tableau. */
+  .DwtTreeItem-Text {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--zm-text);
+  }
+
+  .DwtTreeItem-hover {
+    color: var(--zm-text);
+    text-decoration: none;
+  }
+
+  .DwtTreeItem-selected {
+    background-color: var(--zm-accent-soft);
+  }
+
+  .DwtTreeItem-selected-focused {
+    background-color: var(--zm-accent-soft) !important;
+  }
+
+  .DwtTreeItem-selected .DwtTreeItem-Text,
+  .DwtTreeItem-selected-focused .DwtTreeItem-Text {
+    color: var(--zm-accent-deep);
+    font-weight: 600;
+  }
+
+  .DwtTreeItem-actioned,
+  .DwtTreeItem-dragOver {
+    background-color: var(--zm-pressed);
+  }
+
+  .DwtTreeItemLevel1ChildDiv,
+  .ZmOverviewContainer .DwtTreeItemLevel1ChildDiv {
+    padding-left: 0;
+  }
+
+  /* Titres de section : « Dossiers », « Recherches », « Tags » */
+  .overviewHeader,
+  .overviewHeader-actioned,
+  .ZmOverviewLocalHeader,
+  .ZmOverviewLocalHeader-actioned,
+  .ZmOverviewLocalHeader-selected,
+  .ZmOverviewLocalHeader-selected-focused,
+  .ZmOverviewZimletHeader,
+  .ZmOverviewZimletHeader-actioned,
+  .ZmOverviewZimletHeader-selected,
+  .ZmOverviewZimletHeader-selected-focused {
+    padding: 8px 0 6px;
+    background: none;
+    border: 0;
+  }
+
+  .overviewHeader-selected {
+    padding: 8px 0 6px;
+    background-color: var(--zm-accent-soft) !important;
+    border-radius: var(--zm-radius);
+  }
+
+  .overviewHeader-selected-focused {
+    background-color: var(--zm-accent-soft) !important;
+    border-radius: var(--zm-radius);
+  }
+
+  .overviewHeader-Text,
+  .overviewHeader-dragOver,
+  .overviewHeader-selected,
+  .overviewHeader-selected-focused {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .ZmOverviewSectionHilite {
+    background-color: var(--zm-surface-alt);
+    border-color: var(--zm-border);
+  }
+
+  .dialogOverview,
+  .ChooserDialog .overview {
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .dialogOverviewContainer {
+    background: none;
+  }
+
+  .dialogOverview td {
+    color: var(--zm-text);
+  }
+
+  .ZTreeItemCheckbox {
+    border: 1px solid var(--zm-border-strong);
+    border-radius: 3px;
+  }
+
+  /* --- Glisser-déposer --- */
+  .droppable,
+  .droppable-linux,
+  .notDroppable,
+  .notDroppable-linux {
+    background-color: var(--zm-surface);
+    border-radius: var(--zm-radius);
+    box-shadow: var(--zm-shadow-pop);
+  }
+
+  .droppable,
+  .droppable-linux {
+    border-color: var(--zm-success) !important;
+  }
+
+  .notDroppable,
+  .notDroppable-linux {
+    border-color: var(--zm-danger) !important;
+  }
+
+  .DragProxyTextLabel {
+    color: var(--zm-text);
+  }
+
+  /* --- Boîtes de dialogue --- */
+  .WindowOuterContainer,
+  .LightWindowOuterContainer {
+    padding: 4px;
+    background: var(--zm-surface);
+    border: 0;
+    border-radius: var(--zm-radius-lg);
+    box-shadow: var(--zm-shadow-dialog);
+    color: var(--zm-text);
+  }
+
+  .WindowInnerContainer,
+  .LightWindowInnerContainer {
+    padding: 8px 12px 10px;
+    background: none;
+    border: 0;
+    color: var(--zm-text);
+  }
+
+  .DwtDialogTitle,
+  .LightWindowOuterContainer .DwtDialogTitle {
+    padding: 10px 12px 4px;
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .DwtDialog .Label,
+  .DwtPropertySheet .Label {
+    color: var(--zm-text);
+  }
+
+  .DwtConfirmDialogQuestion {
+    font-size: var(--zm-font-size);
+  }
+
+  .VeilOverlay table {
+    background-color: #000;
+    opacity: .4;
+  }
+
+  /* Messages d'état */
+  .DwtAlert {
+    background-color: var(--zm-surface-alt);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .DwtAlertInfo,
+  .DwtAlertWarn,
+  .DwtAlertCrit,
+  .Displayimages,
+  .ZWizardNotice {
+    background-color: var(--zm-warning-soft);
+    border-color: var(--zm-warning-border);
+    color: var(--zm-text);
+    font-weight: 500;
+  }
+
+  /* --- Infobulles --- */
+  .DwtToolTip {
+    padding: 6px 10px;
+    background-color: var(--zm-surface);
+    border: 0;
+    border-radius: var(--zm-radius);
+    box-shadow: var(--zm-shadow-pop);
+  }
+
+  .DwtToolTip td,
+  .DwtToolTip div {
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* La flèche, empilement de blocs d'un pixel, est affichée par un style en ligne. */
+  .DwtToolTipTopPointer,
+  .DwtToolTipBottomPointer {
+    display: none !important;
+  }
+
+  /* --- Notification éphémère --- */
+  .ZToastBG {
+    background-color: var(--zm-header-bg);
+    border: 0;
+    border-radius: var(--zm-radius);
+    box-shadow: var(--zm-shadow-pop);
+    opacity: 1;
+  }
+
+  .ZToastText {
+    color: var(--zm-header-text);
+    font-size: var(--zm-font-size);
+    font-weight: 500;
+  }
+
+  .ZToastText a.undo {
+    color: var(--zm-header-text-muted);
+  }
+
+  /* --- Mini-calendrier --- */
+  .DwtCalendar {
+    background: none;
+  }
+
+  .DwtCalendar td {
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .DwtCalendarTitlebar {
+    height: 30px;
+    background: none;
+  }
+
+  .DwtCalendarTitleCell {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .DwtCalendarDow,
+  .DwtCalendarWeekNoTitle {
+    background-color: transparent;
+    border-bottom: 0;
+    color: var(--zm-text-muted);
+  }
+
+  .DwtCalendarWeekNo {
+    color: var(--zm-text-muted);
+  }
+
+  .DwtCalendarDay,
+  .DwtCalendarButton {
+    padding: 3px 2px;
+    border: 0;
+    border-radius: var(--zm-radius);
+    color: var(--zm-text);
+  }
+
+  .DwtCalendarDay-grey {
+    color: var(--zm-text-disabled);
+  }
+
+  .DwtCalendarDay-hilited {
+    font-weight: 600;
+  }
+
+  .DwtCalendarDay-hover,
+  .DwtCalendarButton-hover {
+    padding: 3px 2px;
+    background-color: var(--zm-pressed);
+    border: 0;
+    color: var(--zm-text);
+  }
+
+  .DwtCalendarDay-active,
+  .DwtCalendarButton-active {
+    background-color: var(--zm-pressed);
+    color: var(--zm-text);
+  }
+
+  /* Jour sélectionné en teinte légère, jour courant en plein, comme sur Outlook. */
+  .DwtCalendarDay-selected {
+    background-color: var(--zm-accent-soft);
+    color: var(--zm-accent-deep);
+    font-weight: 600;
+  }
+
+  .DwtCalendarDay-today {
+    padding: 3px 2px;
+    background-color: var(--zm-accent);
+    border: 0 !important;
+    color: var(--zm-on-accent);
+    font-weight: 600;
+  }
+}

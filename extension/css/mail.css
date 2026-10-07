@@ -1,0 +1,314 @@
+/* Application Mail : liste, volet de lecture, rédaction. */
+:root:not(#zm, [data-zm-off]) {
+  /* --- Liste des mails --- */
+  .Row .ZmConvListFragment,
+  .DwtListView-Rows .Row .ZmConvListFragment,
+  .SubjectDoubleRow .ZmConvListFragment,
+  .Unread .SubjectDoubleRow .ZmConvListFragment {
+    color: var(--zm-text-muted);
+    font-weight: 400;
+  }
+
+  /* Taille, date et dossier passent au second plan. */
+  .Row td[id$="__sz"],
+  .Row td[id$="__dt"],
+  .Row nobr[id$="__fo"],
+  .RowDouble td[id$="__sz"],
+  .RowDouble td[id$="__dt"] {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* Non lu, comme sur Outlook : gras, objet en couleur de marque, trait à gauche. */
+  .Unread td {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .Unread td[id$="__su"] {
+    color: var(--zm-accent);
+  }
+
+  .Row:has(.Unread),
+  .RowDouble:has(.Unread) {
+    box-shadow: inset 3px 0 0 var(--zm-accent);
+  }
+
+  .Trash td {
+    color: var(--zm-text-disabled);
+  }
+
+  .ZmConvExpanded {
+    background-color: var(--zm-surface-alt);
+  }
+
+  /* Lignes sur deux niveaux (volet de lecture à droite) */
+  .RowDouble {
+    height: 44px;
+    padding-top: 4px;
+  }
+
+  /* --- Volet de lecture --- */
+  .ZmMailMsgView,
+  .MsgBody {
+    background-color: var(--zm-surface);
+  }
+
+  .ZmMailMsgView .MsgHeaderTable,
+  .ZmContactInfoView .contactHeaderTable,
+  .ZmEditContactView .contactHeaderTable {
+    padding: 12px 16px 10px;
+    background: var(--zm-surface);
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .ZmMailMsgView .SubjectCol {
+    padding: 0 3px 8px;
+    color: var(--zm-text);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .ZmMailMsgView .DateCol {
+    padding-top: 5px;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+    vertical-align: top;
+  }
+
+  .ZmMailMsgView .LabelColName {
+    padding: 4px 4px 4px 0;
+    color: var(--zm-text-muted);
+  }
+
+  .ZmMailMsgView .LabelColValue {
+    color: var(--zm-text);
+  }
+
+  /* Petit bouton qui déplie les en-têtes */
+  .arrowbtn .ZToolbarButton {
+    height: 22px;
+  }
+
+  /* Adresses en pastilles, dans l'en-tête comme à la rédaction */
+  .addrBubble,
+  .addrBubble-selected,
+  .addrBubble-actioned {
+    margin: 1px 4px 1px 0;
+    padding: 2px 10px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--zm-text);
+  }
+
+  .addrBubble {
+    background-color: var(--zm-hover);
+  }
+
+  .addrBubble:hover {
+    background-color: var(--zm-pressed);
+  }
+
+  .addrBubble-selected {
+    background-color: var(--zm-accent-soft);
+    color: var(--zm-accent-deep);
+  }
+
+  .addrBubble-actioned {
+    background-color: var(--zm-pressed);
+  }
+
+  .addrBubble .link {
+    color: var(--zm-text-muted);
+  }
+
+  /* Bandeau « images externes non affichées » : Zimbra en fixe la hauteur en ligne. */
+  .DisplayImages {
+    display: flow-root;
+    height: auto !important;
+    padding: 8px 16px;
+    background-color: var(--zm-warning-soft);
+    border: 0;
+    border-bottom: 1px solid var(--zm-warning-border);
+    color: var(--zm-text);
+    font-weight: 400;
+  }
+
+  .DisplayImages a {
+    color: var(--zm-accent) !important;
+  }
+
+  /* Pièces jointes */
+  .MessageHeaderAttachments {
+    padding: 8px 16px;
+    background-color: var(--zm-surface);
+    border-top: 1px solid var(--zm-border-soft);
+  }
+
+  .ZmMailMsgView .AttName-matched {
+    background-color: var(--zm-warning-soft);
+    color: var(--zm-text);
+  }
+
+  .MsgBody-text,
+  .MsgBody-html {
+    padding: 12px 16px;
+  }
+
+  .MsgBody-text {
+    color: var(--zm-text);
+  }
+
+  /* Invitations et vue « conversation » */
+  .ZmMailMsgView .InvHeaderTable {
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .InvHeaderTable .LabelColName,
+  .InvHeaderTable .LabelColValue {
+    color: var(--zm-text);
+  }
+
+  .InvHeaderTable .InvCounter {
+    background-color: var(--zm-warning-soft);
+    border-color: var(--zm-warning-border);
+    color: var(--zm-text);
+  }
+
+  .ZmConvView .SubjectBar {
+    background-color: var(--zm-surface);
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .ZmConvView .Subject {
+    padding: 10px 16px;
+    color: var(--zm-text);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .ZmConvDoublePaneView .calendar_view,
+  .ZmConvView .calendar_view {
+    border-color: var(--zm-border);
+  }
+
+  /* --- Rédaction --- */
+  .ZmComposeView {
+    background-color: var(--zm-surface);
+  }
+
+  .ZmComposeView td {
+    color: var(--zm-text);
+  }
+
+  .ZmComposeView > table {
+    padding: 8px 12px 0;
+  }
+
+  /* Libellés « Sujet », « Priorité »… */
+  .ZmComposeView > table td[align="right"],
+  .ZmComposeView .attachText {
+    color: var(--zm-text-muted);
+  }
+
+  .ZmComposeView .ZHasText .ZButtonTable {
+    min-width: 60px;
+  }
+
+  /* Destinataires et sujet : de simples lignes soulignées, comme sur Outlook. */
+  .addrBubbleContainer {
+    min-height: var(--zm-control-h);
+    padding: 2px 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--zm-border);
+    transition: border-color .12s, box-shadow .12s;
+  }
+
+  .addrBubbleContainer:focus-within {
+    border-bottom-color: var(--zm-accent);
+    box-shadow: 0 1px 0 var(--zm-accent);
+  }
+
+  .addrBubbleHolder,
+  .addrBubbleHolder-empty {
+    margin-top: 0;
+    padding: 1px 0;
+  }
+
+  .addrBubbleContainer input {
+    height: 22px;
+    margin-bottom: 0;
+    color: var(--zm-text);
+    font-size: var(--zm-font-size);
+    box-shadow: none;
+  }
+
+  .addrBubbleInsertionBar {
+    background-color: var(--zm-accent);
+  }
+
+  .ZmComposeView .subjectField {
+    height: 30px;
+    padding: 4px 2px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--zm-border);
+    border-radius: 0;
+    color: var(--zm-text);
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color .12s, box-shadow .12s;
+  }
+
+  .ZmComposeView .subjectField:focus {
+    border-bottom-color: var(--zm-accent);
+    box-shadow: 0 1px 0 var(--zm-accent);
+  }
+
+  .zdnd_tooltip {
+    padding: 6px 0 2px 70px;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* Zone de texte : sans cadre. Zimbra en fixe la largeur en pixels ; pour que nos
+     marges internes ne la fassent pas déborder, cette largeur doit les inclure. */
+  .ZmHtmlEditor .DwtHtmlEditorTextArea {
+    box-sizing: border-box;
+    padding: 10px 12px;
+    background: var(--zm-surface);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--zm-text);
+    font-family: var(--zm-font-mono);
+    font-size: 13px;
+    line-height: 1.5;
+    resize: none;
+  }
+
+  .ZmHtmlEditor .DwtHtmlEditorIFrame {
+    border: 0;
+    border-top: 1px solid var(--zm-border-soft);
+  }
+
+  .ZmHtmlEditorFooter td {
+    border: 0;
+    color: var(--zm-text-muted);
+  }
+
+  .ZmMailConfirmView .Summary {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+}
+
+/* L'encart publicitaire du volet de lecture est enveloppé dans un bandeau : quand
+   l'encart est masqué, son bandeau l'est aussi. */
+:root:not([data-zm-ads], [data-zm-off]) .MsgHeaderTable:has(> center > iframe[src*="passback.free.fr"]) {
+  display: none !important;
+}
