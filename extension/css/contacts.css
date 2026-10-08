@@ -1,0 +1,226 @@
+/* Carnet d'adresses : barre alphabétique, liste, fiche et formulaire de contact. */
+:root:not(#zm, [data-zm-off]) {
+  /* --- Barre alphabétique : des lettres nues, la sélection en pastille --- */
+  td[id$="_alphabetbar"] {
+    padding: 4px 8px 6px;
+  }
+
+  .AlphabetBarTable {
+    width: 100%;
+    background: none;
+  }
+
+  .AlphabetBarCell {
+    height: 26px;
+    background: none;
+    border: 0;
+    border-radius: var(--zm-radius);
+    box-shadow: none;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .AlphabetBarCell.DwtButton-hover {
+    background: var(--zm-hover);
+    color: var(--zm-text);
+  }
+
+  .AlphabetBarCell.DwtButton-active {
+    background: var(--zm-accent-soft);
+    color: var(--zm-accent-deep);
+    font-weight: 600;
+  }
+
+  /* --- Liste des contacts --- */
+  .ZmContactSimpleView {
+    background-color: var(--zm-surface);
+    border: 0;
+  }
+
+  .ZmContactSimpleView .SimpleContactHover {
+    background-color: var(--zm-bg);
+  }
+
+  .ZmContactSimpleView .SimpleContact-right,
+  .ZmContactSimpleView .SimpleContact-drag {
+    background-color: var(--zm-pressed);
+  }
+
+  /* --- Fiche --- */
+  .ZmContactInfoView {
+    background-color: var(--zm-surface);
+    border: 0;
+  }
+
+  .ZmContactInfoView .contactHeader,
+  .ZmContactView .contactHeader,
+  .ZmEditContactView .contactHeader {
+    color: var(--zm-text);
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .ZmContactInfoView .companyName {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .ZmContactInfoView .companyFolder {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size);
+  }
+
+  .ZmContactInfoView .contactLocation,
+  .ZmContactInfoView .contactLabel {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size);
+  }
+
+  .ZmContactInfoView .contactOutput {
+    color: var(--zm-text);
+  }
+
+  .ZmContactInfoView .contactHeaderSection {
+    margin-top: 12px;
+    padding: 6px 16px;
+    background: none;
+    border-bottom: 1px solid var(--zm-border-soft);
+    color: var(--zm-text);
+    font-size: var(--zm-font-size);
+    font-weight: 600;
+  }
+
+  /* Photo : en médaillon */
+  .ImgPerson_48,
+  .ZmEditContactViewImage img {
+    background-color: var(--zm-hover);
+    border-radius: 50%;
+  }
+
+  .ZmContactInfoView table[id$="_details"] {
+    margin: 8px 12px;
+  }
+
+  /* Rubriques de la fiche et du formulaire : libellé discret, valeur lisible */
+  .ZmEditContactView .rowLabel,
+  .ZmContactSplitView .rowLabel {
+    color: var(--zm-text-muted);
+    font-weight: 400;
+  }
+
+  .ZmEditContactView .rowValue,
+  .ZmContactSplitView .rowValue {
+    color: var(--zm-text);
+  }
+
+  /* --- Formulaire de contact --- */
+  .ZmEditContactView,
+  .ZmContactView {
+    background-color: var(--zm-surface);
+  }
+
+  .ZmEditContactView .contactHeaderCell {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .ZmEditContactView .contactHeaderCell:first-child {
+    padding-left: 16px;
+  }
+
+  .ZmEditContactViewImage {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  /* Bouton « » » qui déplie les champs du nom */
+  .ZmEditContactViewDetailsButton {
+    box-sizing: border-box;
+    height: var(--zm-control-h);
+    min-width: 24px;
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+    text-align: center;
+  }
+
+  .ZmEditContactViewDetailsButton:hover {
+    background-color: var(--zm-hover);
+  }
+
+  /* Largeur automatique : à 100 % plus ses marges, le libellé débordait à droite et
+     le « » » n'était plus centré. */
+  .ZmEditContactViewDetailsButton .ZButtonBorder {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: none;
+    border: 0;
+    line-height: calc(var(--zm-control-h) - 4px);
+    text-align: center;
+  }
+
+  /* Boutons + et − en bout de ligne : de simples icônes */
+  .DwtFormRowAdd .ZButtonBorder,
+  .DwtFormRowRemove .ZButtonBorder {
+    min-width: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .DwtFormRowAdd.ZHover .ZButtonBorder,
+  .DwtFormRowRemove.ZHover .ZButtonBorder {
+    background: var(--zm-hover);
+  }
+
+  /* Bloc adresse : un seul cadre pour ses champs, qui n'en ont pas */
+  .ZmEditContactViewAddress {
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-border-strong);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZmEditContactViewAddress input[type="text"]:focus,
+  .ZmEditContactViewAddress textarea:focus {
+    box-shadow: none;
+  }
+
+  /* Ville, département, code postal, pays : sans bordure, un fond léger les délimite. */
+  .ZmEditContactViewAddress input[type="text"] {
+    background-color: var(--zm-bg);
+  }
+
+  .ZmEditContactViewAddress input[type="text"]:focus {
+    background-color: var(--zm-hover);
+  }
+
+  .contactEditHeader {
+    border-bottom-color: var(--zm-border-soft);
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .ZmContactView .hintLabel,
+  .ZmContactEditTabViewPage .contactLabel {
+    color: var(--zm-text-muted);
+  }
+
+  /* --- Recherche et choix de contacts (dialogues) --- */
+  .ZmContactSearch .ZmContactSearchListView {
+    background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZmContactPicker .searchFieldHint,
+  .ZmContactSearch .searchFieldHint {
+    color: var(--zm-text-muted);
+  }
+}

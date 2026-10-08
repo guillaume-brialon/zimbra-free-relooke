@@ -8,7 +8,7 @@ function detect() {
   for (const el of document.querySelectorAll("#z_shell > div[id]")) {
     if (el.style.position !== "absolute" || el.style.left === "-10000px" || el.style.display === "none") continue;
     if (/^ztb__/.test(el.id)) pairs.push(["skin_container_app_top_toolbar", el.id]);
-    else if (/^zv__/.test(el.id)) pairs.push(["skin_container_app_main", el.id]);
+    else if (/^zv__/.test(el.id) || /View(Mgr)?(\s|$)/.test(el.className)) pairs.push(["skin_container_app_main", el.id]);
     else if (/^zov__/.test(el.id)) pairs.push(["skin_container_tree", el.id]);
     else if (el.classList.contains("DwtCalendar")) pairs.push(["skin_container_tree_footer", el.id]);
   }
@@ -29,6 +29,20 @@ const ALWAYS = [
   ["skin_container_tree_app_sash", "z_sash"],
 ];
 let view = "snapshot";
+
+// ?main=<id>&toolbar=<id> affiche une vue qui attend hors écran dans le snapshot
+// (par exemple ?main=editcontactform&toolbar=ztb__CN pour le formulaire de contact).
+{
+  const params = new URLSearchParams(location.search);
+  const picked = [
+    ["skin_container_app_main", params.get("main")],
+    ["skin_container_app_top_toolbar", params.get("toolbar")],
+  ].filter(([, id]) => id && document.getElementById(id));
+  if (picked.length) {
+    VIEWS.picked = picked;
+    view = "picked";
+  }
+}
 
 function fit() {
   const active = [...VIEWS[view], ...VIEWS.snapshot.filter(([c]) => !VIEWS[view].some(([c2]) => c2 === c)), ...ALWAYS];
@@ -91,6 +105,9 @@ function fit() {
       height: `${height - listHeight - sashHeight}px`,
     });
   }
+
+  // Calendrier : sa grille garde la taille de l'écran d'origine ; on rogne ce qui dépasse.
+  for (const mgr of document.querySelectorAll(".ZmCalViewMgr")) mgr.style.overflow = "hidden";
 
   // Rédaction : la zone de texte garde la taille de l'écran d'origine.
   for (const compose of document.querySelectorAll(".ZmComposeView")) {

@@ -99,6 +99,12 @@
     min-width: 0;
   }
 
+  /* Le cadre de ce bouton n'a pas la classe qui l'étire d'ordinaire à la taille du bouton. */
+  .DwtComboBox .ZButtonBorder {
+    width: 100%;
+    height: 100%;
+  }
+
   /* --- Boutons de barre d'outils --- */
   .ZToolbarButton {
     height: var(--zm-toolbar-control-h);
@@ -153,32 +159,33 @@
     border-color: var(--zm-border);
   }
 
-  /* « Nouveau » et « Envoyer » : l'action principale de l'écran, en plein */
-  [id$="__NEW_MENU"] .ZToolbarButtonBorder,
-  [id$="__SEND"] .ZToolbarButtonBorder {
+  /* « Nouveau », « Envoyer », « Enregistrer » : l'action principale de l'écran, en
+     plein. Le « Enregistrer » de la barre de recherche, hors barre d'outils, n'en est
+     pas. Désactivé, le bouton reprend l'aspect ordinaire d'un bouton désactivé. */
+  :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]):not(.ZDisabled) .ZToolbarButtonBorder {
     background: var(--zm-accent);
   }
 
-  [id$="__NEW_MENU"]:is(.ZHover, .ZFocused, .ZActive) .ZToolbarButtonBorder,
-  [id$="__SEND"]:is(.ZHover, .ZFocused, .ZActive) .ZToolbarButtonBorder {
+  :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]):not(.ZDisabled):is(.ZHover, .ZFocused, .ZActive) .ZToolbarButtonBorder {
     background: var(--zm-accent-hover);
   }
 
   /* Sélecteurs volontairement lourds : le libellé doit rester blanc dans tous les états
      (survol, focus, clic), face aux règles générales des boutons de barre d'outils. */
-  [id$="__NEW_MENU"].ZWidget .ZToolbarButtonTable .ZWidgetTitle,
-  [id$="__SEND"].ZWidget .ZToolbarButtonTable .ZWidgetTitle {
-    padding: 0 8px 2px 14px;
-    color: var(--zm-on-accent);
+  :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]).ZWidget .ZToolbarButtonTable .ZWidgetTitle {
+    padding: 0 14px 2px;
     font-weight: 600;
   }
 
-  [id$="__SEND"].ZWidget .ZToolbarButtonTable .ZWidgetTitle {
-    padding: 0 14px 2px;
+  :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]):not(.ZDisabled).ZWidget .ZToolbarButtonTable .ZWidgetTitle {
+    color: var(--zm-on-accent);
   }
 
-  [id$="__NEW_MENU"] .ZLeftIcon,
-  [id$="__SEND"] .ZLeftIcon {
+  [id$="__NEW_MENU"].ZWidget .ZToolbarButtonTable .ZWidgetTitle {
+    padding: 0 8px 2px 14px;
+  }
+
+  :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]) .ZLeftIcon {
     display: none;
   }
 
@@ -190,8 +197,10 @@
   }
 
   /* --- Listes déroulantes (ZSelect) --- */
+  /* Même hauteur que les champs : avec 2 px de plus, la liste se retrouvait 1 px plus
+     haut que ses voisins de ligne. */
   .ZSelectAutoSizingContainer {
-    height: calc(var(--zm-control-h) + 2px);
+    height: var(--zm-control-h);
   }
 
   .ZSelect {
@@ -265,6 +274,14 @@
     box-shadow: var(--zm-shadow-pop);
   }
 
+  /* Zimbra colle le menu au bas de son champ, au pixel arrondi près : selon la ligne,
+     il en recouvrait parfois la bordure. Un petit écart le détache dans tous les cas. */
+  .DwtMenu,
+  .ActionMenu,
+  .DwtSelectMenu {
+    margin-top: 2px;
+  }
+
   .ZMenuItemBorder,
   .ZDisabled .ZMenuItemBorder {
     padding: 0 4px;
@@ -273,8 +290,11 @@
     border-radius: var(--zm-radius);
   }
 
+  /* Même hauteur pour les items d'un menu et ceux d'une liste déroulante */
   .ZMenuItem .ZWidgetTitle,
-  .ZMenuItem .ZWidgetIcon {
+  .ZMenuItem .ZWidgetIcon,
+  .ZSelectMenuItem .ZWidgetTitle,
+  .ZSelectMenuItem .ZWidgetIcon {
     height: 30px;
   }
 

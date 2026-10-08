@@ -109,6 +109,13 @@ html:where(:not([data-zm-off])) :is(p, th, td, div, select, input, textarea, but
     height: var(--zm-control-h);
   }
 
+  /* Champs de date et d'heure : Zimbra leur fixe en ligne l'ancienne hauteur (22 px),
+     ce qui les laissait plus bas que leurs boutons et que les autres champs. */
+  input[style*="height:22px"],
+  input[style*="height: 22px"] {
+    height: var(--zm-control-h) !important;
+  }
+
   input[type="text"]:focus,
   input[type="password"]:focus,
   .ZFieldInput:focus,

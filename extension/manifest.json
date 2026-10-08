@@ -23,6 +23,8 @@
         "css/layout.css",
         "css/widgets.css",
         "css/mail.css",
+        "css/contacts.css",
+        "css/calendar.css",
         "css/prefs.css"
       ],
       "js": ["content.js"]

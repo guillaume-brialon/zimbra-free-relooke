@@ -1,0 +1,302 @@
+/* Calendrier. Zimbra y place tout au pixel près par JavaScript, avec des hauteurs fixes
+   (en-tête de jour : 20 px, heure : 42 px) : on ne touche ici qu'aux couleurs, aux
+   traits et aux textes, jamais aux dimensions. */
+:root:not(#zm, [data-zm-off]) {
+  .ZmCalViewMgr,
+  .calendar_view {
+    background-color: var(--zm-surface);
+  }
+
+  /* --- En-têtes des jours --- */
+  .calendar_heading {
+    background-color: var(--zm-surface);
+    border-bottom: 1px solid var(--zm-border);
+  }
+
+  .calendar_heading_year_text,
+  .calendar_heading_day,
+  .calendar_heading_day-selected {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .calendar_heading_day_today,
+  .calendar_heading_day_today-selected {
+    color: var(--zm-accent);
+    font-size: var(--zm-font-size-sm);
+    font-weight: 600;
+  }
+
+  .calendar_heading_day-selected,
+  .calendar_heading_day_today-selected {
+    background-color: var(--zm-accent-soft) !important;
+  }
+
+  /* --- Grille horaire ---
+     Le quadrillage d'origine est une image ; on le retrace : un trait par heure
+     (42 px), un trait plus léger à la demie. */
+  .ImgCalendarDayGrid {
+    background-image:
+      linear-gradient(to bottom, var(--zm-border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--zm-border-soft) 1px, transparent 1px);
+    background-position: 0 -1px;
+    background-repeat: repeat;
+    background-size: 100% 42px, 100% 21px;
+  }
+
+  /* Heures non ouvrées : Zimbra pose leur teinte beige en ligne, sans classe. */
+  .ImgCalendarDayGrid[style*="rgb(227, 227, 220)"] {
+    background-color: var(--zm-bg) !important;
+  }
+
+  /* Séparateur de jours : Zimbra lui donne 2 px de large, on n'en trace qu'un. */
+  .calendar_day_separator {
+    background: linear-gradient(to right, var(--zm-border) 1px, transparent 1px);
+  }
+
+  .calendar_grid_body_time_text {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* Séparation entre la zone « journée entière » et la grille */
+  .calendar_header_allday_separator {
+    background: linear-gradient(var(--zm-border), var(--zm-border)) center / 100% 1px no-repeat var(--zm-surface);
+  }
+
+  /* Plage en cours de sélection (Zimbra la rend translucide) */
+  .calendar_time_selection {
+    background-color: var(--zm-accent) !important;
+    border-radius: var(--zm-radius);
+  }
+
+  /* --- Rendez-vous ---
+     La couleur du calendrier est posée en ligne sur la première rangée : on garde ce
+     bandeau coloré et on allège le reste. */
+  .appt_body,
+  .appt_30_body,
+  .appt_allday_body {
+    border-radius: var(--zm-radius);
+    box-shadow: var(--zm-shadow-card);
+  }
+
+  .appt_body table,
+  .appt_30_body table,
+  .appt_allday_body table {
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  .appt-selected .appt_body,
+  .appt-selected .appt_30_body,
+  .appt-selected .appt_allday_body {
+    box-shadow: var(--zm-shadow-pop);
+  }
+
+  .appt-selected .appt_body table,
+  .appt-selected .appt_30_body table,
+  .appt-selected .appt_allday_body table {
+    border: 1px solid var(--zm-accent);
+  }
+
+  .appt_time,
+  .appt_new_time {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .appt_name,
+  .appt_30_name,
+  .appt_allday_name {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .appt_end_time,
+  .appt_location {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* Barre latérale d'un rendez-vous « occupé » */
+  .ZmAppt-busy {
+    background-color: var(--zm-accent);
+  }
+
+  /* --- Vue mois --- */
+  .calendar_month_header_table,
+  .calendar_month_header_month,
+  .calendar_month_header_cells_text {
+    background-color: var(--zm-surface);
+  }
+
+  .calendar_month_header_month {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .calendar_month_header_cells_text {
+    border-bottom: 1px solid var(--zm-border);
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .calendar_month_cells_td,
+  .calendar_month_cells_td-Selected {
+    border: 1px solid var(--zm-border-soft);
+  }
+
+  .calendar_month_weekno_td {
+    border-color: var(--zm-border-soft);
+    color: var(--zm-text-muted);
+  }
+
+  .calendar_month_cells_td-Selected,
+  .calendar_month_day_item_row-Selected,
+  .calendar_month_cells_td-Selected .calendar_month_day_item_continues {
+    background-color: var(--zm-accent-soft) !important;
+  }
+
+  .calendar_month_day_item_row-Selected .calendar_month_day_item {
+    color: var(--zm-accent-deep);
+  }
+
+  .calendar_month_day_item_continues {
+    background-color: var(--zm-surface);
+  }
+
+  .calendar_month_day_label,
+  .calendar_month_day_label_bold {
+    color: var(--zm-text);
+  }
+
+  .calendar_month_day_label_today,
+  .calendar_month_day_label_off_month_today {
+    color: var(--zm-accent);
+    font-weight: 600;
+  }
+
+  .calendar_month_day_label_off_month {
+    color: var(--zm-text-disabled);
+  }
+
+  /* --- Infobulle et recherche par date --- */
+  .calendar_tooltip_month_day_label {
+    border-bottom: 1px solid var(--zm-border);
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .calendar_tooltip_attendees {
+    border-bottom: 1px solid var(--zm-border);
+  }
+
+  .calendar_date_search {
+    background-color: var(--zm-surface-alt);
+    border-bottom: 1px solid var(--zm-border);
+  }
+
+  .calendar_date_search-dateRange {
+    color: var(--zm-text);
+  }
+
+  /* --- Formulaire de rendez-vous --- */
+  .ZmApptComposeView {
+    background-color: var(--zm-surface);
+  }
+
+  .calendar_edit_view_separator {
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .calendar_edit_notes_separator {
+    border-top: 1px solid var(--zm-border-soft);
+  }
+
+  .calendar_edit_field {
+    font-weight: 600;
+  }
+
+  .ZmApptTabViewPageField {
+    color: var(--zm-text-muted);
+  }
+
+  /* Libellé suivi d'un champ dans un tableau sans espacement (« Marquer comme : ») */
+  table[cellpadding="0"] > tbody > tr > .ZmApptTabViewPageField {
+    padding-right: 5px;
+  }
+
+  /* Dialogue de rappel : « Répéter tous les rappels pour : » */
+  .ZmReminderField {
+    padding-right: 4px;
+    color: var(--zm-text);
+  }
+
+  /* Grille de disponibilités des participants */
+  .ZmSchedulerNormalRow,
+  .ZmSchedulerNameTd,
+  .ZmScheduler-working {
+    background-color: var(--zm-surface);
+  }
+
+  .ZmSchedulerDisabledRow {
+    background-color: var(--zm-surface-alt);
+  }
+
+  .ZmScheduler-free {
+    background-color: var(--zm-bg);
+  }
+
+  .ZmScheduler-busy {
+    background-color: var(--zm-focus);
+  }
+
+  .ZmScheduler-tentative {
+    background-color: var(--zm-accent-soft);
+  }
+
+  .ZmSchedulerGridTable,
+  .ZmSchedulerGridTable-allAttendees,
+  .ZmSchedulerOrgIconTd,
+  .ZmSchedulerViewAttendeeTd,
+  .ZmSchedulerNameTd,
+  .ZmSchedulerPTSTTd,
+  .ZmSchedulerAllTd,
+  .ZmSchedulerInputDisabledTd,
+  .ZmSchedulerNameTdBorder,
+  .ZmSchedulerGridDiv,
+  .ZmSchedulerGridDivBorder,
+  .ZmSchedulerGridTopCellBorder,
+  .ZmSchedulerGrid-hour,
+  .ZmSchedulerBottomBorder {
+    border-color: var(--zm-border);
+  }
+
+  .ZmSchedulerGrid-halfHour {
+    border-color: var(--zm-border-soft);
+  }
+
+  .ZmSchedulerGridDiv-start,
+  .ZmSchedulerGrid-start {
+    border-right-color: var(--zm-success);
+  }
+
+  .ZmSchedulerGridDiv-end,
+  .ZmSchedulerGrid-end {
+    border-right-color: var(--zm-danger);
+  }
+
+  .ZmSchedulerAllTd,
+  .ZmSchedulerAllLabel {
+    color: var(--zm-text-muted);
+  }
+
+  .ZmSchedulerDate {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+}
