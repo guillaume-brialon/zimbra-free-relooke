@@ -1,0 +1,123 @@
+/* Recherche avancée : la rangée d'encarts (« Recherche basique », « Date », « Domaines »…)
+   qui s'ouvre sous la barre de recherche.
+   Zimbra fixe la géométrie des encarts : 200 px de large, posés tous les 201 px, 219 px
+   de haut dont 197 pour le contenu. L'en-tête doit donc tenir dans les 22 px restants ;
+   on ne change ici que l'apparence et la densité du contenu. */
+:root:not(#zm, [data-zm-off]) {
+  #skin_spacing_search_builder {
+    padding-bottom: var(--zm-gap);
+  }
+
+  /* Barre des critères, au-dessus des encarts */
+  .ZmBrowseToolBar {
+    margin-top: 0;
+  }
+
+  #z_shell > .ZmBrowseToolBar > .ZToolbarTable {
+    height: 100%;
+  }
+
+  .ZmBrowseView {
+    background-color: var(--zm-surface);
+  }
+
+  /* --- Encart --- */
+  .ZmPicker {
+    background-color: var(--zm-surface);
+    border-right: 1px solid var(--zm-border);
+  }
+
+  .ZmPicker .DwtTree {
+    background: none;
+  }
+
+  /* En-tête : titre et bouton de fermeture */
+  .ZmPicker .ZToolbar {
+    height: 22px;
+    padding: 0;
+    background-color: var(--zm-surface-alt);
+    border-bottom: 1px solid var(--zm-border);
+  }
+
+  .ZmPicker .ZToolbar > .ZToolbarTable {
+    height: 100%;
+  }
+
+  .ZmPickerLabel .ZWidgetTitle,
+  .ZmPickerLabel .Text {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-sm);
+    font-weight: 600;
+  }
+
+  .ZmPicker .DwtToolbarButton {
+    height: 20px;
+  }
+
+  .ZmPicker .DwtToolbarButton .ZButtonBorder {
+    min-width: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .ZmPicker .DwtToolbarButton:hover .ZButtonBorder {
+    background: var(--zm-hover);
+  }
+
+  /* --- Contenu : même style que le reste, en plus serré --- */
+  .ZmPickerOverview > .DwtComposite {
+    padding-top: 4px;
+  }
+
+  /* :where() garde cette règle moins prioritaire qu'une classe posée sur la cellule :
+     sans cela, elle imposait sa couleur aux jours du mini-calendrier (jour courant,
+     jours hors du mois). */
+  :where(.ZmPickerOverview) td {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* Tableaux de mise en page des encarts : Zimbra y met 5 px autour de chaque cellule,
+     ce qui faisait déborder le contenu maintenant que les champs sont plus hauts. */
+  .ZmPickerOverview > .DwtComposite > table > tbody > tr > td {
+    padding: 2px 3px;
+  }
+
+  /* Mini-calendrier de l'encart « Date » : un peu plus ramassé, pour tenir sans défiler */
+  .ZmPicker .DwtCalendarTitlebar {
+    height: 22px;
+  }
+
+  .ZmPicker .DwtCalendarDay,
+  .ZmPicker .DwtCalendarDay-hover,
+  .ZmPicker .DwtCalendarDay-today {
+    padding: 1px 2px;
+  }
+
+  .ZmPickerOverview input[type="text"] {
+    width: 112px;
+    height: 24px;
+    padding: 2px 6px;
+  }
+
+  .ZmPicker hr {
+    height: 0;
+    margin: 6px 0;
+    border: 0;
+    border-top: 1px solid var(--zm-border-soft);
+  }
+
+  .ZmPicker .DwtTreeItem,
+  .ZmPicker .DwtTreeItem-selected,
+  .ZmPicker .DwtTreeItem-selected-focused,
+  .ZmPicker .DwtTreeItem-actioned {
+    height: 24px;
+  }
+
+  /* Mini-calendrier de l'encart « Date » : son titre était blanc sur fond sombre. */
+  .ZmPickerOverview .DwtCalendarTitle,
+  .ZmPickerOverview .DwtCalendarTitleCell {
+    color: var(--zm-text);
+  }
+}

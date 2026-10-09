@@ -7,7 +7,9 @@ function detect() {
   const pairs = [];
   for (const el of document.querySelectorAll("#z_shell > div[id]")) {
     if (el.style.position !== "absolute" || el.style.left === "-10000px" || el.style.display === "none") continue;
-    if (/^ztb__/.test(el.id)) pairs.push(["skin_container_app_top_toolbar", el.id]);
+    if (el.classList.contains("ZmBrowseView")) pairs.push(["skin_container_search_builder", el.id]);
+    else if (el.classList.contains("ZmBrowseToolBar")) pairs.push(["skin_container_search_builder_toolbar", el.id]);
+    else if (/^ztb__/.test(el.id)) pairs.push(["skin_container_app_top_toolbar", el.id]);
     else if (/^zv__/.test(el.id) || /View(Mgr)?(\s|$)/.test(el.className)) pairs.push(["skin_container_app_main", el.id]);
     else if (/^zov__/.test(el.id)) pairs.push(["skin_container_tree", el.id]);
     else if (el.classList.contains("DwtCalendar")) pairs.push(["skin_container_tree_footer", el.id]);
