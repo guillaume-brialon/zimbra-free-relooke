@@ -20,6 +20,31 @@ html:where(:not([data-zm-off])) :is(p, th, td, div, select, input, textarea, but
   body {
     background: var(--zm-bg);
     color: var(--zm-text);
+    line-height: var(--zm-line-height);
+  }
+
+  /* La page est rendue en mode de compatibilité, où un tableau n'hérite pas de
+     l'interligne : on le lui redonne, l'interface étant faite de tableaux. */
+  table {
+    line-height: var(--zm-line-height);
+  }
+
+  /* Titres : police d'affichage */
+  .ZmHead,
+  .ZmBigger,
+  .DwtDialogTitle,
+  .DwtAlertTitle,
+  .ZOptionsHeader,
+  .SubjectCol,
+  .ZmConvView .Subject,
+  .contactHeader,
+  .contactEditHeader,
+  .calendar_month_header_month,
+  .calendar_tooltip_month_day_label,
+  .ZmSchedulerDate,
+  .ZmMailConfirmView .Summary,
+  .SplashScreen .message {
+    font-family: var(--zm-font-display);
   }
 
   /* Zimbra le demande via -moz-box-sizing ; on l'écrit sous sa forme standard. */

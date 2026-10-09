@@ -194,16 +194,41 @@
   }
 
   /* --- Rédaction --- */
+  /* La vue est une colonne : les champs en haut, l'éditeur sur tout le reste. Zimbra
+     calcule lui-même la taille de la zone de texte, mais trop tôt (avant d'afficher la
+     ligne « Remarque ») : en mode texte, elle débordait alors en bas du panneau. */
   .ZmComposeView {
+    display: flex;
+    flex-direction: column;
     background-color: var(--zm-surface);
+  }
+
+  .ZmComposeView > table {
+    flex: none;
+  }
+
+  .ZmComposeView > .ZmHtmlEditor {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  /* Mode texte : la zone occupe tout l'éditeur, à 3 px de ses bords comme le cadre
+     du mode HTML, quelles que soient les dimensions posées par Zimbra. */
+  .ZmComposeView > .ZmHtmlEditor > .DwtHtmlEditorTextArea {
+    position: absolute;
+    inset: 3px;
+    width: auto !important;
+    height: auto !important;
   }
 
   .ZmComposeView td {
     color: var(--zm-text);
   }
 
+  /* Pas de marge latérale : les champs s'alignent sur le cadre de la zone de texte,
+     dont Zimbra fixe lui-même la position. */
   .ZmComposeView > table {
-    padding: 8px 12px 0;
+    padding: 8px 0 0;
   }
 
   /* Libellés « Sujet », « Priorité »… */
@@ -274,14 +299,20 @@
     font-size: var(--zm-font-size-sm);
   }
 
-  /* Zone de texte : sans cadre. Zimbra en fixe la largeur en pixels ; pour que nos
-     marges internes ne la fassent pas déborder, cette largeur doit les inclure. */
-  .ZmHtmlEditor .DwtHtmlEditorTextArea {
+  /* Zone de texte : un cadre fin la délimite, comme un champ. Zimbra en fixe la largeur
+     en pixels ; pour que cadre et marges internes ne la fassent pas déborder, cette
+     largeur doit les inclure. */
+  .ZmHtmlEditor .DwtHtmlEditorTextArea,
+  .ZmHtmlEditor .DwtHtmlEditorIFrame {
     box-sizing: border-box;
-    padding: 10px 12px;
     background: var(--zm-surface);
-    border: 0;
-    border-radius: 0;
+    border: 1px solid var(--zm-border);
+    border-bottom-color: var(--zm-border-strong);
+    border-radius: var(--zm-radius);
+  }
+
+  .ZmHtmlEditor .DwtHtmlEditorTextArea {
+    padding: 10px 12px;
     box-shadow: none;
     color: var(--zm-text);
     font-family: var(--zm-font-mono);
@@ -290,9 +321,170 @@
     resize: none;
   }
 
-  .ZmHtmlEditor .DwtHtmlEditorIFrame {
-    border: 0;
-    border-top: 1px solid var(--zm-border-soft);
+  .ZmHtmlEditor .DwtHtmlEditorTextArea:focus,
+  .ZmHtmlEditor .DwtHtmlEditorIFrame:focus {
+    border-bottom-color: var(--zm-accent);
+    box-shadow: inset 0 -1px 0 var(--zm-accent);
+  }
+
+  /* Croix de suppression d'un destinataire : au milieu de la pastille */
+  .addrBubble > span,
+  .addrBubble .ImgBubbleDelete {
+    vertical-align: middle;
+  }
+
+  .addrBubble .ImgBubbleDelete {
+    margin-left: 4px;
+  }
+
+  /* --- Dialogue « Joindre un ou plusieurs fichiers » ---
+     Stylé d'après les règles d'origine, sans avoir vu son balisage. */
+  .ZmAttachDialog-container input[type="file"] {
+    margin: 3px 10px;
+    color: var(--zm-text-muted);
+    font-family: var(--zm-font);
+    font-size: var(--zm-font-size);
+  }
+
+  .ZmAttachDialog-container input[type="file"]::file-selector-button {
+    height: var(--zm-control-h);
+    margin-right: 10px;
+    padding: 0 12px;
+    background: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+    color: var(--zm-text);
+    cursor: pointer;
+    font-family: var(--zm-font);
+    font-size: var(--zm-font-size);
+    font-weight: 600;
+  }
+
+  .ZmAttachDialog-container input[type="file"]::file-selector-button:hover {
+    background: var(--zm-hover);
+    border-color: var(--zm-border-strong);
+  }
+
+  .ZmAttachDialog-removeLink {
+    margin-left: 8px;
+    color: var(--zm-accent);
+    text-decoration: none;
+  }
+
+  .ZmAttachDialog-removeLink:hover {
+    text-decoration: underline;
+  }
+
+  /* Le dialogue est une colonne de hauteur fixe : onglets, page, remarque, option.
+     Zimbra donnait à chaque page une hauteur différente (235 à 255 px), ce qui
+     déplaçait la remarque d'un onglet à l'autre et coupait la dernière ligne. La page
+     prend maintenant l'espace restant : la remarque est toujours au même endroit. */
+  .ZmAttachDialog-container {
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+  }
+
+  .ZmAttachDialog-container > .ZTabView,
+  .ZmAttachDialog-container > .ZTabView > div[id$="_page"] {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .ZmAttachDialog-container .ZTabPage {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto !important;
+  }
+
+  .ZmAttachDialog-note {
+    flex: none;
+    padding: 8px 2px 2px;
+    color: var(--zm-text-muted);
+  }
+
+  .ZmAttachDialog-inline,
+  .ZmAttachDialog-footer {
+    flex: none;
+    height: auto;
+    min-height: 0;
+  }
+
+  .ZmAttachDialog-inline {
+    padding: 4px 0 2px;
+  }
+
+  /* En mode texte, l'option « Afficher les images… » est masquée mais gardait sa
+     place : on la rend au contenu. */
+  .ZmAttachDialog-inline[style*="visibility: hidden"],
+  .ZmAttachDialog-inline[style*="visibility:hidden"] {
+    display: none;
+  }
+
+  /* Onglet « Mon ordinateur » : deux sauts de ligne vides précédaient les fichiers. */
+  .ZmAttachDialog-container .iframeTable > tbody > tr:first-child > td > br {
+    display: none;
+  }
+
+  .ZmAttachDialog-container .iframeTable {
+    margin-top: 3px;
+  }
+
+  /* Recherche des onglets Mail et Contacts : un champ plus court laisse la place à la
+     pagination, que nos boutons plus larges poussaient hors du cadre. */
+  .ZmAttachDialog-container input[type="text"] {
+    width: 130px;
+  }
+
+  .AttachMailTabBox,
+  .AttachContactsTabBox,
+  .BriefcaseTabBox {
+    background-color: var(--zm-surface);
+  }
+
+  /* Lignes de l'onglet Mail : hauteur libre (Zimbra la fixait à 70 px, trop peu pour
+     trois niveaux de texte), extrait limité à deux lignes. */
+  .AttachMailRowDiv {
+    height: auto;
+    padding: 2px 0;
+    border-color: var(--zm-border-soft);
+  }
+
+  /* Listes des onglets Mail et Contacts : filets à la place des bandes beiges */
+  .ZmAttachDialog-container :is(.RowOdd, .RowEven) {
+    background-color: var(--zm-surface);
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .AttachMailRowDiv td {
+    padding: 1px 4px;
+    line-height: 1.35;
+  }
+
+  .AttachMailSubject {
+    color: var(--zm-text);
+    font-weight: 600;
+  }
+
+  .AttachMailFrom {
+    color: var(--zm-text);
+    font-size: var(--zm-font-size-sm);
+    font-weight: 600;
+  }
+
+  .AttachMailFrag {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .ZmAttachDialog-container .ZmBriefcaseItemSmall {
+    border-color: var(--zm-border-soft);
   }
 
   .ZmHtmlEditorFooter td {

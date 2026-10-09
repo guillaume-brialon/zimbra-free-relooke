@@ -1,8 +1,14 @@
+@font-face {
+  font-family: "Archivo";
+  font-weight: 100 900;
+  src: url("../fonts/archivo-latin.woff2") format("woff2");
+}
+
 body {
   margin: 0;
   padding: 14px 16px;
   width: 260px;
-  font: 13px/1.45 "Segoe UI", system-ui, sans-serif;
+  font: 13px/1.45 "Archivo", "Segoe UI", system-ui, sans-serif;
   color: #102539;
   background: #fff;
 }

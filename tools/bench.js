@@ -185,6 +185,34 @@ addEventListener("load", () => {
     button?.classList.add("ZHover");
     button?.querySelector(".ImgSelectPullDownArrow")?.setAttribute("class", "ImgSelectPullDownArrowHover");
   }
+  // ?dialog=<id> amène à l'écran un dialogue qui attend hors champ ; &tab=N y affiche
+  // le N-ième onglet (par exemple ?snap=modale-fichiers.html&dialog=DWT79&tab=2).
+  if (params.has("dialog")) {
+    const dialog = document.getElementById(params.get("dialog"));
+    if (dialog) {
+      Object.assign(dialog.style, { left: "300px", top: "110px", zIndex: "900" });
+      if (params.has("tab")) {
+        const wanted = Number(params.get("tab"));
+        dialog.querySelectorAll(".ZTabPage").forEach((page, i) => (page.style.display = i === wanted ? "block" : "none"));
+        dialog.querySelectorAll(".ZTabBar .ZButton").forEach((tab, i) => tab.classList.toggle("ZSelected", i === wanted));
+      }
+    }
+  }
+  // ?body=1 remplit la zone de rédaction d'un texte d'essai.
+  if (params.has("body")) {
+    const area = document.querySelector(".DwtHtmlEditorTextArea");
+    if (area) {
+      area.value = [
+        "Bonjour,",
+        "",
+        "Ceci est un texte d'essai pour juger de la zone de saisie.",
+        "  - une liste alignée",
+        "  - grâce à la chasse fixe",
+        "",
+        "Cordialement",
+      ].join("\n");
+    }
+  }
   if (params.has("unread")) {
     const rows = document.querySelectorAll(".DwtListView-Rows > .Row > table tr");
     for (const i of [1, 4]) rows[i]?.classList.add("Unread");

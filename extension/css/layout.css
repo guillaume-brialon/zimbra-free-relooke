@@ -277,9 +277,13 @@
     border-color: var(--zm-border);
   }
 
-  /* Dans une barre d'outils calée sur son conteneur, les boutons se centrent en hauteur. */
-  .ZToolbar > .ZToolbarTable,
-  .ZmAppToolBar > .ZToolbarTable {
+  /* Dans une barre d'outils calée sur son conteneur, les boutons se centrent en hauteur.
+     Réservé aux barres principales, dont la hauteur est fixée : la page étant rendue en
+     mode de compatibilité, un « 100 % » posé sur une barre sans hauteur propre irait
+     chercher celle d'un ancêtre lointain (c'est ce qui étirait la barre de mise en
+     forme de l'éditeur HTML sur toute la zone de rédaction). */
+  #z_shell > .ZToolbar > .ZToolbarTable,
+  #z_shell > .ZmAppToolBar > .ZToolbarTable {
     height: 100%;
   }
 

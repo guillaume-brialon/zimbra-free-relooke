@@ -7,11 +7,9 @@
     color: var(--zm-text);
   }
 
-  /* Segoe UI place ses lettres un peu sous le milieu de la ligne : à côté d'une icône
-     ou dans un bouton, le libellé paraît trop bas. Deux pixels de marge en pied le
-     remontent d'un pixel. */
+  /* La marge en pied remonte le libellé quand la police l'exige (voir tokens.css). */
   .ZHasText .ZWidgetTitle {
-    padding: 0 6px 2px;
+    padding: 0 6px var(--zm-label-nudge);
   }
 
   .ZDisabled .ZWidgetTitle {
@@ -173,7 +171,7 @@
   /* Sélecteurs volontairement lourds : le libellé doit rester blanc dans tous les états
      (survol, focus, clic), face aux règles générales des boutons de barre d'outils. */
   :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]).ZWidget .ZToolbarButtonTable .ZWidgetTitle {
-    padding: 0 14px 2px;
+    padding: 0 14px var(--zm-label-nudge);
     font-weight: 600;
   }
 
@@ -182,7 +180,7 @@
   }
 
   [id$="__NEW_MENU"].ZWidget .ZToolbarButtonTable .ZWidgetTitle {
-    padding: 0 8px 2px 14px;
+    padding: 0 8px var(--zm-label-nudge) 14px;
   }
 
   :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"]) .ZLeftIcon {
@@ -241,7 +239,7 @@
   .ZHover .ZSelectTable .ZWidgetTitle,
   .ZFocused .ZSelectTable .ZWidgetTitle,
   .ZActive .ZSelectTable .ZWidgetTitle {
-    padding: 0 8px 2px;
+    padding: 0 8px var(--zm-label-nudge);
     color: var(--zm-text);
     font-weight: 400;
   }
@@ -353,6 +351,41 @@
     color: var(--zm-text);
   }
 
+  /* Dans un dialogue, dont Zimbra fige souvent la taille, barres et onglets gardent la
+     hauteur des champs pour ne pas pousser le contenu hors du cadre. */
+  .DwtDialogBody .ZToolbarButton {
+    height: var(--zm-control-h);
+  }
+
+  .DwtDialogBody .ZTab {
+    height: var(--zm-control-h);
+  }
+
+  /* --- Cadres hérités ---
+     Zimbra dessinait ces cadres avec une double bordure propre aux anciens Firefox ;
+     les navigateurs actuels n'en gardent qu'un trait noir de 2 px. */
+  .BriefcaseTabBox,
+  .ZmGraphKey,
+  .ZmGraphKeyColorBox,
+  .ZmContactCard,
+  .ZmContactCard-selected,
+  .ZmShareSearchDialog .FilterTree,
+  .oselect,
+  .oselect_check,
+  .oselect_table_disabled,
+  .DwtSlider,
+  .DwtHorizontalSlider,
+  .DwtVerticalSlider,
+  .DwtHorizontalSlider .DwtSliderThumbBorder,
+  .DwtVerticalSlider .DwtSliderThumbBorder,
+  .ZmChatWindowChat,
+  .ZmChatMemberList,
+  .calendar_month_day_item-dnd,
+  .xform_button_grid_small_button_selected {
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
   /* --- Onglets (préférences, dialogues) --- */
   .ZTabBar {
     padding-top: 0;
@@ -379,7 +412,7 @@
   }
 
   .ZTabTable .ZWidgetTitle {
-    padding: 0 14px 2px;
+    padding: 0 14px var(--zm-label-nudge);
     color: inherit;
     font-weight: 500;
   }

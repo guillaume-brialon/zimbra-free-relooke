@@ -18,6 +18,7 @@
       ],
       "run_at": "document_start",
       "css": [
+        "css/fonts.css",
         "css/tokens.css",
         "css/base.css",
         "css/layout.css",
@@ -28,6 +29,12 @@
         "css/prefs.css"
       ],
       "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/*.woff2"],
+      "matches": ["*://zimbra.free.fr/*"]
     }
   ],
   "action": {

@@ -2,8 +2,18 @@
    Formes et proportions : outlook.com. Couleurs : thème clair de brialon.com, dont les
    noms d'origine sont rappelés en commentaire. */
 :root {
-  --zm-font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
-  --zm-font-mono: "Cascadia Mono", Consolas, ui-monospace, "Liberation Mono", Menlo, monospace;
+  /* Polices de brialon.com (déclarées dans fonts.css) : Archivo pour le texte, Figtree
+     pour les titres, Chivo Mono pour la chasse fixe. Les suivantes ne servent qu'aux
+     caractères qu'elles ne couvrent pas, ou si le chargement échoue. */
+  --zm-font: "Archivo", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --zm-font-display: "Figtree", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --zm-font-mono: "Chivo Mono", "Cascadia Mono", Consolas, ui-monospace, "Liberation Mono", Menlo, monospace;
+  /* Interligne : celui que donnait Segoe UI. Archivo, plus ramassée, serrerait les
+     textes sur plusieurs lignes. */
+  --zm-line-height: 1.3;
+  /* Marge sous les libellés de boutons, pour les remonter quand la police pose ses
+     lettres sous le milieu de la ligne (Segoe UI : 2px). Archivo est centrée : 0. */
+  --zm-label-nudge: 0px;
   --zm-font-size: 13px;
   --zm-font-size-sm: 12px;
   --zm-font-size-lg: 16px;
