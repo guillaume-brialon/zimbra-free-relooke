@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "bench": "node tools/bench.mjs",
+    "icons": "node tools/icons.mjs",
     "start": "web-ext run --source-dir extension --start-url https://zimbra.free.fr/",
     "lint": "web-ext lint --source-dir extension",
     "build": "web-ext build --source-dir extension --artifacts-dir dist --overwrite-dest"

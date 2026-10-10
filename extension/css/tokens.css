@@ -44,11 +44,15 @@
   --zm-focus: #5a88c0;         /* --focus */
   --zm-focus-ring: 0 0 0 2px rgba(90, 136, 192, .45);
 
+  /* Icônes redessinées (voir icons.css) */
+  --zm-icon: #4d6177;          /* --muted */
+
   /* États */
   --zm-success: #4e912b;       /* --meadow-deep */
   --zm-success-bright: #61a936; /* --meadow */
   --zm-danger: #b3372b;
   --zm-danger-soft: #fbeae8;
+  --zm-warning: #b7791f;
   --zm-warning-soft: #fff6d9;
   --zm-warning-border: #ead492;
 

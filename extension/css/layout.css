@@ -154,6 +154,12 @@
     padding-left: 8px;
   }
 
+  /* Icône remontée d'un pixel : à hauteur égale, elle paraît plus basse que le texte. */
+  .ZAppTabBorder .ZLeftIcon div {
+    position: relative;
+    top: -1px;
+  }
+
   /* 12 px de part et d'autre du contenu, 8 px entre l'icône et le libellé. L'icône
      porte déjà 4 px de marge à gauche, d'où les 8 px de la cellule. */
   .ZAppTab .ZAppTabBorder .ZWidgetTitle {

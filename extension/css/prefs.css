@@ -47,9 +47,58 @@
     line-height: var(--zm-control-h);
   }
 
-  .ZOptionsField {
+  .ZOptionsField,
+  .ZOptionsFieldTop {
     padding: 3px 0;
     color: var(--zm-text);
+    vertical-align: top;
+  }
+
+  /* La première ligne d'un texte ou d'un lien posé à même la cellule prend la hauteur
+     d'un champ, pour tomber en face du libellé ; les lignes suivantes restent serrées. */
+  .ZOptionsField::first-line,
+  .ZOptionsFieldTop::first-line {
+    line-height: var(--zm-control-h);
+  }
+
+  /* Le libellé se place en face de la première ligne de ce qu'il désigne. */
+  .ZOptionsLabel,
+  .ZOptionsLabelTop,
+  .ZOptionsLabelNarrow {
+    vertical-align: top;
+  }
+
+  /* Texte d'explication à la suite d'un champ : « (110 est la valeur par défaut) » */
+  .ZOptionsField td.ZOptionsInfo {
+    padding-left: 8px;
+  }
+
+  /* --- Cases à cocher et boutons radio ---
+     Chaque ligne a la hauteur d'un champ, la case et son libellé centrés dedans : ils
+     tombent ainsi en face du libellé de gauche et des champs voisins. */
+  .DwtRadioButton td,
+  .DwtCheckbox td {
+    height: var(--zm-control-h);
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .DwtRadioButton input,
+  .DwtCheckbox input {
+    margin: 0 3px;
+    vertical-align: middle;
+  }
+
+  /* Libellés étroits en milieu de ligne (« Police : », « Taille : », « Couleur : ») */
+  .ZOptionsLabelNarrow {
+    padding-left: 16px;
+  }
+
+  /* Un peu d'air entre un champ et le texte qui le suit sur la même ligne */
+  .ZOptionsField input[type="text"],
+  .ZOptionsField input[type="password"] {
+    margin-right: 6px;
   }
 
   .ZOptionsField .Text,
@@ -85,9 +134,122 @@
     border-radius: var(--zm-radius);
   }
 
-  /* --- Listes : comptes, signatures, zimlets --- */
+  /* --- Signatures ---
+     La liste et la zone de texte forment une rangée : même cadre, même hauteur, calées
+     en haut de leur cellule, séparées par une gouttière. */
   .ZmSignatureListView {
+    box-sizing: border-box;
+    height: 140px !important;
     background-color: var(--zm-surface);
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  td:has(> .ZmSignatureListView),
+  td:has(> .ZmSignatureListView) + td {
+    padding: 3px 0;
+    vertical-align: top;
+  }
+
+  td:has(> .ZmSignatureListView),
+  tr:has(> td > .ZmSignatureListView) + tr > td:first-child {
+    padding-right: 8px;
+  }
+
+  /* L'éditeur garde 3 px autour de sa zone de texte, utiles dans la rédaction d'un
+     mail ; ici ils la décalaient de ses voisins. En bloc, la zone ne laisse plus sous
+     elle la place des jambages d'une ligne de texte. */
+  .ZmPreferencesPage .ZmHtmlEditor {
+    padding: 0;
+  }
+
+  .ZmPreferencesPage .DwtHtmlEditorTextArea {
+    display: block;
+    width: 100%;
+  }
+
+  /* Boutons sous la liste : au ras de ses bords */
+  tr:has(> td > .ZmSignatureListView) + tr > td:first-child > table {
+    width: 100%;
+    border-spacing: 0;
+  }
+
+  .ZmPreferencesPage .Label {
+    color: var(--zm-text-muted);
+  }
+
+  /* Tableau « Utilisation des signatures » : colonnes écartées, en-têtes discrets */
+  table[id$="_SIG_TABLE"] > tbody > tr > td {
+    padding: 2px 20px 2px 0;
+  }
+
+  table[id$="_SIG_TABLE"] > tbody > tr:first-child > td {
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  /* --- Adresses acceptées --- */
+  .ZmWhiteBlackList {
+    width: 320px;
+    height: 240px;
+    border: 1px solid var(--zm-border);
+    border-radius: var(--zm-radius);
+  }
+
+  td[id$="_EMAIL_ADDRESS"] input[type="text"] {
+    width: 320px !important;
+    margin-right: 0;
+  }
+
+  td[id$="_EMAIL_ADDRESS"],
+  td[id$="_LISTVIEW"] {
+    padding: 4px 8px 4px 0;
+  }
+
+  td[id$="_ADD_BUTTON"],
+  td[id$="_REMOVE_BUTTON"] {
+    padding-top: 4px;
+  }
+
+  .ZOptionsSectionMain > div:first-child {
+    margin: 4px 0 8px;
+  }
+
+  div.ZOptionsInfo[id$="_NUM_USED"] {
+    margin-top: 6px;
+  }
+
+  /* --- Importer / exporter : texte d'explication sous le choix du type --- */
+  .ZOptionsField > .DwtText.ZOptionsInfo {
+    margin: 6px 0 10px;
+  }
+
+  /* Paramètres avancés. « Types de données » : la phrase d'introduction prend la
+     hauteur d'un champ, pour tomber en face du libellé. */
+  tr[id$="_DATA_TYPES_row"] > .ZOptionsField {
+    padding-top: 3px !important;
+  }
+
+  tr[id$="_DATA_TYPES_row"] > .ZOptionsField > div:first-child {
+    line-height: var(--zm-control-h);
+  }
+
+  /* « Date » : la cellule commence par une ligne vide, qui repoussait les champs sous
+     leur libellé ; on l'écrase. */
+  tr[id$="_DATE_row"] > td:last-child {
+    padding: 3px 0;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  tr[id$="_DATE_row"] .quickAddDateFld {
+    padding-right: 4px;
+    color: var(--zm-text-muted);
+    white-space: nowrap;
+  }
+
+  tr[id$="_DATE_row"] .quickAddDateFld ~ .quickAddDateFld {
+    padding-left: 20px;
   }
 
   .ZmPrefZimletListView .Row {

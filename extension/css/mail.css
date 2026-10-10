@@ -77,13 +77,39 @@
     vertical-align: top;
   }
 
+  /* Libellés « À : », « Répondre à : » : la marge haute les met à hauteur de la
+     pastille, dont le texte commence plus bas. */
   .ZmMailMsgView .LabelColName {
-    padding: 4px 4px 4px 0;
+    padding: 6px 4px 4px 0;
     color: var(--zm-text-muted);
+  }
+
+  /* Ligne de l'expéditeur : libellé, icône et pastille sont dans des tableaux
+     imbriqués, qu'on centre les uns sur les autres. */
+  .ZmMailMsgView tr[id$="_expandRow"] td {
+    vertical-align: middle;
+  }
+
+  .ZmMailMsgView tr[id$="_expandRow"] .LabelColName {
+    padding: 0 4px 0 0;
   }
 
   .ZmMailMsgView .LabelColValue {
     color: var(--zm-text);
+  }
+
+  /* Ligne des tags : même hauteur que les autres, libellé centré sur l'icône et le nom
+     du tag, celui-ci écarté de son icône. */
+  .ZmMailMsgView tr[id$="_tagRow"] > td {
+    height: var(--zm-control-h);
+  }
+
+  .ZmMailMsgView tr[id$="_tagRow"] .LabelColName {
+    padding: 0 4px 0 0;
+  }
+
+  .ZmMailMsgView td.Tags {
+    padding: 0 10px 0 4px;
   }
 
   /* Petit bouton qui déplie les en-têtes */
@@ -262,7 +288,11 @@
     padding: 1px 0;
   }
 
-  .addrBubbleContainer input {
+  .addrBubbleContainer input,
+  .addrBubbleContainer input:focus {
+    padding: 0;
+    background: none;
+    border-radius: 0;
     height: 22px;
     margin-bottom: 0;
     color: var(--zm-text);
@@ -344,25 +374,6 @@
     color: var(--zm-text-muted);
     font-family: var(--zm-font);
     font-size: var(--zm-font-size);
-  }
-
-  .ZmAttachDialog-container input[type="file"]::file-selector-button {
-    height: var(--zm-control-h);
-    margin-right: 10px;
-    padding: 0 12px;
-    background: var(--zm-surface);
-    border: 1px solid var(--zm-border);
-    border-radius: var(--zm-radius);
-    color: var(--zm-text);
-    cursor: pointer;
-    font-family: var(--zm-font);
-    font-size: var(--zm-font-size);
-    font-weight: 600;
-  }
-
-  .ZmAttachDialog-container input[type="file"]::file-selector-button:hover {
-    background: var(--zm-hover);
-    border-color: var(--zm-border-strong);
   }
 
   .ZmAttachDialog-removeLink {

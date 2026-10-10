@@ -39,3 +39,27 @@ iframe[src*="passback.free.fr"] {
 #verifromMask {
   display: none !important;
 }
+
+/* Planche des icônes (?icons=1) */
+#bench-icons {
+  position: fixed;
+  inset: 12px;
+  z-index: 2147483646;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 6px 12px;
+  align-content: start;
+  padding: 16px;
+  overflow: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .3);
+}
+
+#bench-icons span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 12px/1.2 system-ui, sans-serif;
+  color: #102539;
+}

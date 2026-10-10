@@ -1,0 +1,836 @@
+/* Fichier généré par tools/icons.mjs : ne pas le modifier à la main.
+   Icônes redessinées. Le dessin (--zm-i) sert de masque, la couleur est celle du fond. */
+:root:not(#zm, [data-zm-off]) {
+  .ImgMailApp,
+  .ImgMessage,
+  .ImgReadMessage,
+  .ImgUnreadMessage,
+  .ImgNewMessage,
+  .ImgMsgStatusUnread,
+  .ImgMsgStatus,
+  .ImgEnvelopeOpen,
+  .ImgMsgStatusRead,
+  .ImgContactsApp,
+  .ImgContact,
+  .ImgGroup,
+  .ImgNewGroup,
+  .ImgNewContact,
+  .ImgCalendarApp,
+  .ImgAppointment,
+  .ImgDate,
+  .ImgNewAppointment,
+  .ImgTasksApp,
+  .ImgTaskList,
+  .ImgTask,
+  .ImgNewTask,
+  .ImgTaskViewTodoList,
+  .ImgTasksListView,
+  .ImgNewTaskList,
+  .ImgTaskViewNotStarted,
+  .ImgTaskViewInProgress,
+  .ImgTaskViewCompleted,
+  .ImgTaskViewWaiting,
+  .ImgTaskViewDeferred,
+  .ImgTasksSplitView,
+  .ImgTasksDisplayView,
+  .ImgDayView,
+  .ImgWorkWeekView,
+  .ImgWeekView,
+  .ImgMonthView,
+  .ImgCalListView,
+  .ImgListView,
+  .ImgGroupSchedule,
+  .ImgBriefcase,
+  .ImgPreferences,
+  .ImgSendReceive,
+  .ImgRefresh,
+  .ImgDelete,
+  .ImgTrash,
+  .ImgMsgStatusTrash,
+  .ImgFolder,
+  .ImgMoveToFolder,
+  .ImgNewFolder,
+  .ImgPrint,
+  .ImgReply,
+  .ImgMsgStatusReply,
+  .ImgReplyAll,
+  .ImgForward,
+  .ImgMsgStatusForward,
+  .ImgJunkMail,
+  .ImgSpamFolder,
+  .ImgTag,
+  .ImgNewTag,
+  .ImgTagStack,
+  .ImgDeleteTag,
+  .ImgOpenInNewWindow,
+  .ImgEdit,
+  .ImgCompose,
+  .ImgMsgStatusDraft,
+  .ImgSave,
+  .ImgBold,
+  .ImgItalics,
+  .ImgUnderline,
+  .ImgFontColor,
+  .ImgFontBackground,
+  .ImgLeftJustify,
+  .ImgCenterJustify,
+  .ImgRightJustify,
+  .ImgFullJustify,
+  .ImgBulletedList,
+  .ImgNumberedList,
+  .ImgOutdent,
+  .ImgIndent,
+  .ImgHorizRule,
+  .ImgURL,
+  .ImgTable,
+  .ImgInsertTable,
+  .ImgGlobe,
+  .ImgSwitchFormat,
+  .ImgUpload,
+  .ImgUpArrow,
+  .ImgDownArrow,
+  .ImgPadLock,
+  .ImgGenericDoc,
+  .ImgUnknownDoc,
+  .ImgDoc,
+  .ImgHtmlDoc,
+  .ImgNewDoc,
+  .ImgAccounts,
+  .ImgMailRule,
+  .ImgTrustedAddresses,
+  .ImgSharedContact,
+  .ImgShortcut,
+  .ImgZimlet,
+  .ImgDraftFolder,
+  .ImgSpellCheck,
+  .ImgAddSignature,
+  .ImgInbox,
+  .ImgSentFolder,
+  .ImgMsgStatusSent,
+  .ImgContactsFolder,
+  .ImgEmailedContacts,
+  .ImgNewContactsFolder,
+  .ImgSearchFolder,
+  .ImgDomain,
+  .ImgTime,
+  .ImgAttachment,
+  .ImgFlagRed,
+  .ImgFlagDis,
+  .ImgPriorityHigh_list,
+  .ImgPriorityLow_list,
+  .ImgSplitPane,
+  .ImgSplitPaneVertical,
+  .ImgSplitPaneOff,
+  .ImgConversationView,
+  .ImgConversation,
+  .ImgMessageView,
+  .ImgSearch,
+  .ImgSearch2,
+  .ImgSearchBuilder,
+  .ImgClose,
+  .ImgCancel,
+  .ImgBubbleDelete,
+  .ImgAdd,
+  .ImgPlus,
+  .ImgRemove,
+  .ImgMinus,
+  .ImgWarning,
+  .ImgSuccess,
+  .ImgNodeExpanded,
+  .ImgNodeCollapsed,
+  .ImgCascade,
+  .ImgHeaderExpanded,
+  .ImgHeaderCollapsed,
+  .ImgSelectPullDownArrow,
+  .ImgSelectPullDownArrowHover,
+  .ImgSelectPullDownArrowSel,
+  .ImgHelpPullDownArrow,
+  .ImgHelpPullDownArrowHover,
+  .ImgColumnDownArrow,
+  .ImgColumnUpArrow,
+  .ImgFastRevArrowSmall,
+  .ImgRevArrowSmall,
+  .ImgFwdArrowSmall,
+  .ImgFastFwdArrowSmall,
+  .ImgLeftArrow,
+  .ImgRightArrow,
+  .ImgUpArrowSmall,
+  .ImgDownArrowSmall {
+    background: var(--zm-icon);
+    mask: var(--zm-i) center / contain no-repeat;
+  }
+
+  .ImgMailApp,
+  .ImgMessage,
+  .ImgReadMessage,
+  .ImgUnreadMessage,
+  .ImgNewMessage,
+  .ImgMsgStatusUnread {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3.500' width='12' height='9' rx='1.500'/%3E%3Cpath d='M2.600 5.200 8 9l5.400-3.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgMsgStatus {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3.500' width='12' height='9' rx='1.500'/%3E%3Cpath d='M6.600 6.900c0-.9.600-1.500 1.400-1.500s1.400.5 1.400 1.300c0 1-1.400 1.100-1.400 2.100M8 10.700h.01'/%3E%3C/svg%3E");
+  }
+
+  .ImgEnvelopeOpen,
+  .ImgMsgStatusRead {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6.500 8 2.500l6 4v6c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1zM2.300 6.800 8 10.200l5.700-3.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgContactsApp,
+  .ImgContact {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='5.400' r='2.600'/%3E%3Cpath d='M3 13.500c0-2.700 2.200-4.300 5-4.300s5 1.600 5 4.300'/%3E%3C/svg%3E");
+  }
+
+  .ImgGroup {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='6' cy='5.600' r='2.200'/%3E%3Cpath d='M1.800 13c0-2.300 1.900-3.700 4.200-3.700s4.200 1.400 4.200 3.700M10.400 3.600a2.200 2.200 0 0 1 0 4.200M12 9.600c1.400.5 2.300 1.700 2.300 3.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgNewGroup {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='5' cy='6.200' r='2'/%3E%3Cpath d='M1.500 13.200c0-2.100 1.600-3.400 3.500-3.400s3.500 1.300 3.500 3.400M9.400 4.250a2 2 0 0 1 0 3.900M10.300 10.100c1.300.5 2.100 1.600 2.100 3.100M12.800 2.100v3.400M11.100 3.800h3.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgNewContact {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='6.500' cy='5.600' r='2.400'/%3E%3Cpath d='M2 13.500c0-2.500 2-4 4.500-4s4.500 1.500 4.500 4M12.500 3.500v4M10.500 5.500h4'/%3E%3C/svg%3E");
+  }
+
+  .ImgCalendarApp,
+  .ImgAppointment,
+  .ImgDate {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3' width='11' height='10.5' rx='1.5'/%3E%3Cpath d='M2.5 6.500h11M5.500 1.800v2.400M10.500 1.800v2.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgNewAppointment {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3' width='11' height='10.5' rx='1.5'/%3E%3Cpath d='M2.5 6.500h11M5.500 1.800v2.400M10.500 1.800v2.400'/%3E%3Cpath d='M8 8.300v3.400M6.300 10h3.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgTasksApp,
+  .ImgTaskList {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.500' y='2.500' width='11' height='11' rx='2'/%3E%3Cpath d='M5.200 8.200l2 2L10.800 6'/%3E%3C/svg%3E");
+  }
+
+  .ImgTask,
+  .ImgNewTask {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.800 3H4.500c-.6 0-1 .4-1 1v8.500c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1h-1.300M6 2h4v2.200H6z'/%3E%3Cpath d='M5.800 9.200l1.500 1.500 3-3.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgTaskViewTodoList,
+  .ImgTasksListView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.800 3H4.500c-.6 0-1 .4-1 1v8.500c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1h-1.300M6 2h4v2.200H6z'/%3E%3Cpath d='M5.800 7.500h4.400M5.800 10.300h4.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgNewTaskList {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.800 3H4.500c-.6 0-1 .4-1 1v8.500c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1h-1.300M6 2h4v2.200H6z'/%3E%3Cpath d='M8 6.800v4M6 8.800h4'/%3E%3C/svg%3E");
+  }
+
+  .ImgTaskViewNotStarted {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgTaskViewInProgress {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath fill='black' stroke='none' d='M8 2.400a5.600 5.600 0 0 1 0 11.200z'/%3E%3C/svg%3E");
+  }
+
+  .ImgTaskViewCompleted {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M5.400 8.200l1.800 1.800 3.400-3.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgTaskViewWaiting {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M6.600 6v4M9.400 6v4'/%3E%3C/svg%3E");
+  }
+
+  .ImgTaskViewDeferred {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M5.400 8h5M8.700 6.200 10.500 8l-1.800 1.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgTasksSplitView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 8.500h12'/%3E%3C/svg%3E");
+  }
+
+  .ImgTasksDisplayView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M4.500 6h7M4.500 8.500h7M4.500 11h4'/%3E%3C/svg%3E");
+  }
+
+  .ImgDayView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 5.500h12'/%3E%3Crect x='5.500' y='7.700' width='5' height='3.600' rx='.5'/%3E%3C/svg%3E");
+  }
+
+  .ImgWorkWeekView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 5.500h12M6 5.500v8M10 5.500v8'/%3E%3C/svg%3E");
+  }
+
+  .ImgWeekView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 5.500h12M5 5.500v8M8 5.500v8M11 5.500v8'/%3E%3C/svg%3E");
+  }
+
+  .ImgMonthView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 6.200h12M2 9.800h12M6 2.500v11M10 2.500v11'/%3E%3C/svg%3E");
+  }
+
+  .ImgCalListView,
+  .ImgListView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.500 4h8M5.500 8h8M5.500 12h8M2.700 4h.01M2.700 8h.01M2.700 12h.01'/%3E%3C/svg%3E");
+  }
+
+  .ImgGroupSchedule {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M4.500 6h5M6.500 8.500h5M4.500 11h3'/%3E%3C/svg%3E");
+  }
+
+  .ImgBriefcase {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='5' width='12' height='8' rx='1.500'/%3E%3Cpath d='M6 5V3.800c0-.4.4-.8.8-.8h2.400c.4 0 .8.4.8.8V5M2 8.600h12'/%3E%3C/svg%3E");
+  }
+
+  .ImgPreferences {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='2'/%3E%3Ccircle cx='8' cy='8' r='4.600'/%3E%3Cpath d='M8 1.800v1.600M8 12.600v1.600M1.800 8h1.600M12.600 8h1.600M3.600 3.600l1.150 1.150M11.250 11.250l1.150 1.150M3.600 12.400l1.150-1.150M11.250 4.750l1.150-1.150'/%3E%3C/svg%3E");
+  }
+
+  .ImgSendReceive {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.500 12.500v-9M3 6l2.500-2.500L8 6M10.500 3.500v9M8 10l2.500 2.500L13 10'/%3E%3C/svg%3E");
+  }
+
+  .ImgRefresh {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.600 3.200v3.600H11'/%3E%3Cpath d='M13.100 9.800a5.400 5.400 0 1 1-1.270-5.620L14.600 6.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgDelete,
+  .ImgTrash,
+  .ImgMsgStatusTrash {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.800 4.500h10.400M6.400 4.500V3.200c0-.4.3-.7.7-.7h1.800c.4 0 .7.3.7.7v1.300M4.200 4.500l.6 8c0 .6.5 1 1 1h4.400c.5 0 1-.4 1-1l.6-8M6.700 7v4M9.300 7v4'/%3E%3C/svg%3E");
+  }
+
+  .ImgFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E");
+  }
+
+  .ImgMoveToFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3Cpath d='M6 9h4.200M8.700 7.400 10.300 9l-1.600 1.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgNewFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3Cpath d='M8 7.200v3.600M6.200 9h3.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgPrint {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.500 6V2.500h7V6M4.500 11.500H3.200c-.7 0-1.200-.5-1.200-1.200V7.200C2 6.500 2.500 6 3.200 6h9.600c.7 0 1.200.5 1.200 1.200v3.100c0 .7-.5 1.200-1.200 1.200h-1.300'/%3E%3Cpath d='M4.500 9.500h7v4h-7z'/%3E%3C/svg%3E");
+  }
+
+  .ImgReply,
+  .ImgMsgStatusReply {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.500 4 2.500 8l4 4'/%3E%3Cpath d='M3 8h6c2.600 0 4.500 1.800 4.500 4.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgReplyAll {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4.500 1.500 8 5 11.500M8.700 4 4.700 8l4 4'/%3E%3Cpath d='M5.200 8h4.600c2.400 0 4.200 1.700 4.200 4.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgForward,
+  .ImgMsgStatusForward {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.500 4l4 4-4 4'/%3E%3Cpath d='M13 8H7c-2.600 0-4.500 1.800-4.500 4.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgJunkMail,
+  .ImgSpamFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.500'/%3E%3Cpath d='M4.200 4.200l7.600 7.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgTag,
+  .ImgNewTag {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6z'/%3E%3Ccircle cx='5.400' cy='5.400' r='.8'/%3E%3C/svg%3E");
+  }
+
+  .ImgTagStack {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate(2.600 2.600) scale(.8)' stroke-width='1.600'%3E%3Cpath d='M2.5 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6z'/%3E%3Ccircle cx='5.400' cy='5.400' r='.8'/%3E%3C/g%3E%3Cpath d='M2 7.200V3.100C2 2.500 2.500 2 3.100 2h4.100'/%3E%3C/svg%3E");
+  }
+
+  .ImgDeleteTag {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate(-.5 -.5) scale(.8)' stroke-width='1.600'%3E%3Cpath d='M2.5 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6z'/%3E%3Ccircle cx='5.400' cy='5.400' r='.8'/%3E%3C/g%3E%3Cpath d='M11 11l3.500 3.500M14.500 11 11 14.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgOpenInNewWindow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 2.500h4.500V7M13.500 2.500 7.500 8.500M11.500 9.500v3c0 .6-.4 1-1 1h-7c-.6 0-1-.4-1-1v-7c0-.6.4-1 1-1h3'/%3E%3C/svg%3E");
+  }
+
+  .ImgEdit,
+  .ImgCompose,
+  .ImgMsgStatusDraft {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.600 2.800l2.600 2.600-7.400 7.400-3.200.6.6-3.200zM9 4.400 11.600 7'/%3E%3C/svg%3E");
+  }
+
+  .ImgSave {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.100 2.500h7.600l2.800 2.800v7.600c0 .3-.3.600-.6.600H3.100c-.3 0-.6-.3-.6-.6V3.100c0-.3.3-.6.6-.6zM5 2.500V6h5V2.500M5 13.500v-4h6v4'/%3E%3C/svg%3E");
+  }
+
+  .ImgBold {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ctext y='12.800' font-weight='bold' x='8' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='13.500' fill='black' stroke='none'%3EG%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgItalics {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ctext y='12.800' font-weight='600' font-style='italic' x='8' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='13.500' fill='black' stroke='none'%3EI%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgUnderline {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ctext y='11.400' font-weight='600' x='8' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='13.500' fill='black' stroke='none'%3ES%3C/text%3E%3Cpath d='M4 14h8'/%3E%3C/svg%3E");
+  }
+
+  .ImgFontColor {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.300 12.500 8 3.200l3.700 9.300M5.600 9.300h4.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgFontBackground {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.800 2.800l3.400 3.400-5.500 5.500H4.300V8.300zM3 13.500h10'/%3E%3C/svg%3E");
+  }
+
+  .ImgLeftJustify {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 4h11M2.500 7h7M2.500 10h11M2.500 13h7'/%3E%3C/svg%3E");
+  }
+
+  .ImgCenterJustify {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 4h11M4.500 7h7M2.500 10h11M4.500 13h7'/%3E%3C/svg%3E");
+  }
+
+  .ImgRightJustify {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 4h11M6.500 7h7M2.500 10h11M6.500 13h7'/%3E%3C/svg%3E");
+  }
+
+  .ImgFullJustify {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 4h11M2.500 7h11M2.500 10h11M2.500 13h11'/%3E%3C/svg%3E");
+  }
+
+  .ImgBulletedList {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 4.500h7.500M6 8h7.500M6 11.500h7.500M3 4.500h.01M3 8h.01M3 11.500h.01'/%3E%3C/svg%3E");
+  }
+
+  .ImgNumberedList {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.500 4.500h7M6.500 8h7M6.500 11.500h7M2.500 3.300h1v2.700M2.500 9.700h1.500l-1.500 2.300h1.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgOutdent {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 4h6.500M7 8h6.500M7 12h6.500M4.500 6l-2 2 2 2'/%3E%3C/svg%3E");
+  }
+
+  .ImgIndent {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 4h6.500M7 8h6.500M7 12h6.500M2.500 6l2 2-2 2'/%3E%3C/svg%3E");
+  }
+
+  .ImgHorizRule {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 8h11'/%3E%3C/svg%3E");
+  }
+
+  .ImgURL {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.800 9.200a2.800 2.800 0 0 0 4 0l2-2a2.800 2.800 0 0 0-4-4l-.7.7M9.200 6.800a2.800 2.800 0 0 0-4 0l-2 2a2.800 2.800 0 0 0 4 4l.7-.7'/%3E%3C/svg%3E");
+  }
+
+  .ImgTable,
+  .ImgInsertTable {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 6.200h12M2 9.800h12M6 2.500v11M10 2.500v11'/%3E%3C/svg%3E");
+  }
+
+  .ImgGlobe {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M2.400 8h11.200M8 2.400c-2.300 2-2.300 9.200 0 11.200M8 2.400c2.300 2 2.300 9.200 0 11.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgSwitchFormat {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5.500h9M9.500 3 12 5.500 9.500 8M13 10.500H4M6.500 8 4 10.500 6.500 13'/%3E%3C/svg%3E");
+  }
+
+  .ImgUpload,
+  .ImgUpArrow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 10.500V3M5 5.800 8 2.800l3 3M3 10.500v2c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-2'/%3E%3C/svg%3E");
+  }
+
+  .ImgDownArrow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.800v7.500M5 7.500l3 3 3-3M3 10.500v2c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-2'/%3E%3C/svg%3E");
+  }
+
+  .ImgPadLock {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.500' y='7' width='9' height='6.500' rx='1.200'/%3E%3Cpath d='M5.500 7V5.200a2.500 2.500 0 0 1 5 0V7'/%3E%3C/svg%3E");
+  }
+
+  .ImgGenericDoc,
+  .ImgUnknownDoc,
+  .ImgDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgHtmlDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7.100 8.200 5.700 9.600l1.400 1.400M8.900 8.200l1.400 1.400-1.400 1.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgNewDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M8 7.800v3.400M6.300 9.500h3.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgAccounts {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3.500' width='12' height='9' rx='1.500'/%3E%3Ccircle cx='5.800' cy='7.200' r='1.400'/%3E%3Cpath d='M3.800 10.800c.3-1 1-1.500 2-1.500s1.700.5 2 1.500M9.800 6.500h2.400M9.800 9h2.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgMailRule {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 3.500h11L9.500 8.300v4.200l-3 1V8.300z'/%3E%3C/svg%3E");
+  }
+
+  .ImgTrustedAddresses {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.300 13 4v4c0 2.900-2 4.900-5 5.800C5 12.900 3 10.900 3 8V4zM5.900 8l1.500 1.500 2.800-3'/%3E%3C/svg%3E");
+  }
+
+  .ImgSharedContact {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='4.300' cy='8' r='1.700'/%3E%3Ccircle cx='11.500' cy='4' r='1.700'/%3E%3Ccircle cx='11.500' cy='12' r='1.700'/%3E%3Cpath d='M5.800 7.200 10 4.800M5.800 8.800l4.200 2.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgShortcut {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='1.500' y='4' width='13' height='8' rx='1.500'/%3E%3Cpath d='M4 6.800h.01M6.700 6.800h.01M9.300 6.800h.01M12 6.800h.01M4.500 9.500h7'/%3E%3C/svg%3E");
+  }
+
+  .ImgZimlet {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2.500v3M10 2.500v3M4 5.500h8V8a4 4 0 0 1-8 0zM8 12v1.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgDraftFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200M5.600 9h4.800M5.600 11.200h3'/%3E%3C/svg%3E");
+  }
+
+  .ImgSpellCheck {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 9.500 5 3l2.500 6.500M3.300 7.400h3.400M8.300 11.500l1.900 1.900 3.500-4'/%3E%3C/svg%3E");
+  }
+
+  .ImgAddSignature {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 11c1.800-3.200 3-6 3.900-6 1 0 0 4.500 1.300 4.500 1 0 1.300-2 2.200-2 .8 0 .7 1.500 3.600 1.500M2.500 13.500h11'/%3E%3C/svg%3E");
+  }
+
+  .ImgInbox {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 9.500 4.300 3.500h7.400l1.800 6v3c0 .3-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5zM2.500 9.500h3.300l.7 1.500h3l.7-1.500h3.300'/%3E%3C/svg%3E");
+  }
+
+  .ImgSentFolder,
+  .ImgMsgStatusSent {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13.500 2.500 2.500 7l4.200 1.800 1.800 4.700zM13.500 2.500 6.700 8.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgContactsFolder,
+  .ImgEmailedContacts,
+  .ImgNewContactsFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.500 2.500H12c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5H4.500c-.6 0-1-.4-1-1v-9c0-.6.4-1 1-1zM2.300 5.500h1.200M2.300 8h1.200M2.300 10.500h1.200M5.700 10.600c.3-1.200 1.200-1.800 2.300-1.800s2 .6 2.300 1.800'/%3E%3Ccircle cx='8' cy='6.500' r='1.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgSearchFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3Ccircle cx='7.600' cy='8.700' r='1.700'/%3E%3Cpath d='M8.900 10l1.500 1.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgDomain {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='2.400'/%3E%3Cpath d='M10.400 5.600v3.200c0 1 .8 1.700 1.700 1.700s1.700-.8 1.700-2.100c0-3.300-2.600-5.900-5.800-5.900a5.800 5.800 0 1 0 3.300 10.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgTime {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M8 4.800V8l2.200 1.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgAttachment {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7.300 7.300 12c-1.100 1.100-2.800 1.100-3.800 0s-1.100-2.800 0-3.800l5-5c.7-.7 1.900-.7 2.600 0s.7 1.900 0 2.600l-4.900 4.900c-.4.4-.9.4-1.300 0s-.4-.9 0-1.300L9.300 5'/%3E%3C/svg%3E");
+  }
+
+  .ImgFlagRed {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.500 14V2.500'/%3E%3Cpath fill='black' d='M3.500 3H12l-2 2.750 2 2.750H3.500z'/%3E%3C/svg%3E");
+  }
+
+  .ImgFlagDis {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.500 14V2.500M3.500 3H12l-2 2.750 2 2.750H3.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgPriorityHigh_list {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 3v6.500'/%3E%3Ccircle cx='4' cy='12.600' r='.4'/%3E%3C/svg%3E");
+  }
+
+  .ImgPriorityLow_list {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 3.500v9M1.500 10 4 12.500 6.500 10'/%3E%3C/svg%3E");
+  }
+
+  .ImgSplitPane {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 8.500h12'/%3E%3C/svg%3E");
+  }
+
+  .ImgSplitPaneVertical {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M8.500 2.500v11'/%3E%3C/svg%3E");
+  }
+
+  .ImgSplitPaneOff {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M4.500 6h7M4.500 8.500h7M4.500 11h4'/%3E%3C/svg%3E");
+  }
+
+  .ImgConversationView,
+  .ImgConversation {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 3.500c0-.6.4-1 1-1h9c.6 0 1 .4 1 1v6c0 .6-.4 1-1 1H7.500l-3 2.500v-2.500h-1c-.6 0-1-.4-1-1z'/%3E%3C/svg%3E");
+  }
+
+  .ImgMessageView {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 4h11M2.500 8h11M2.500 12h11'/%3E%3C/svg%3E");
+  }
+
+  .ImgSearch,
+  .ImgSearch2,
+  .ImgSearchBuilder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='7' cy='7' r='4.300'/%3E%3Cpath d='M10.200 10.200l3.400 3.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgClose,
+  .ImgCancel {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4l8 8M12 4l-8 8'/%3E%3C/svg%3E");
+  }
+
+  .ImgBubbleDelete {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.500 3.500l5 5M8.500 3.500l-5 5'/%3E%3C/svg%3E");
+  }
+
+  .ImgAdd,
+  .ImgPlus {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3.500v9M3.500 8h9'/%3E%3C/svg%3E");
+  }
+
+  .ImgRemove,
+  .ImgMinus {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.500 8h9'/%3E%3C/svg%3E");
+  }
+
+  .ImgWarning {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.600 14 13H2zM8 6.600v3'/%3E%3Ccircle cx='8' cy='11.300' r='.3'/%3E%3C/svg%3E");
+  }
+
+  .ImgSuccess {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M5.400 8.200l1.800 1.800 3.400-3.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgNodeExpanded {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 6.500l3 3 3-3'/%3E%3C/svg%3E");
+  }
+
+  .ImgNodeCollapsed {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.500 5l3 3-3 3'/%3E%3C/svg%3E");
+  }
+
+  .ImgCascade {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.500 4.500 10 8l-3.500 3.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgHeaderExpanded {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 4l3 3 3-3'/%3E%3C/svg%3E");
+  }
+
+  .ImgHeaderCollapsed {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500l3 3-3 3'/%3E%3C/svg%3E");
+  }
+
+  .ImgSelectPullDownArrow,
+  .ImgSelectPullDownArrowHover,
+  .ImgSelectPullDownArrowSel {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6.500l3 3 3-3'/%3E%3C/svg%3E");
+  }
+
+  .ImgHelpPullDownArrow,
+  .ImgHelpPullDownArrowHover {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6.500l3 3 3-3'/%3E%3C/svg%3E");
+  }
+
+  .ImgColumnDownArrow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 7' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.500 2 4 4.800 6.500 2'/%3E%3C/svg%3E");
+  }
+
+  .ImgColumnUpArrow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 7' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.500 5 4 2.200 6.500 5'/%3E%3C/svg%3E");
+  }
+
+  .ImgFastRevArrowSmall {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 9' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.500 1.500l-3 3 3 3M8.500 1.500l-3 3 3 3'/%3E%3C/svg%3E");
+  }
+
+  .ImgRevArrowSmall {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 9' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.500 1.500l-3 3 3 3'/%3E%3C/svg%3E");
+  }
+
+  .ImgFwdArrowSmall {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 9' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.500 1.500l3 3-3 3'/%3E%3C/svg%3E");
+  }
+
+  .ImgFastFwdArrowSmall {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 9' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.500 1.500l3 3-3 3M5.500 1.500l3 3-3 3'/%3E%3C/svg%3E");
+  }
+
+  .ImgLeftArrow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 3.500 5.500 8l4.500 4.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgRightArrow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3.500 10.500 8 6 12.500'/%3E%3C/svg%3E");
+  }
+
+  .ImgUpArrowSmall {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 4' fill='none' stroke='black' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 3.300 3.500 1 6 3.300'/%3E%3C/svg%3E");
+  }
+
+  .ImgDownArrowSmall {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 4' fill='none' stroke='black' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 .7 3.500 3 6 .7'/%3E%3C/svg%3E");
+  }
+
+  /* Icônes qui portent un sens par leur couleur */
+  .ImgTaskViewCompleted {
+    background: var(--zm-success);
+  }
+
+  .ImgFlagRed {
+    background: var(--zm-danger);
+  }
+
+  .ImgFlagDis {
+    background: var(--zm-border-strong);
+  }
+
+  .ImgPriorityHigh_list {
+    background: var(--zm-danger);
+  }
+
+  .ImgAdd,
+  .ImgPlus {
+    background: var(--zm-success);
+  }
+
+  .ImgRemove,
+  .ImgMinus {
+    background: var(--zm-danger);
+  }
+
+  .ImgWarning {
+    background: var(--zm-warning);
+  }
+
+  .ImgSuccess {
+    background: var(--zm-success);
+  }
+
+  .ImgHelpPullDownArrow,
+  .ImgHelpPullDownArrowHover {
+    background: var(--zm-header-text);
+  }
+
+  .ImgLeftArrow {
+    background: var(--zm-accent);
+  }
+
+  .ImgRightArrow {
+    background: var(--zm-accent);
+  }
+
+  .ImgFolder {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234d6177' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23fff3c4' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: none;
+  }
+
+  /* L'onglet de l'application en cours a son icône en couleur de marque. */
+  .ZSelected .ZAppTabBorder .ZLeftIcon div {
+    background: var(--zm-accent);
+  }
+
+  /* Boutons de la page des filtres : « + » et « Appliquer » y sont des icônes passe-partout. */
+  .ZmFilterRulesView .ImgPlus {
+    background: var(--zm-icon);
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.500h7.500L6.800 8v4l-2.100.8V8z'/%3E%3Cpath d='M12 2.500v4M10 4.500h4'/%3E%3C/svg%3E");
+  }
+
+  .ZmFilterRulesView .ImgSwitchFormat {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.500h7.500L6.800 8v4l-2.100.8V8z'/%3E%3Cpath d='M10.500 3 13.500 5l-3 2z'/%3E%3C/svg%3E");
+  }
+
+  /* --- Images colorisées ---
+     Pour un calendrier, un dossier ou un tag de couleur, Zimbra fabrique une image
+     teintée, sans classe : rien n'indique ce qu'elle représente, et sa couleur n'existe
+     que dans ses pixels. On la floute pour n'en garder que la teinte, puis on la
+     découpe à la forme voulue.
+     Par défaut (menus de choix de couleur, boutons) : une pastille de couleur. La
+     couleur d'origine d'un objet donne une image sans identifiant, d'où les sélecteurs
+     par emplacement. */
+  img[id^="CANVAS_IMG"],
+  .ZmColorMenu .ZLeftIcon img,
+  td[id$="_colorSelect"] .ZLeftIcon img,
+  .ZSelect .ZLeftIcon img,
+  .ZSelectMenuItem .ZLeftIcon img {
+    filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.500' y='2.500' width='11' height='11' rx='3' fill='black' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* Dans un arbre : un dossier, sauf indication contraire ci-dessous. L'image est
+     poussée hors de son cadre et le dessin prend sa place. */
+  td.imageCell > img {
+    filter: none;
+    object-fit: none;
+    object-position: -99px -99px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234d6177' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23fff3c4' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: none;
+  }
+
+  /* Dossiers système du mail, reconnus à leur numéro, fixe dans Zimbra :
+     2 = Réception, 5 = Envoyé. */
+  td[id="zti__main_Mail__2_imageCell"].imageCell > img,
+  td[id="zti__main_Mail__5_imageCell"].imageCell > img,
+  td[id*="Contacts"].imageCell > img,
+  td[id*="Tasks"].imageCell > img {
+    background: var(--zm-icon);
+    mask: var(--zm-i) center / contain no-repeat;
+  }
+
+  td[id="zti__main_Mail__2_imageCell"].imageCell > img {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 9.500 4.300 3.500h7.400l1.800 6v3c0 .3-.2.5-.5.5H3c-.3 0-.5-.2-.5-.5zM2.500 9.500h3.300l.7 1.500h3l.7-1.500h3.300'/%3E%3C/svg%3E");
+  }
+
+  td[id="zti__main_Mail__5_imageCell"].imageCell > img {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13.500 2.500 2.500 7l4.200 1.800 1.800 4.700zM13.500 2.500 6.700 8.800'/%3E%3C/svg%3E");
+  }
+
+  td[id*="Contacts"].imageCell > img {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.500 2.500H12c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5H4.500c-.6 0-1-.4-1-1v-9c0-.6.4-1 1-1zM2.300 5.500h1.200M2.300 8h1.200M2.300 10.500h1.200M5.700 10.600c.3-1.200 1.200-1.800 2.300-1.800s2 .6 2.300 1.800'/%3E%3Ccircle cx='8' cy='6.500' r='1.500'/%3E%3C/svg%3E");
+  }
+
+  td[id*="Tasks"].imageCell > img {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.800 3H4.500c-.6 0-1 .4-1 1v8.500c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1h-1.300M6 2h4v2.200H6z'/%3E%3Cpath d='M5.800 7.500h4.400M5.800 10.300h4.400'/%3E%3C/svg%3E");
+  }
+
+  /* Calendriers : le dessin d'un calendrier, à la couleur de chacun. */
+  td[id*="Calendar"].imageCell > img {
+    filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
+    object-fit: fill;
+    object-position: 50% 50%;
+    background: none;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3' width='11' height='10.5' rx='1.5'/%3E%3Cpath fill='black' d='M2.500 4.500c0-.8.7-1.500 1.500-1.500h8c.8 0 1.500.7 1.500 1.500v2.300h-11z'/%3E%3Cpath d='M5.500 1.800v2.400M10.500 1.800v2.400'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* De même là où l'image ne peut être qu'un calendrier : le choix du calendrier d'un
+     rendez-vous, et le choix de la couleur dans « Créer un calendrier ». Ce dialogue se
+     reconnaît à sa case « Exclure… », son menu à ce qu'il le suit dans la page. */
+  .ZSelect .ZLeftIcon img,
+  .ZSelectMenuItem .ZLeftIcon img,
+  .DwtDialog:has([id$="_excludeFbCheckbox"]) td[id$="_colorSelect"] .ZLeftIcon img,
+  .DwtDialog:has([id$="_excludeFbCheckbox"]) + .ZmColorMenu .ZLeftIcon img {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3' width='11' height='10.5' rx='1.5'/%3E%3Cpath fill='black' d='M2.500 4.500c0-.8.7-1.500 1.500-1.500h8c.8 0 1.500.7 1.500 1.500v2.300h-11z'/%3E%3Cpath d='M5.500 1.800v2.400M10.500 1.800v2.400'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* Tags : même principe, avec le dessin d'un tag. Dans l'arbre des tags, dans le menu
+     « Tag » des barres d'outils, et dans « Créer un tag » (bouton de couleur et menu
+     qui suit le dialogue). */
+  .OverviewTree[id$="__TAG"] td.imageCell > img {
+    filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
+    object-fit: fill;
+    object-position: 50% 50%;
+    background: none;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-rule='evenodd' d='M2.500 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6zM5.600 3.900a1.700 1.700 0 1 0 0 3.400 1.700 1.700 0 0 0 0-3.400z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* Tag d'un message : dans la liste (colonne des tags), dans son en-tête, dans
+     l'infobulle qui détaille une pile de tags, et dans les menus contextuels, où une
+     image colorisée ne peut être qu'un tag. */
+  img[id$="__tg"],
+  img[id*="_tagCellTI"],
+  .DwtToolTipBody img[src^="data:"],
+  .ActionMenu .ZLeftIcon img,
+  [id*="__TAG_MENU"] .ZLeftIcon img,
+  td[id$="_tagColor"] .ZLeftIcon img,
+  .DwtDialog:has(td[id$="_tagColor"]) + .ZmColorMenu .ZLeftIcon img {
+    filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-rule='evenodd' d='M2.500 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6zM5.600 3.900a1.700 1.700 0 1 0 0 3.400 1.700 1.700 0 0 0 0-3.400z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}

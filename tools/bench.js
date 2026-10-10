@@ -77,10 +77,10 @@ function fit() {
   }
 
   // Préférences : les pages gardent la taille de l'écran d'origine.
-  const prefs = document.getElementById("DWT35_page");
+  const prefs = document.querySelector('.ZmPrefView > [id$="_page"]');
   if (prefs) {
     const { width, height } = prefs.parentElement.getBoundingClientRect();
-    const tabs = document.getElementById("DWT35_tabbar").offsetHeight;
+    const tabs = prefs.previousElementSibling?.offsetHeight || 0;
     for (const prefPage of prefs.querySelectorAll(":scope > .ZmPreferencesPage")) {
       Object.assign(prefPage.style, { width: `${width}px`, height: `${height - tabs}px` });
     }
@@ -177,7 +177,8 @@ function bar() {
 
 // ?view=prefs et ?show=1 ouvrent directement la vue Préférences et les menus.
 // ?unread=1 simule des mails non lus (Zimbra pose la classe Unread sur la ligne).
-addEventListener("load", () => {
+// Dès que le document est construit, sans attendre load (voir /bench-wait).
+document.addEventListener("DOMContentLoaded", () => {
   fit();
   bar();
   const params = new URLSearchParams(location.search);
@@ -187,6 +188,9 @@ addEventListener("load", () => {
     button?.classList.add("ZHover");
     button?.querySelector(".ImgSelectPullDownArrow")?.setAttribute("class", "ImgSelectPullDownArrowHover");
   }
+  // ?enable=<id>,<id> réactive des boutons désactivés ; ?over=<id>,<id> en simule le survol.
+  for (const id of (params.get("enable") || "").split(",").filter(Boolean)) document.getElementById(id)?.classList.remove("ZDisabled");
+  for (const id of (params.get("over") || "").split(",").filter(Boolean)) document.getElementById(id)?.classList.add("ZHover");
   // ?dialog=<id> amène à l'écran un dialogue qui attend hors champ ; &tab=N y affiche
   // le N-ième onglet (par exemple ?snap=modale-fichiers.html&dialog=DWT79&tab=2).
   if (params.has("dialog")) {
@@ -199,6 +203,37 @@ addEventListener("load", () => {
         dialog.querySelectorAll(".ZTabBar .ZButton").forEach((tab, i) => tab.classList.toggle("ZSelected", i === wanted));
       }
     }
+  }
+  // ?menu=<id>@x,y amène de même un menu à l'écran, à la position donnée (plusieurs
+  // menus séparés par « ; »).
+  for (const spec of (params.get("menu") || "").split(";").filter(Boolean)) {
+    const [id, at = "400,200"] = spec.split("@");
+    const [x, y] = at.split(",");
+    const menu = document.getElementById(id);
+    if (menu) Object.assign(menu.style, { left: `${x}px`, top: `${y}px`, zIndex: "950", width: "auto", height: "auto" });
+  }
+  // ?tip=x,y amène l'infobulle à l'écran.
+  if (params.has("tip")) {
+    const [x, y] = params.get("tip").split(",");
+    const tip = document.querySelector(".DwtToolTip");
+    if (tip) Object.assign(tip.style, { left: `${x}px`, top: `${y}px`, zIndex: "950" });
+  }
+  // ?icons=1 affiche une planche de toutes les icônes redessinées, avec leur classe.
+  if (params.has("icons")) {
+    // Lues dans la feuille déjà chargée, pour un affichage immédiat.
+    const sheetCss = [...document.styleSheets].find((sh) => sh.href && sh.href.endsWith("/icons.css"));
+    const names = new Set();
+    const walk = (rules) => {
+      for (const rule of rules) {
+        for (const name of (rule.selectorText || "").match(/\.Img[A-Za-z0-9_]+/g) || []) names.add(name.slice(1));
+        if (rule.cssRules) walk(rule.cssRules);
+      }
+    };
+    if (sheetCss) walk(sheetCss.cssRules);
+    const sheet = document.createElement("div");
+    sheet.id = "bench-icons";
+    sheet.innerHTML = [...names].sort().map((n) => `<span><div class="${n}"></div>${n.slice(3)}</span>`).join("");
+    document.body.append(sheet);
   }
   // ?body=1 remplit la zone de rédaction d'un texte d'essai.
   if (params.has("body")) {
@@ -221,10 +256,23 @@ addEventListener("load", () => {
     document.querySelector(".DwtListView-Rows .ImgCheckboxUnchecked")?.setAttribute("class", "ImgCheckboxChecked");
   }
   if (params.get("view") === "prefs") document.getElementById("bench-view")?.click();
-  // ?page=N affiche la N-ième page de préférences déjà construite dans le snapshot.
+  // ?page=N affiche la N-ième page de préférences déjà construite dans le snapshot ;
+  // ?page=<id> en affiche une par son identifiant. &show=<id>,<id> force l'affichage
+  // de blocs masqués dans la page (sections d'un compte externe, par exemple).
   if (params.has("page")) {
-    const pages = [...document.querySelectorAll("#DWT35_page > .ZmPreferencesPage")].filter((p) => p.textContent.trim());
-    pages.forEach((p, i) => (p.style.display = i === Number(params.get("page")) ? "block" : "none"));
+    const wanted = params.get("page");
+    const all = [...document.querySelectorAll('.ZmPrefView > [id$="_page"] > .ZmPreferencesPage')];
+    const pages = /^\d+$/.test(wanted) ? all.filter((p) => p.textContent.trim()) : all;
+    pages.forEach((p, i) => (p.style.display = (/^\d+$/.test(wanted) ? i === Number(wanted) : p.id === wanted) ? "block" : "none"));
+    all.filter((p) => !pages.includes(p)).forEach((p) => (p.style.display = "none"));
+  }
+  for (const id of (params.get("reveal") || "").split(",").filter(Boolean)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.style.display = el.getAttribute("x-display") || (el.tagName === "TR" ? "table-row" : "block");
+    // Zimbra note dans x-display l'affichage d'un élément qu'il a masqué : on le rend
+    // à tout ce que contient le bloc révélé (paramètres avancés de l'export…).
+    for (const hidden of el.querySelectorAll("[x-display]")) hidden.style.display = hidden.getAttribute("x-display");
   }
   if (params.has("show")) document.getElementById("bench-showcase").click();
 });

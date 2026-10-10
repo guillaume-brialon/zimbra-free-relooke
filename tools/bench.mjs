@@ -42,7 +42,11 @@ async function page(themed, snapshot) {
   const links = themed
     ? manifest.content_scripts[0].css.map((f) => `<link rel="stylesheet" href="/ext/${f}">`).join("\n")
     : "";
-  return html.replace("</head>", `${links}\n<link rel="stylesheet" href="/bench.css">\n<script src="/bench.js" defer></script>\n</head>`);
+  // L'image « /bench-wait » répond avec retard : elle repousse l'événement load, donc la
+  // capture d'un Firefox sans fenêtre (--screenshot), le temps que tout soit peint.
+  return html
+    .replace("</head>", `${links}\n<link rel="stylesheet" href="/bench.css">\n<script src="/bench.js" defer></script>\n</head>`)
+    .concat('<img src="/bench-wait" alt="" style="display:none">');
 }
 
 async function file(base, rel) {
@@ -63,6 +67,9 @@ createServer(async (req, res) => {
       if (!/^[\w .-]+\.html$/.test(snap)) throw new Error("snapshot invalide");
       body = await page(url.searchParams.get("theme") !== "off", snap);
       type = TYPES[".html"];
+    } else if (path === "/bench-wait") {
+      setTimeout(() => res.writeHead(204).end(), 1500);
+      return;
     } else if (path === "/site.css" || path === "/Zimlets-nodev_all.css") {
       body = await file(ROOT, path.slice(1));
     } else if (path === "/bench.js" || path === "/bench.css") {

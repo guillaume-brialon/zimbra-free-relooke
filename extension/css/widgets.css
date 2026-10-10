@@ -103,6 +103,26 @@
     height: 100%;
   }
 
+  /* Son chevron portait des marges inégales, qui le décentraient. */
+  .DwtComboBox .ZDropDown {
+    text-align: center;
+  }
+
+  .DwtComboBox .ZDropDown div {
+    margin: 0 auto;
+  }
+
+  /* Pastilles de couleur (mise en forme, choix d'une couleur) : contour discret */
+  .DwtButtonColorPicker-display,
+  .DwtColorPicker .Color,
+  .DwtColorPicker .First .Color,
+  .DwtColorPickerButton .Color,
+  .DwtColorPickerLabel .Color,
+  .TpdDialogTable .BorderColorSwatch {
+    border: 1px solid var(--zm-border-strong) !important;
+    border-radius: 3px;
+  }
+
   /* --- Boutons de barre d'outils --- */
   .ZToolbarButton {
     height: var(--zm-toolbar-control-h);
@@ -187,6 +207,19 @@
     display: none;
   }
 
+  /* Le bouton qui suit le bouton principal (« Annuler », « Actualiser ») ne s'y accole
+     pas. */
+  td:has(> :is([id$="__NEW_MENU"], [id$="__SEND"], .ZToolbar [id$="__SAVE"])) + td > .ZToolbarButton {
+    margin-left: 8px;
+  }
+
+  /* Bouton à icône et libellé : un peu plus d'espace après le libellé, l'icône portant
+     déjà sa marge dans son carré. Sans effet sur un bouton à menu, que son chevron
+     termine. :where() garde la règle sous celle des boutons principaux. */
+  .ZToolbarButton:where(.ZHasLeftIcon.ZHasText:not(.ZHasDropDown)) .ZToolbarButtonTable .ZWidgetTitle {
+    padding-right: 9px;
+  }
+
   /* Chevron redessiné : l'image de Zimbra est sombre, et sa variante de survol porte
      un trait horizontal. */
   [id$="__NEW_MENU"] .ZDropDown div {
@@ -199,6 +232,9 @@
      haut que ses voisins de ligne. */
   .ZSelectAutoSizingContainer {
     height: var(--zm-control-h);
+    /* Zimbra fixe la largeur en pixels entiers et rogne ce qui dépasse : une fraction de
+       pixel de trop suffisait à faire disparaître le bord droit. */
+    min-width: fit-content;
   }
 
   .ZSelect {
@@ -656,6 +692,13 @@
     background-color: var(--zm-hover);
   }
 
+  /* Icône d'un dossier, remontée d'un pixel pour s'aligner sur son nom */
+  td.imageCell > img,
+  td.imageCell > div {
+    position: relative;
+    top: -1px;
+  }
+
   /* Les noms trop longs sont coupés par « … » au lieu d'élargir l'arbre : une cellule
      de largeur maximale nulle ne pèse plus dans le calcul de la largeur du tableau. */
   .DwtTreeItem-Text {
@@ -750,6 +793,8 @@
   }
 
   .ZTreeItemCheckbox {
+    position: relative;
+    top: -1px;
     border: 1px solid var(--zm-border-strong);
     border-radius: 3px;
   }
@@ -814,6 +859,26 @@
     font-size: var(--zm-font-size);
   }
 
+  /* Boutons de pied de dialogue : 8 px entre eux au lieu de 5, sans déplacer le
+     premier ni le dernier. */
+  .DwtDialogButtonBar table table > tbody > tr > td + td > .ZButton {
+    margin-left: 3px;
+  }
+
+  /* Création d'un dossier, d'un calendrier, d'un carnet… (reconnue à son choix de
+     couleur) : des lignes plus espacées, et les cases à cocher sous les libellés. */
+  .DwtDialogBody > table:has(td[id$="_colorSelect"]) {
+    border-spacing: 5px 8px;
+  }
+
+  .DwtDialogBody > table:has(td[id$="_colorSelect"]) > tbody > tr > td[colspan] > table {
+    border-spacing: 0;
+  }
+
+  .DwtDialogBody > table:has(td[id$="_colorSelect"]) > tbody > tr > td[colspan] > table td {
+    padding: 2px 6px 2px 0;
+  }
+
   .VeilOverlay table {
     background-color: #000;
     opacity: .4;
@@ -851,6 +916,11 @@
     font-size: var(--zm-font-size-sm);
   }
 
+  /* Liste de tags dans une infobulle : l'icône écartée du nom */
+  .DwtToolTipBody td:has(> img) {
+    padding-right: 4px;
+  }
+
   /* La flèche, empilement de blocs d'un pixel, est affichée par un style en ligne. */
   .DwtToolTipTopPointer,
   .DwtToolTipBottomPointer {
@@ -866,7 +936,20 @@
     opacity: 1;
   }
 
+  /* Icône et texte sur une même ligne, centrés l'un sur l'autre */
+  .ZToastContent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ZToastIcon {
+    float: none;
+  }
+
   .ZToastText {
+    margin-top: 0;
+    padding-left: 0;
     color: var(--zm-header-text);
     font-size: var(--zm-font-size);
     font-weight: 500;

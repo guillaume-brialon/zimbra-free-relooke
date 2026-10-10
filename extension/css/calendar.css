@@ -220,6 +220,17 @@
     font-weight: 600;
   }
 
+  /* Zone de notes : Zimbra la fait plus étroite que son cadre, ce qui laissait plus de
+     marge à droite qu'à gauche. */
+  .ZmApptEditView .ZmHtmlEditor :is(.DwtHtmlEditorTextArea, .DwtHtmlEditorIFrame) {
+    width: 100% !important;
+  }
+
+  /* « Rappel : » : son champ est abaissé de 5 px par une marge, le libellé le suit. */
+  td[id$="_reminder_options"] {
+    padding-top: 6px;
+  }
+
   .ZmApptTabViewPageField {
     color: var(--zm-text-muted);
   }
