@@ -1,9 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Zimbra Free, en plus moderne",
-  "short_name": "Zimbra moderne",
-  "version": "0.1.0",
-  "description": "Rafraîchit l'apparence du webmail Zimbra de Free (zimbra.free.fr) : couleurs, typographie, espacements.",
+  "name": "Relooking pour le Zimbra de Free",
+  "short_name": "Relooking Zimbra",
+  "version": "1.0.0",
+  "author": "Guillaume Brialon",
+  "homepage_url": "https://brialon.com",
+  "description": "Modernise l'apparence du webmail Zimbra de Free (zimbra.free.fr, thème Simple) : couleurs, typographie, icônes, espacements. Extension non officielle, sans lien avec Free ni Zimbra.",
   "icons": {
     "48": "icons/icon.svg",
     "96": "icons/icon.svg"
@@ -40,13 +42,13 @@
     }
   ],
   "action": {
-    "default_title": "Zimbra moderne",
+    "default_title": "Relooking pour le Zimbra de Free",
     "default_icon": "icons/icon.svg",
     "default_popup": "popup/popup.html"
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "zimbra-moderne@brialon.com",
+      "id": "zimbra-free-relooke@brialon.com",
       "strict_min_version": "128.0",
       "data_collection_permissions": {
         "required": ["none"]

@@ -212,6 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.getElementById(id);
     if (menu) Object.assign(menu.style, { left: `${x}px`, top: `${y}px`, zIndex: "950", width: "auto", height: "auto" });
   }
+  // ?cls=<id>:<classes>,<id>:<classes> remplace les classes d'éléments, pour montrer un
+  // état que Zimbra pose lui-même (champ en erreur : DWT511:DwtInputField-error).
+  for (const spec of (params.get("cls") || "").split(",").filter(Boolean)) {
+    const [id, classes] = spec.split(":");
+    const el = document.getElementById(id);
+    if (el) el.className = classes;
+  }
   // ?tip=x,y amène l'infobulle à l'écran.
   if (params.has("tip")) {
     const [x, y] = params.get("tip").split(",");

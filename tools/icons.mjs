@@ -86,6 +86,7 @@ const ICONS = [
   { classes: ["ImgDeleteTag"], svg: `<g transform='translate(-.5 -.5) scale(.8)' stroke-width='1.600'>${TAG}</g><path d='M11 11l3.500 3.500M14.500 11 11 14.500'/>` },
   { classes: ["ImgOpenInNewWindow"], svg: "<path d='M9 2.500h4.500V7M13.500 2.500 7.500 8.500M11.500 9.500v3c0 .6-.4 1-1 1h-7c-.6 0-1-.4-1-1v-7c0-.6.4-1 1-1h3'/>" },
   { classes: ["ImgEdit", "ImgCompose", "ImgMsgStatusDraft"], svg: "<path d='M10.600 2.800l2.600 2.600-7.400 7.400-3.200.6.6-3.200zM9 4.400 11.600 7'/>" },
+  { classes: ["ImgRename", "ImgFileRename"], svg: "<path d='M8.300 5H2.700c-.7 0-1.200.5-1.200 1.200v3.600c0 .7.5 1.200 1.200 1.200h5.600M12.700 5h.6c.7 0 1.200.5 1.200 1.200v3.600c0 .7-.5 1.200-1.200 1.200h-.6M10.500 2.500v11M9 2.500h3M9 13.500h3M4 8h2.300'/>" },
   { classes: ["ImgSave"], svg: "<path d='M3.100 2.500h7.600l2.800 2.800v7.600c0 .3-.3.600-.6.600H3.100c-.3 0-.6-.3-.6-.6V3.100c0-.3.3-.6.6-.6zM5 2.500V6h5V2.500M5 13.500v-4h6v4'/>" },
   // Mise en forme (éditeur HTML). Gras, italique, souligné gardent leurs initiales
   // françaises, comme dans les images d'origine.
@@ -152,7 +153,13 @@ const ICONS = [
   { classes: ["ImgBubbleDelete"], box: "0 0 12 12", svg: "<path d='M3.500 3.500l5 5M8.500 3.500l-5 5'/>" },
   { classes: ["ImgAdd", "ImgPlus"], width: 1.6, svg: "<path d='M8 3.500v9M3.500 8h9'/>", color: "var(--zm-success)" },
   { classes: ["ImgRemove", "ImgMinus"], width: 1.6, svg: "<path d='M3.500 8h9'/>", color: "var(--zm-danger)" },
-  { classes: ["ImgWarning"], svg: "<path d='M8 2.600 14 13H2zM8 6.600v3'/><circle cx='8' cy='11.300' r='.3'/>", color: "var(--zm-warning)" },
+  { classes: ["ImgWarning", "ImgWarning_12"], svg: "<path d='M8 2.600 14 13H2zM8 6.600v3'/><circle cx='8' cy='11.300' r='.3'/>", color: "var(--zm-warning)" },
+  { classes: ["ImgCritical", "ImgCritical_12"], svg: "<circle cx='8' cy='8' r='5.600'/><path d='M5.900 5.900l4.200 4.200M10.100 5.900l-4.200 4.200'/>", color: "var(--zm-danger)" },
+  { classes: ["ImgInformation", "ImgInformation_xtra_small"], svg: "<circle cx='8' cy='8' r='5.600'/><path d='M8 7.400v3.400M8 5.200h.01'/>", color: "var(--zm-accent)" },
+  // Les mêmes en 32 px, pour les dialogues d'alerte : trait affiné, qui double à cette taille.
+  { classes: ["ImgWarning_32"], width: 1, svg: "<path d='M8 2.600 14 13H2zM8 6.600v3M8 11.300h.01'/>", color: "var(--zm-warning)" },
+  { classes: ["ImgCritical_32"], width: 1, svg: "<circle cx='8' cy='8' r='5.800'/><path d='M5.900 5.900l4.200 4.200M10.100 5.900l-4.200 4.200'/>", color: "var(--zm-danger)" },
+  { classes: ["ImgInformation_32"], width: 1, svg: "<circle cx='8' cy='8' r='5.800'/><path d='M8 7.400v3.400M8 5.200h.01'/>", color: "var(--zm-accent)" },
   { classes: ["ImgSuccess"], svg: "<circle cx='8' cy='8' r='5.600'/><path d='M5.400 8.200l1.800 1.800 3.400-3.600'/>", color: "var(--zm-success)" },
 
   // Chevrons et flèches
@@ -306,8 +313,9 @@ ${colors}
   }
 
   /* Tags : même principe, avec le dessin d'un tag. Dans l'arbre des tags, dans le menu
-     « Tag » des barres d'outils, et dans « Créer un tag » (bouton de couleur et menu
-     qui suit le dialogue). */
+     « Tag » des barres d'outils, dans « Créer un tag » (bouton de couleur et menu qui
+     suit le dialogue), et dans « Couleur du tag » du menu contextuel d'un tag (menu
+     de couleurs qui suit ce menu, reconnu à l'icône de son entrée). */
   .OverviewTree[id$="__TAG"] td.imageCell > img {
     filter: ${TINT};
     object-fit: fill;
@@ -325,7 +333,8 @@ ${colors}
   .ActionMenu .ZLeftIcon img,
   [id*="__TAG_MENU"] .ZLeftIcon img,
   td[id$="_tagColor"] .ZLeftIcon img,
-  .DwtDialog:has(td[id$="_tagColor"]) + .ZmColorMenu .ZLeftIcon img {
+  .DwtDialog:has(td[id$="_tagColor"]) + .ZmColorMenu .ZLeftIcon img,
+  .ActionMenu:has(.ImgTagStack) + .ZmColorMenu .ZLeftIcon img {
     filter: ${TINT};
     mask: ${TAG_MASK};
   }

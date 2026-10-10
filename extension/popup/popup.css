@@ -37,3 +37,12 @@ p {
   color: #4d6177;
   font-size: 12px;
 }
+
+#skin-notice {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  background: #fdf3e0;
+  border-left: 3px solid #b7791f;
+  border-radius: 4px;
+  color: #102539;
+}

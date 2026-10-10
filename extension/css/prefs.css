@@ -128,6 +128,30 @@
     border-radius: 3px;
   }
 
+  /* --- Choix du thème de Zimbra ---
+     Sous l'extension, il n'a plus d'effet visible, et tout autre thème que Simple
+     la suspend (content.js) : la ligne est retirée. Elle n'a pas d'identifiant ; on la
+     reconnaît à sa place, deux lignes après « Connexion avec », et à sa liste
+     déroulante. Extension suspendue, elle réapparaît, pour pouvoir revenir. */
+  tr:has(input[type="radio"][value="standard"]) + tr + tr:has(> .ZOptionsField > .ZSelectAutoSizingContainer) {
+    display: none;
+  }
+
+  /* --- Langue ---
+     Un drapeau désigne un pays, pas une langue : le nom de la langue, écrit dans cette
+     langue, suffit. Les drapeaux du bouton et de son menu sont retirés, avec leur case.
+     (ImgFlagRed et ImgFlagDis sont les drapeaux de suivi des mails, sans rapport.) */
+  .ZLeftIcon:has(> [class^="ImgFlag"]:not(.ImgFlagRed, .ImgFlagDis)) {
+    display: none;
+  }
+
+  /* --- Mot de passe ---
+     Free n'autorise pas son changement depuis le webmail : Zimbra ne crée pas le
+     bouton et laisse un libellé seul. La ligne est masquée tant que sa case est vide. */
+  tr[id$="_PASSWORD_LABEL"]:has(> .ZOptionsField > div:empty) {
+    display: none;
+  }
+
   /* --- Pages à onglets (filtres entrants et sortants…) --- */
   .ZOptionsSectionTabView .ZmPreferencesPage {
     border-color: var(--zm-border);

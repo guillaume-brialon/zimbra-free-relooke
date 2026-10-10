@@ -42,6 +42,12 @@
     border-left-color: var(--zm-header-line);
   }
 
+  /* Logo de Zimbra : rouge sombre et gris, fait pour un fond clair, donc peu lisible
+     sur le bandeau. Le filtre le ramène à sa silhouette, en blanc. */
+  #skin_container_logo .ImgAppBanner {
+    filter: brightness(0) invert(1);
+  }
+
   #skin_container_username {
     padding: 0 0 3px;
   }
@@ -87,6 +93,16 @@
 
   #skin_container_links a:hover {
     color: #fff;
+  }
+
+  /* Flèche du menu « Aide » : sa couleur dépend du thème de Zimbra. */
+  .DwtLinkButtonDropDownArrowRow {
+    background-color: var(--zm-header-text);
+  }
+
+  .DwtLinkButtonTable:hover .DwtLinkButtonDropDownArrowTd,
+  .ZHover .DwtLinkButtonDropDownArrowTd {
+    border-left-color: var(--zm-header-text);
   }
 
   /* Recherche de personnes : teintée au repos, blanche dès qu'on y écrit */
@@ -144,8 +160,10 @@
     height: var(--zm-tabs-h);
   }
 
+  /* « border: 0 » : certains thèmes de Zimbra encadrent les onglets. */
   .ZAppTabBorder {
     background: none;
+    border: 0;
     border-radius: var(--zm-radius);
     color: var(--zm-text-muted);
   }

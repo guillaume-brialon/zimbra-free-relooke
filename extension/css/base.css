@@ -103,13 +103,16 @@ html:where(:not([data-zm-off])) :is(p, th, td, div, select, input, textarea, but
     border-radius: var(--zm-radius);
   }
 
-  /* Champs de saisie */
+  /* Champs de saisie. La police est redite ici : Zimbra la fixe pour « INPUT[type=text] »,
+     sélecteur plus fort que la règle de base en tête de fichier, et les champs
+     restaient en Helvetica. */
   input[type="text"],
   input[type="password"],
   input[type="file"],
   input:not([type]),
   textarea,
   select {
+    font-family: var(--zm-font);
     font-size: var(--zm-font-size);
   }
 
@@ -183,8 +186,10 @@ html:where(:not([data-zm-off])) :is(p, th, td, div, select, input, textarea, but
   .DwtInputField-errorhint textarea,
   .DwtSimpleInput-error,
   .ZError .ZFieldInput {
-    background-color: var(--zm-danger-soft);
-    border-color: var(--zm-danger);
+    /* Zimbra marque ainsi un champ obligatoire resté vide, dès l'ouverture d'un
+       formulaire : un contour appuyé suffit, le rouge annoncerait une faute. */
+    background-color: var(--zm-surface);
+    border-color: var(--zm-text);
   }
 
   .ZRequired .ZFieldInput {

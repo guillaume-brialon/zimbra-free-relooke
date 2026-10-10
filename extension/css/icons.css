@@ -66,6 +66,8 @@
   .ImgEdit,
   .ImgCompose,
   .ImgMsgStatusDraft,
+  .ImgRename,
+  .ImgFileRename,
   .ImgSave,
   .ImgBold,
   .ImgItalics,
@@ -135,6 +137,14 @@
   .ImgRemove,
   .ImgMinus,
   .ImgWarning,
+  .ImgWarning_12,
+  .ImgCritical,
+  .ImgCritical_12,
+  .ImgInformation,
+  .ImgInformation_xtra_small,
+  .ImgWarning_32,
+  .ImgCritical_32,
+  .ImgInformation_32,
   .ImgSuccess,
   .ImgNodeExpanded,
   .ImgNodeCollapsed,
@@ -355,6 +365,11 @@
   .ImgCompose,
   .ImgMsgStatusDraft {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.600 2.800l2.600 2.600-7.400 7.400-3.200.6.6-3.200zM9 4.400 11.600 7'/%3E%3C/svg%3E");
+  }
+
+  .ImgRename,
+  .ImgFileRename {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.300 5H2.700c-.7 0-1.200.5-1.200 1.200v3.600c0 .7.5 1.200 1.200 1.200h5.600M12.700 5h.6c.7 0 1.200.5 1.200 1.200v3.600c0 .7-.5 1.200-1.200 1.200h-.6M10.500 2.500v11M9 2.500h3M9 13.500h3M4 8h2.300'/%3E%3C/svg%3E");
   }
 
   .ImgSave {
@@ -590,8 +605,31 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.500 8h9'/%3E%3C/svg%3E");
   }
 
-  .ImgWarning {
+  .ImgWarning,
+  .ImgWarning_12 {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.600 14 13H2zM8 6.600v3'/%3E%3Ccircle cx='8' cy='11.300' r='.3'/%3E%3C/svg%3E");
+  }
+
+  .ImgCritical,
+  .ImgCritical_12 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M5.900 5.900l4.200 4.200M10.100 5.900l-4.200 4.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgInformation,
+  .ImgInformation_xtra_small {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M8 7.400v3.400M8 5.200h.01'/%3E%3C/svg%3E");
+  }
+
+  .ImgWarning_32 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.600 14 13H2zM8 6.600v3M8 11.300h.01'/%3E%3C/svg%3E");
+  }
+
+  .ImgCritical_32 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.800'/%3E%3Cpath d='M5.900 5.900l4.200 4.200M10.100 5.900l-4.200 4.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgInformation_32 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.800'/%3E%3Cpath d='M8 7.400v3.400M8 5.200h.01'/%3E%3C/svg%3E");
   }
 
   .ImgSuccess {
@@ -696,8 +734,31 @@
     background: var(--zm-danger);
   }
 
-  .ImgWarning {
+  .ImgWarning,
+  .ImgWarning_12 {
     background: var(--zm-warning);
+  }
+
+  .ImgCritical,
+  .ImgCritical_12 {
+    background: var(--zm-danger);
+  }
+
+  .ImgInformation,
+  .ImgInformation_xtra_small {
+    background: var(--zm-accent);
+  }
+
+  .ImgWarning_32 {
+    background: var(--zm-warning);
+  }
+
+  .ImgCritical_32 {
+    background: var(--zm-danger);
+  }
+
+  .ImgInformation_32 {
+    background: var(--zm-accent);
   }
 
   .ImgSuccess {
@@ -810,8 +871,9 @@
   }
 
   /* Tags : même principe, avec le dessin d'un tag. Dans l'arbre des tags, dans le menu
-     « Tag » des barres d'outils, et dans « Créer un tag » (bouton de couleur et menu
-     qui suit le dialogue). */
+     « Tag » des barres d'outils, dans « Créer un tag » (bouton de couleur et menu qui
+     suit le dialogue), et dans « Couleur du tag » du menu contextuel d'un tag (menu
+     de couleurs qui suit ce menu, reconnu à l'icône de son entrée). */
   .OverviewTree[id$="__TAG"] td.imageCell > img {
     filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
     object-fit: fill;
@@ -829,7 +891,8 @@
   .ActionMenu .ZLeftIcon img,
   [id*="__TAG_MENU"] .ZLeftIcon img,
   td[id$="_tagColor"] .ZLeftIcon img,
-  .DwtDialog:has(td[id$="_tagColor"]) + .ZmColorMenu .ZLeftIcon img {
+  .DwtDialog:has(td[id$="_tagColor"]) + .ZmColorMenu .ZLeftIcon img,
+  .ActionMenu:has(.ImgTagStack) + .ZmColorMenu .ZLeftIcon img {
     filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-rule='evenodd' d='M2.500 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6zM5.600 3.900a1.700 1.700 0 1 0 0 3.400 1.700 1.700 0 0 0 0-3.400z'/%3E%3C/svg%3E") center / contain no-repeat;
   }

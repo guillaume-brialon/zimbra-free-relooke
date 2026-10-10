@@ -84,7 +84,7 @@
   .ZmContactInfoView .contactHeaderSection {
     margin-top: 12px;
     padding: 6px 16px;
-    background: none;
+    background: none !important;
     border-bottom: 1px solid var(--zm-border-soft);
     color: var(--zm-text);
     font-size: var(--zm-font-size);

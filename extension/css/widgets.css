@@ -521,6 +521,7 @@
   .DwtListView-Column,
   .DwtListView-ColumnHover,
   .DwtListView-ColumnActive {
+    padding-top: 0;
     padding-left: 3px;
     background-color: var(--zm-surface);
     border-bottom: 1px solid var(--zm-border);
@@ -916,6 +917,32 @@
     font-size: var(--zm-font-size-sm);
   }
 
+  /* --- Couleurs que Zimbra impose (« !important ») ---
+     Elles changent d'un thème de Zimbra à l'autre : on les fixe avec la même force,
+     pour un rendu identique quel que soit le thème. */
+  .ZmSelectedHeaderBg,
+  .SuggestBtn,
+  .DwtToolbarButton-selected,
+  .ZmContactCard-selected .contactHeader,
+  .ZmContactCard-dnd .contactHeader,
+  .ZmContactCard-selected-dnd .contactHeader {
+    background-color: var(--zm-accent-soft) !important;
+  }
+
+  .ZmPeopleSearch-toolbar {
+    background-color: var(--zm-surface-alt) !important;
+    border-color: var(--zm-border) !important;
+  }
+
+  .ZmPeopleSearch-noresults {
+    border: 1px solid var(--zm-border) !important;
+  }
+
+  /* Texte que Zimbra cache en lui donnant la couleur de la ligne sélectionnée */
+  .ZmAutocompleteListView .LinkText-hide-selected {
+    color: var(--zm-accent-soft) !important;
+  }
+
   /* Liste de tags dans une infobulle : l'icône écartée du nom */
   .DwtToolTipBody td:has(> img) {
     padding-right: 4px;
@@ -970,6 +997,7 @@
 
   .DwtCalendarTitlebar {
     height: 30px;
+    padding-top: 0;
     background: none;
   }
 

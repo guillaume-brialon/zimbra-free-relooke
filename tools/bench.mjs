@@ -4,6 +4,8 @@
 //   node tools/bench.mjs            puis http://localhost:8765/
 //   http://localhost:8765/?theme=off   rendu d'origine, pour comparer
 //   http://localhost:8765/?view=prefs  vue Préférences ; ?show=1 déplie menus et dialogues
+//   http://localhost:8765/?skin=simple  feuille de style du thème « Simple » de Zimbra
+//                                       (site-simple.css) au lieu de site.css
 //
 // Limites : les images du webmail (icônes) exigent une session Free et ne s'affichent
 // pas ici ; la mise en page calculée par le JavaScript de Zimbra est figée, bench.js
@@ -26,7 +28,7 @@ const TYPES = {
   ".json": "application/json; charset=utf-8",
 };
 
-async function page(themed, snapshot) {
+async function page(themed, snapshot, skinCss) {
   let html = await readFile(join(ROOT, snapshot), "utf8");
   const manifest = JSON.parse(await readFile(join(EXT, "manifest.json"), "utf8"));
 
@@ -34,7 +36,7 @@ async function page(themed, snapshot) {
     // Le snapshot est un DOM déjà construit : ses scripts ne doivent pas se rejouer.
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
     .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, "")
-    .replace(/href="\/zimbra\/css\/[^"]*"/, 'href="/site.css"')
+    .replace(/href="\/zimbra\/css\/[^"]*"/, `href="/${skinCss}"`)
     .replace(/href="\/service\/zimlet\/res\/Zimlets-nodev_all\.css[^"]*"/, 'href="/Zimlets-nodev_all.css"')
     // Les encarts restent dans la page (pour tester leur masquage) mais ne chargent rien.
     .replace(/(<iframe\b[^>]*?)\ssrc="https:\/\/passback\.free\.fr[^"]*"/g, '$1 src="about:blank#passback.free.fr"');
@@ -65,12 +67,13 @@ createServer(async (req, res) => {
       // ?snap=1-mail.html choisit un autre snapshot du dossier (site.html par défaut).
       const snap = url.searchParams.get("snap") || "site.html";
       if (!/^[\w .-]+\.html$/.test(snap)) throw new Error("snapshot invalide");
-      body = await page(url.searchParams.get("theme") !== "off", snap);
+      const skinCss = url.searchParams.get("skin") === "simple" ? "site-simple.css" : "site.css";
+      body = await page(url.searchParams.get("theme") !== "off", snap, skinCss);
       type = TYPES[".html"];
     } else if (path === "/bench-wait") {
       setTimeout(() => res.writeHead(204).end(), 1500);
       return;
-    } else if (path === "/site.css" || path === "/Zimlets-nodev_all.css") {
+    } else if (path === "/site.css" || path === "/site-simple.css" || path === "/Zimlets-nodev_all.css") {
       body = await file(ROOT, path.slice(1));
     } else if (path === "/bench.js" || path === "/bench.css") {
       body = await file(join(ROOT, "tools"), path.slice(1));

@@ -98,6 +98,16 @@
     color: var(--zm-text);
   }
 
+  /* Fiche d'une tâche (même vue, sans pastilles) : les valeurs sont du texte nu, que la
+     marge haute des libellés laissait 4 px au-dessus. Libellé et valeur partagent ici
+     la même ligne de base. */
+  .ZmTaskMultiView .ZmMailMsgView .LabelColName,
+  .ZmTaskMultiView .ZmMailMsgView .LabelColName + td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    vertical-align: baseline;
+  }
+
   /* Ligne des tags : même hauteur que les autres, libellé centré sur l'icône et le nom
      du tag, celui-ci écarté de son icône. */
   .ZmMailMsgView tr[id$="_tagRow"] > td {
@@ -226,7 +236,23 @@
   .ZmComposeView {
     display: flex;
     flex-direction: column;
-    background-color: var(--zm-surface);
+  }
+
+  /* Fond blanc, quel que soit le thème de Zimbra : certains y posent une teinte ou une
+     image, sur la vue ou sur ses blocs. D'où la forme abrégée « background », qui
+     efface aussi l'image, et « !important » sur la vue. */
+  .ZmComposeView,
+  .ZmApptComposeView {
+    background: var(--zm-surface) !important;
+  }
+
+  .ZmComposeView > table,
+  .ZmComposeView > table :is(tbody, tr, td),
+  .ZmComposeView > .ZmHtmlEditor,
+  .ZmApptComposeView .ZmApptEditView,
+  .ZmApptEditView .ZmHtmlEditor,
+  .ZmHtmlEditor > .ZToolbar {
+    background: none;
   }
 
   .ZmComposeView > table {
