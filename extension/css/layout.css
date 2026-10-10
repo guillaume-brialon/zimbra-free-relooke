@@ -123,6 +123,11 @@
     background-color: var(--zm-surface);
   }
 
+  /* La loupe, à distance du bord droit */
+  .ZmPeopleSearchToolbarTable td:last-child {
+    padding-right: 8px;
+  }
+
   input[type="text"].people_search_input,
   input[type="text"].people_search_input:focus {
     padding: 0 8px;

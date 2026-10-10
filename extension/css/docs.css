@@ -1,0 +1,67 @@
+/* Éditeur de document du porte-documents (« Nouveau document »), ouvert par Zimbra dans
+   une fenêtre séparée. La page n'a ni bandeau ni volets : une barre de titre, une barre
+   de mise en forme, la zone de saisie (un cadre, hors de portée de cette feuille) et un
+   pied d'informations. */
+:root:not(#zm, [data-zm-off]) {
+  .editorBody,
+  .ZmDocsEditView {
+    background: var(--zm-bg);
+  }
+
+  /* Barre du haut : nom du document, « Enregistrer », « Enregistrer et fermer » */
+  .ZDToolBar {
+    padding: 6px 8px;
+    background: var(--zm-surface);
+    border: 0;
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .ZDToolBar .ZWidgetTitle,
+  .ZDToolBar td {
+    color: var(--zm-text);
+  }
+
+  .ZDToolBar .DwtInputField input {
+    margin-right: 8px;
+  }
+
+  /* Zone d'édition : sans le cadre gris qui l'entourait */
+  .ZDEditDiv {
+    margin: 0;
+    padding: 0;
+    background: var(--zm-surface);
+    border: 0;
+  }
+
+  /* Barre de mise en forme */
+  .ZDEditToolBar {
+    padding: 3px 8px;
+    background: var(--zm-surface-alt);
+    border: 0;
+    border-bottom: 1px solid var(--zm-border);
+  }
+
+  .ZDEditor {
+    background: var(--zm-surface);
+    border: 0;
+  }
+
+  /* Pied : emplacement, version, auteur, date de modification */
+  .ZmDocsEditView .ZmHtmlEditorFooter {
+    width: 100%;
+    background: var(--zm-surface-alt);
+    border: 0;
+    border-top: 1px solid var(--zm-border);
+  }
+
+  .ZmDocsEditView .ZmHtmlEditorFooter td {
+    padding: 6px 10px;
+    background: none;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
+  .ZmDocsEditView .ZmHtmlEditorFooter span {
+    color: var(--zm-text);
+  }
+}

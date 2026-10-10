@@ -860,6 +860,24 @@
     font-size: var(--zm-font-size);
   }
 
+  /* Feuille de propriétés (« Propriétés du dossier ») : libellé centré sur sa valeur,
+     lignes espacées. */
+  .DwtPropertySheet td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    vertical-align: middle;
+  }
+
+  .DwtPropertySheet .Label {
+    padding-right: 8px;
+  }
+
+  /* Les boutons qu'elle contient gardent leurs propres marges. */
+  .DwtPropertySheet .ZWidgetTable td {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   /* Boutons de pied de dialogue : 8 px entre eux au lieu de 5, sans déplacer le
      premier ni le dernier. */
   .DwtDialogButtonBar table table > tbody > tr > td + td > .ZButton {

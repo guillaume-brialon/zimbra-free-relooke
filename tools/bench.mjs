@@ -4,6 +4,8 @@
 //   node tools/bench.mjs            puis http://localhost:8765/
 //   http://localhost:8765/?theme=off   rendu d'origine, pour comparer
 //   http://localhost:8765/?view=prefs  vue Préférences ; ?show=1 déplie menus et dialogues
+//   http://localhost:8765/?js=1         exécute aussi le script de l'extension (content.js),
+//                                       avec un faux stockage de réglages
 //   http://localhost:8765/?skin=simple  feuille de style du thème « Simple » de Zimbra
 //                                       (site-simple.css) au lieu de site.css
 //
@@ -28,7 +30,12 @@ const TYPES = {
   ".json": "application/json; charset=utf-8",
 };
 
-async function page(themed, snapshot, skinCss) {
+// Ce que content.js attend du navigateur, réduit au nécessaire (?js=1).
+const BROWSER_STUB = `<script>window.browser = { runtime: { getURL: (path) => "/ext/" + path }, storage: { local: { get: (defaults) => Promise.resolve({ ...defaults }), set: () => Promise.resolve() }, onChanged: { addListener() {} } } };</script>
+<script src="/ext/content.js"></script>
+`;
+
+async function page(themed, snapshot, skinCss, withScript) {
   let html = await readFile(join(ROOT, snapshot), "utf8");
   const manifest = JSON.parse(await readFile(join(EXT, "manifest.json"), "utf8"));
 
@@ -37,6 +44,8 @@ async function page(themed, snapshot, skinCss) {
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
     .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, "")
     .replace(/href="\/zimbra\/css\/[^"]*"/, `href="/${skinCss}"`)
+    // Les fenêtres séparées (éditeur de document) chargent leur feuille par « @import ».
+    .replace(/@import url\(\/zimbra\/css\/[^)]*\)/, `@import url(/${skinCss})`)
     .replace(/href="\/service\/zimlet\/res\/Zimlets-nodev_all\.css[^"]*"/, 'href="/Zimlets-nodev_all.css"')
     // Les encarts restent dans la page (pour tester leur masquage) mais ne chargent rien.
     .replace(/(<iframe\b[^>]*?)\ssrc="https:\/\/passback\.free\.fr[^"]*"/g, '$1 src="about:blank#passback.free.fr"');
@@ -47,7 +56,7 @@ async function page(themed, snapshot, skinCss) {
   // L'image « /bench-wait » répond avec retard : elle repousse l'événement load, donc la
   // capture d'un Firefox sans fenêtre (--screenshot), le temps que tout soit peint.
   return html
-    .replace("</head>", `${links}\n<link rel="stylesheet" href="/bench.css">\n<script src="/bench.js" defer></script>\n</head>`)
+    .replace("</head>", `${withScript ? BROWSER_STUB : ""}${links}\n<link rel="stylesheet" href="/bench.css">\n<script src="/bench.js" defer></script>\n</head>`)
     .concat('<img src="/bench-wait" alt="" style="display:none">');
 }
 
@@ -68,7 +77,7 @@ createServer(async (req, res) => {
       const snap = url.searchParams.get("snap") || "site.html";
       if (!/^[\w .-]+\.html$/.test(snap)) throw new Error("snapshot invalide");
       const skinCss = url.searchParams.get("skin") === "simple" ? "site-simple.css" : "site.css";
-      body = await page(url.searchParams.get("theme") !== "off", snap, skinCss);
+      body = await page(url.searchParams.get("theme") !== "off", snap, skinCss, url.searchParams.has("js"));
       type = TYPES[".html"];
     } else if (path === "/bench-wait") {
       setTimeout(() => res.writeHead(204).end(), 1500);

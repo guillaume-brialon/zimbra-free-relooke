@@ -36,16 +36,43 @@ const ADDRESS_BOOK = "<path d='M4.500 2.500H12c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5H4
 // classes : classes Zimbra remplacées ; svg : contenu du dessin ; box : cadre du dessin
 // (16 x 16 par défaut, sinon la taille que Zimbra donne à l'icône) ; width : épaisseur
 // du trait ; color : variable de couleur (icône neutre par défaut).
+const HTML_DOC = `${DOC}<path d='M7.100 8.200 5.700 9.600l1.400 1.400M8.900 8.200l1.400 1.400-1.400 1.400'/>`;
+const PICTURE = "<rect x='2' y='3' width='12' height='10' rx='1.500'/><circle cx='5.700' cy='6.500' r='1'/><path d='M2.500 11.300 6 8.400l2.400 2 2-1.700 3.100 2.800'/>";
+// Lettre posée dans une page : fichiers bureautiques.
+const docLetter = (letter) => `${DOC}<text x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'>${letter}</text>`;
+
+// Types de fichier du porte-documents. Chaque dessin existe en deux tailles : 16 px dans
+// les listes, 48 px (classe suffixée « _48 ») en tête de l'aperçu, au trait affiné.
+const DOC_TYPES = [
+  { name: "ImgMSWordDoc", svg: docLetter("W"), color: "var(--zm-accent)" },
+  { name: "ImgMSExcelDoc", svg: docLetter("X"), color: "var(--zm-success)" },
+  { name: "ImgMSPowerpointDoc", svg: docLetter("P"), color: "var(--zm-warning)" },
+  { name: "ImgMSVisioDoc", svg: docLetter("V"), color: "var(--zm-accent)" },
+  { name: "ImgMSProjectDoc", svg: `${DOC}<path d='M5.500 8h3M7 10h3.500M5.500 12h2'/>`, color: "var(--zm-success)" },
+  { name: "ImgPDFDoc", svg: `${DOC}<path fill='black' d='M3.500 9.500h9V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5z'/>`, color: "var(--zm-danger)" },
+  { name: "ImgImageDoc", svg: PICTURE },
+  { name: "ImgAudioDoc", svg: `${DOC}<path d='M7 11.400V8l3-.7v3.400'/><circle cx='6.200' cy='11.400' r='.8'/><circle cx='9.200' cy='10.700' r='.8'/>` },
+  { name: "ImgVideoDoc", svg: `${DOC}<path fill='black' d='M6.800 8 10 9.800l-3.200 1.800z'/>` },
+  { name: "ImgZipDoc", svg: `${DOC}<path d='M7 7.500h1M8 9h1M7 10.500h1M8 12h1'/>` },
+  { name: "ImgExeDoc", svg: `${DOC}<path d='M5.800 8.200 7.400 9.600l-1.600 1.400M8.600 11.200h1.800'/>` },
+];
+const DOC_48 = [
+  { name: "ImgGenericDoc_48", svg: DOC },
+  { name: "ImgUnknownDoc_48", svg: DOC },
+  { name: "ImgHtmlDoc_48", svg: HTML_DOC },
+  { name: "ImgMessageDoc_48", svg: "<rect x='2' y='3.500' width='12' height='9' rx='1.500'/><path d='M2.600 5.200 8 9l5.400-3.800'/>" },
+];
+
 const ICONS = [
   // Applications
-  { classes: ["ImgMailApp", "ImgMessage", "ImgReadMessage", "ImgUnreadMessage", "ImgNewMessage", "ImgMsgStatusUnread"], svg: "<rect x='2' y='3.500' width='12' height='9' rx='1.500'/><path d='M2.600 5.200 8 9l5.400-3.800'/>" },
+  { classes: ["ImgMailApp", "ImgMessage", "ImgReadMessage", "ImgUnreadMessage", "ImgNewMessage", "ImgMsgStatusUnread", "ImgMessageDoc"], svg: "<rect x='2' y='3.500' width='12' height='9' rx='1.500'/><path d='M2.600 5.200 8 9l5.400-3.800'/>" },
   { classes: ["ImgMsgStatus"], svg: "<rect x='2' y='3.500' width='12' height='9' rx='1.500'/><path d='M6.600 6.900c0-.9.600-1.500 1.400-1.500s1.400.5 1.400 1.300c0 1-1.400 1.100-1.400 2.100M8 10.700h.01'/>" },
   { classes: ["ImgEnvelopeOpen", "ImgMsgStatusRead"], svg: "<path d='M2 6.500 8 2.500l6 4v6c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1zM2.300 6.800 8 10.200l5.700-3.400'/>" },
   { classes: ["ImgContactsApp", "ImgContact"], svg: "<circle cx='8' cy='5.400' r='2.600'/><path d='M3 13.500c0-2.700 2.200-4.300 5-4.300s5 1.600 5 4.300'/>" },
   { classes: ["ImgGroup"], svg: "<circle cx='6' cy='5.600' r='2.200'/><path d='M1.800 13c0-2.300 1.900-3.700 4.200-3.700s4.200 1.400 4.200 3.700M10.400 3.600a2.200 2.200 0 0 1 0 4.200M12 9.600c1.400.5 2.300 1.700 2.300 3.400'/>" },
   { classes: ["ImgNewGroup"], svg: "<circle cx='5' cy='6.200' r='2'/><path d='M1.500 13.200c0-2.100 1.600-3.400 3.500-3.400s3.500 1.300 3.500 3.400M9.400 4.250a2 2 0 0 1 0 3.900M10.300 10.100c1.300.5 2.100 1.600 2.100 3.100M12.800 2.100v3.400M11.100 3.800h3.400'/>" },
   { classes: ["ImgNewContact"], svg: "<circle cx='6.500' cy='5.600' r='2.400'/><path d='M2 13.500c0-2.500 2-4 4.500-4s4.500 1.500 4.500 4M12.500 3.500v4M10.500 5.500h4'/>" },
-  { classes: ["ImgCalendarApp", "ImgAppointment", "ImgDate"], svg: CALENDAR },
+  { classes: ["ImgCalendarApp", "ImgAppointment", "ImgDate", "ImgCalendarFolder"], svg: CALENDAR },
   { classes: ["ImgNewAppointment"], svg: `${CALENDAR}<path d='M8 8.300v3.400M6.300 10h3.400'/>` },
   { classes: ["ImgTasksApp", "ImgTaskList"], svg: "<rect x='2.500' y='2.500' width='11' height='11' rx='2'/><path d='M5.200 8.200l2 2L10.800 6'/>" },
   { classes: ["ImgTask", "ImgNewTask"], svg: `${CLIPBOARD}<path d='M5.800 9.200l1.500 1.500 3-3.200'/>` },
@@ -75,6 +102,8 @@ const ICONS = [
   { classes: ["ImgDelete", "ImgTrash", "ImgMsgStatusTrash"], svg: "<path d='M2.800 4.500h10.400M6.400 4.500V3.200c0-.4.3-.7.7-.7h1.800c.4 0 .7.3.7.7v1.300M4.200 4.500l.6 8c0 .6.5 1 1 1h4.400c.5 0 1-.4 1-1l.6-8M6.700 7v4M9.300 7v4'/>" },
   { classes: ["ImgFolder"], svg: FOLDER },
   { classes: ["ImgMoveToFolder"], svg: `${FOLDER}<path d='M6 9h4.200M8.700 7.400 10.300 9l-1.600 1.600'/>` },
+  { classes: ["ImgEmptyFolder"], svg: `${FOLDER}<path d='M6.600 7.400l2.800 2.800M9.400 7.400l-2.800 2.800'/>` },
+  { classes: ["ImgProperties"], svg: "<path d='M2.500 5h5.500M12 5h1.500M2.500 11H4M8 11h5.500'/><circle cx='10' cy='5' r='1.700'/><circle cx='6' cy='11' r='1.700'/>" },
   { classes: ["ImgNewFolder"], svg: `${FOLDER}<path d='M8 7.200v3.600M6.200 9h3.600'/>` },
   { classes: ["ImgPrint"], svg: "<path d='M4.500 6V2.500h7V6M4.500 11.500H3.200c-.7 0-1.200-.5-1.200-1.200V7.200C2 6.500 2.500 6 3.200 6h9.600c.7 0 1.200.5 1.200 1.200v3.100c0 .7-.5 1.200-1.200 1.200h-1.300'/><path d='M4.500 9.500h7v4h-7z'/>" },
   { classes: ["ImgReply", "ImgMsgStatusReply"], svg: "<path d='M6.500 4 2.500 8l4 4'/><path d='M3 8h6c2.600 0 4.500 1.800 4.500 4.500'/>" },
@@ -93,6 +122,9 @@ const ICONS = [
   { classes: ["ImgBold"], svg: `<text y='12.800' font-weight='bold' ${LETTER}>G</text>` },
   { classes: ["ImgItalics"], svg: `<text y='12.800' font-weight='600' font-style='italic' ${LETTER}>I</text>` },
   { classes: ["ImgUnderline"], svg: `<text y='11.400' font-weight='600' ${LETTER}>S</text><path d='M4 14h8'/>` },
+  { classes: ["ImgStrikeThru"], svg: `<text y='12.600' font-weight='600' ${LETTER}>T</text><path d='M3 8.400h10'/>` },
+  { classes: ["ImgSuperScript"], svg: "<path d='M2.500 5.500l6 8M8.500 5.500l-6 8M10.800 3.300c.2-.8.800-1.200 1.500-1.200.8 0 1.400.5 1.400 1.200 0 1.200-2.700 2-2.900 3.400h3'/>" },
+  { classes: ["ImgSubscript"], svg: "<path d='M2.500 2.500l6 8M8.500 2.500l-6 8M10.800 10.300c.2-.8.800-1.200 1.500-1.200.8 0 1.400.5 1.400 1.200 0 1.200-2.700 2-2.900 3.400h3'/>" },
   { classes: ["ImgFontColor"], svg: "<path d='M4.300 12.500 8 3.200l3.700 9.300M5.600 9.300h4.800'/>" },
   { classes: ["ImgFontBackground"], svg: "<path d='M9.800 2.800l3.400 3.400-5.500 5.500H4.300V8.300zM3 13.500h10'/>" },
   { classes: ["ImgLeftJustify"], svg: "<path d='M2.500 4h11M2.500 7h7M2.500 10h11M2.500 13h7'/>" },
@@ -106,6 +138,18 @@ const ICONS = [
   { classes: ["ImgHorizRule"], svg: "<path d='M2.500 8h11'/>" },
   { classes: ["ImgURL"], svg: "<path d='M6.800 9.200a2.800 2.800 0 0 0 4 0l2-2a2.800 2.800 0 0 0-4-4l-.7.7M9.200 6.800a2.800 2.800 0 0 0-4 0l-2 2a2.800 2.800 0 0 0 4 4l.7-.7'/>" },
   { classes: ["ImgTable", "ImgInsertTable"], width: 1.2, svg: `${FRAME}<path d='M2 6.200h12M2 9.800h12M6 2.500v11M10 2.500v11'/>` },
+  // Opérations sur un tableau
+  { classes: ["ImgInsertRowBefore"], svg: "<rect x='2' y='8.500' width='12' height='5' rx='1'/><path d='M8 2.200v4M6 4.200h4'/>" },
+  { classes: ["ImgInsertRowAfter"], svg: "<rect x='2' y='2.500' width='12' height='5' rx='1'/><path d='M8 9.800v4M6 11.800h4'/>" },
+  { classes: ["ImgInsertColBefore"], svg: "<rect x='8.500' y='2' width='5' height='12' rx='1'/><path d='M2.200 8h4M4.200 6v4'/>" },
+  { classes: ["ImgInsertColAfter"], svg: "<rect x='2.500' y='2' width='5' height='12' rx='1'/><path d='M9.800 8h4M11.800 6v4'/>" },
+  { classes: ["ImgDeleteRow"], svg: "<rect x='2' y='8.500' width='12' height='5' rx='1'/><path d='M6.400 2.600l3.200 3.200M9.600 2.600 6.400 5.800'/>" },
+  { classes: ["ImgDeleteCol"], svg: "<rect x='8.500' y='2' width='5' height='12' rx='1'/><path d='M2.600 6.400l3.200 3.200M5.800 6.400 2.600 9.600'/>" },
+  { classes: ["ImgDeleteTable"], svg: `${FRAME}<path d='M5.800 5.800l4.400 4.400M10.200 5.800l-4.400 4.400'/>` },
+  { classes: ["ImgMergeCells"], svg: `${FRAME}<path d='M4 8h3M5.800 6.600 7.200 8 5.800 9.400M12 8H9M10.200 6.600 8.800 8l1.400 1.400'/>` },
+  { classes: ["ImgSplitCells"], svg: `${FRAME}<path d='M8 2.500v11M6 8H4M5 6.800 3.800 8 5 9.200M10 8h2M11 6.800 12.200 8 11 9.200'/>` },
+  { classes: ["ImgTableProperties"], width: 1.2, svg: `${FRAME}<path d='M2 6.200h12M6 6.200v7.300'/>` },
+  { classes: ["ImgCellProperties"], width: 1.2, svg: `${FRAME}<rect x='5' y='5.500' width='6' height='5' rx='.8' fill='black' fill-opacity='.45'/>` },
   { classes: ["ImgGlobe"], svg: "<circle cx='8' cy='8' r='5.600'/><path d='M2.400 8h11.200M8 2.400c-2.300 2-2.300 9.200 0 11.200M8 2.400c2.300 2 2.300 9.200 0 11.200'/>" },
   { classes: ["ImgSwitchFormat"], svg: "<path d='M3 5.500h9M9.500 3 12 5.500 9.500 8M13 10.500H4M6.500 8 4 10.500 6.500 13'/>" },
 
@@ -114,14 +158,15 @@ const ICONS = [
   { classes: ["ImgDownArrow"], svg: "<path d='M8 2.800v7.500M5 7.500l3 3 3-3M3 10.500v2c0 .6.4 1 1 1h8c.6 0 1-.4 1-1v-2'/>" },
   { classes: ["ImgPadLock"], svg: "<rect x='3.500' y='7' width='9' height='6.500' rx='1.200'/><path d='M5.500 7V5.200a2.500 2.500 0 0 1 5 0V7'/>" },
   { classes: ["ImgGenericDoc", "ImgUnknownDoc", "ImgDoc"], svg: DOC },
-  { classes: ["ImgHtmlDoc"], svg: `${DOC}<path d='M7.100 8.200 5.700 9.600l1.400 1.400M8.900 8.200l1.400 1.400-1.400 1.400'/>` },
+  { classes: ["ImgHtmlDoc"], svg: HTML_DOC },
+  { classes: ["ImgCheckout"], svg: `${DOC}<path d='M8 7.300v4M6.300 9.700 8 11.400l1.700-1.700'/>` },
   { classes: ["ImgNewDoc"], svg: `${DOC}<path d='M8 7.800v3.400M6.300 9.500h3.400'/>` },
 
   // Préférences
   { classes: ["ImgAccounts"], svg: "<rect x='2' y='3.500' width='12' height='9' rx='1.500'/><circle cx='5.800' cy='7.200' r='1.400'/><path d='M3.800 10.800c.3-1 1-1.500 2-1.500s1.700.5 2 1.500M9.800 6.500h2.400M9.800 9h2.400'/>" },
   { classes: ["ImgMailRule"], svg: "<path d='M2.500 3.500h11L9.500 8.300v4.200l-3 1V8.300z'/>" },
   { classes: ["ImgTrustedAddresses"], svg: "<path d='M8 2.300 13 4v4c0 2.900-2 4.900-5 5.800C5 12.900 3 10.900 3 8V4zM5.900 8l1.500 1.500 2.800-3'/>" },
-  { classes: ["ImgSharedContact"], svg: "<circle cx='4.300' cy='8' r='1.700'/><circle cx='11.500' cy='4' r='1.700'/><circle cx='11.500' cy='12' r='1.700'/><path d='M5.800 7.200 10 4.800M5.800 8.800l4.200 2.400'/>" },
+  { classes: ["ImgSharedContact", "ImgSharedMailFolder", "ImgSharedContactsFolder", "ImgSharedCalendarFolder", "ImgSharedTaskList"], svg: "<circle cx='4.300' cy='8' r='1.700'/><circle cx='11.500' cy='4' r='1.700'/><circle cx='11.500' cy='12' r='1.700'/><path d='M5.800 7.200 10 4.800M5.800 8.800l4.200 2.400'/>" },
   { classes: ["ImgShortcut"], svg: "<rect x='1.500' y='4' width='13' height='8' rx='1.500'/><path d='M4 6.800h.01M6.700 6.800h.01M9.300 6.800h.01M12 6.800h.01M4.500 9.500h7'/>" },
   { classes: ["ImgZimlet"], svg: "<path d='M6 2.500v3M10 2.500v3M4 5.500h8V8a4 4 0 0 1-8 0zM8 12v1.800'/>" },
 
@@ -129,11 +174,11 @@ const ICONS = [
   { classes: ["ImgSpellCheck"], svg: "<path d='M2.500 9.500 5 3l2.500 6.500M3.300 7.400h3.400M8.300 11.500l1.900 1.900 3.500-4'/>" },
   { classes: ["ImgAddSignature"], svg: "<path d='M2.500 11c1.800-3.200 3-6 3.900-6 1 0 0 4.500 1.300 4.500 1 0 1.300-2 2.200-2 .8 0 .7 1.500 3.600 1.500M2.500 13.500h11'/>" },
   { classes: ["ImgInbox"], svg: INBOX },
-  { classes: ["ImgSentFolder", "ImgMsgStatusSent"], svg: SENT },
+  { classes: ["ImgSentFolder", "ImgMsgStatusSent", "ImgSend"], svg: SENT },
   { classes: ["ImgContactsFolder", "ImgEmailedContacts", "ImgNewContactsFolder"], svg: ADDRESS_BOOK },
   { classes: ["ImgSearchFolder"], svg: `${FOLDER}<circle cx='7.600' cy='8.700' r='1.700'/><path d='M8.900 10l1.500 1.500'/>` },
   { classes: ["ImgDomain"], svg: "<circle cx='8' cy='8' r='2.400'/><path d='M10.400 5.600v3.200c0 1 .8 1.700 1.700 1.700s1.700-.8 1.700-2.100c0-3.300-2.600-5.900-5.800-5.900a5.800 5.800 0 1 0 3.300 10.600'/>" },
-  { classes: ["ImgTime"], svg: "<circle cx='8' cy='8' r='5.600'/><path d='M8 4.800V8l2.200 1.400'/>" },
+  { classes: ["ImgTime", "ImgVersionHistory"], svg: "<circle cx='8' cy='8' r='5.600'/><path d='M8 4.800V8l2.200 1.400'/>" },
 
   // Liste de mails et affichage
   { classes: ["ImgAttachment"], svg: "<path d='M12 7.300 7.300 12c-1.100 1.100-2.800 1.100-3.800 0s-1.100-2.800 0-3.800l5-5c.7-.7 1.900-.7 2.600 0s.7 1.900 0 2.600l-4.900 4.900c-.4.4-.9.4-1.300 0s-.4-.9 0-1.300L9.300 5'/>" },
@@ -194,8 +239,16 @@ const ICON_STROKE = "#4d6177";
 const FOLDER_FILL = "#fff3c4";
 const FOLDER_PAINTED = dataUri({ svg: FOLDER.replace("<path ", `<path fill='${FOLDER_FILL}' `), stroke: ICON_STROKE });
 
+// Dossier de couleur : contour plein, intérieur à peine teinté, à l'image du dossier
+// ordinaire (contour sombre, intérieur clair).
+const FOLDER_MASK = `${dataUri({ svg: FOLDER.replace("<path ", "<path fill='black' fill-opacity='.28' ") })} center / contain no-repeat`;
 const CALENDAR_MASK = `${dataUri({ svg: CALENDAR_SOLID, width: 1.5 })} center / contain no-repeat`;
 const TAG_MASK = `${dataUri({ svg: TAG_SOLID, width: 1 })} center / contain no-repeat`;
+
+for (const { name, svg, color } of DOC_TYPES) {
+  ICONS.push({ classes: [name], svg, color }, { classes: [`${name}_48`], svg, color, width: 0.8 });
+}
+for (const { name, svg } of DOC_48) ICONS.push({ classes: [name], svg, width: 0.8 });
 
 const all = ICONS.flatMap((icon) => icon.classes);
 const duplicates = all.filter((name, i) => all.indexOf(name) !== i);
@@ -267,12 +320,48 @@ ${colors}
     mask: none;
   }
 
+  /* Dossier auquel l'utilisateur a donné une couleur : rien ne le signale dans la page,
+     content.js lit donc la teinte de l'image et pose data-zm-tint. L'animation, sans
+     effet visible, sert seulement à l'avertir qu'une image vient d'apparaître.
+     :where() laisse la priorité aux icônes reconnues ci-dessous. */
+  td.imageCell > img {
+    animation: zm-folder-probe 1ms;
+  }
+
+  td.imageCell > img:where([data-zm-tint]) {
+    filter: ${TINT};
+    object-fit: fill;
+    object-position: 50% 50%;
+    background: none;
+    mask: ${FOLDER_MASK};
+  }
+
+  /* De même dans le choix de couleur des dialogues « Créer un dossier », « Créer un
+     carnet d'adresses »… : le bouton, et le menu qui suit le dialogue dans la page. */
+  td[id$="_colorSelect"] .ZLeftIcon img,
+  .DwtDialog:has([id$="_colorSelect"]) + .ZmColorMenu .ZLeftIcon img {
+    mask: ${FOLDER_MASK};
+  }
+
+  /* « Propriétés du dossier » : même dessin pour le bouton de couleur et son menu. Le
+     dialogue sert aussi aux calendriers et aux carnets, que rien ne distingue ici. */
+  .DwtPropertySheet .ZLeftIcon img,
+  .DwtDialog:has(.DwtPropertySheet) + .ZmColorMenu .ZLeftIcon img {
+    filter: ${TINT};
+    mask: ${FOLDER_MASK};
+  }
+
   /* Dossiers système du mail, reconnus à leur numéro, fixe dans Zimbra :
      2 = Réception, 5 = Envoyé. */
   td[id="zti__main_Mail__2_imageCell"].imageCell > img,
   td[id="zti__main_Mail__5_imageCell"].imageCell > img,
   td[id*="Contacts"].imageCell > img,
   td[id*="Tasks"].imageCell > img {
+    /* L'image reste hors cadre, même si sa teinte l'a fait prendre pour un dossier de
+       couleur. */
+    filter: none;
+    object-fit: none;
+    object-position: -99px -99px;
     background: var(--zm-icon);
     mask: var(--zm-i) center / contain no-repeat;
   }
@@ -337,6 +426,12 @@ ${colors}
   .ActionMenu:has(.ImgTagStack) + .ZmColorMenu .ZLeftIcon img {
     filter: ${TINT};
     mask: ${TAG_MASK};
+  }
+}
+
+@keyframes zm-folder-probe {
+  from {
+    outline-color: transparent;
   }
 }
 `;

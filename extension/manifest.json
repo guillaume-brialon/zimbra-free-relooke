@@ -30,7 +30,8 @@
         "css/mail.css",
         "css/contacts.css",
         "css/calendar.css",
-        "css/prefs.css"
+        "css/prefs.css",
+        "css/docs.css"
       ],
       "js": ["content.js"]
     }

@@ -7,6 +7,7 @@
   .ImgUnreadMessage,
   .ImgNewMessage,
   .ImgMsgStatusUnread,
+  .ImgMessageDoc,
   .ImgMsgStatus,
   .ImgEnvelopeOpen,
   .ImgMsgStatusRead,
@@ -18,6 +19,7 @@
   .ImgCalendarApp,
   .ImgAppointment,
   .ImgDate,
+  .ImgCalendarFolder,
   .ImgNewAppointment,
   .ImgTasksApp,
   .ImgTaskList,
@@ -49,6 +51,8 @@
   .ImgMsgStatusTrash,
   .ImgFolder,
   .ImgMoveToFolder,
+  .ImgEmptyFolder,
+  .ImgProperties,
   .ImgNewFolder,
   .ImgPrint,
   .ImgReply,
@@ -72,6 +76,9 @@
   .ImgBold,
   .ImgItalics,
   .ImgUnderline,
+  .ImgStrikeThru,
+  .ImgSuperScript,
+  .ImgSubscript,
   .ImgFontColor,
   .ImgFontBackground,
   .ImgLeftJustify,
@@ -86,6 +93,17 @@
   .ImgURL,
   .ImgTable,
   .ImgInsertTable,
+  .ImgInsertRowBefore,
+  .ImgInsertRowAfter,
+  .ImgInsertColBefore,
+  .ImgInsertColAfter,
+  .ImgDeleteRow,
+  .ImgDeleteCol,
+  .ImgDeleteTable,
+  .ImgMergeCells,
+  .ImgSplitCells,
+  .ImgTableProperties,
+  .ImgCellProperties,
   .ImgGlobe,
   .ImgSwitchFormat,
   .ImgUpload,
@@ -96,11 +114,16 @@
   .ImgUnknownDoc,
   .ImgDoc,
   .ImgHtmlDoc,
+  .ImgCheckout,
   .ImgNewDoc,
   .ImgAccounts,
   .ImgMailRule,
   .ImgTrustedAddresses,
   .ImgSharedContact,
+  .ImgSharedMailFolder,
+  .ImgSharedContactsFolder,
+  .ImgSharedCalendarFolder,
+  .ImgSharedTaskList,
   .ImgShortcut,
   .ImgZimlet,
   .ImgDraftFolder,
@@ -109,12 +132,14 @@
   .ImgInbox,
   .ImgSentFolder,
   .ImgMsgStatusSent,
+  .ImgSend,
   .ImgContactsFolder,
   .ImgEmailedContacts,
   .ImgNewContactsFolder,
   .ImgSearchFolder,
   .ImgDomain,
   .ImgTime,
+  .ImgVersionHistory,
   .ImgAttachment,
   .ImgFlagRed,
   .ImgFlagDis,
@@ -165,7 +190,33 @@
   .ImgLeftArrow,
   .ImgRightArrow,
   .ImgUpArrowSmall,
-  .ImgDownArrowSmall {
+  .ImgDownArrowSmall,
+  .ImgMSWordDoc,
+  .ImgMSWordDoc_48,
+  .ImgMSExcelDoc,
+  .ImgMSExcelDoc_48,
+  .ImgMSPowerpointDoc,
+  .ImgMSPowerpointDoc_48,
+  .ImgMSVisioDoc,
+  .ImgMSVisioDoc_48,
+  .ImgMSProjectDoc,
+  .ImgMSProjectDoc_48,
+  .ImgPDFDoc,
+  .ImgPDFDoc_48,
+  .ImgImageDoc,
+  .ImgImageDoc_48,
+  .ImgAudioDoc,
+  .ImgAudioDoc_48,
+  .ImgVideoDoc,
+  .ImgVideoDoc_48,
+  .ImgZipDoc,
+  .ImgZipDoc_48,
+  .ImgExeDoc,
+  .ImgExeDoc_48,
+  .ImgGenericDoc_48,
+  .ImgUnknownDoc_48,
+  .ImgHtmlDoc_48,
+  .ImgMessageDoc_48 {
     background: var(--zm-icon);
     mask: var(--zm-i) center / contain no-repeat;
   }
@@ -175,7 +226,8 @@
   .ImgReadMessage,
   .ImgUnreadMessage,
   .ImgNewMessage,
-  .ImgMsgStatusUnread {
+  .ImgMsgStatusUnread,
+  .ImgMessageDoc {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3.500' width='12' height='9' rx='1.500'/%3E%3Cpath d='M2.600 5.200 8 9l5.400-3.800'/%3E%3C/svg%3E");
   }
 
@@ -207,7 +259,8 @@
 
   .ImgCalendarApp,
   .ImgAppointment,
-  .ImgDate {
+  .ImgDate,
+  .ImgCalendarFolder {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3' width='11' height='10.5' rx='1.5'/%3E%3Cpath d='M2.5 6.500h11M5.500 1.800v2.400M10.500 1.800v2.400'/%3E%3C/svg%3E");
   }
 
@@ -317,6 +370,14 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3Cpath d='M6 9h4.200M8.700 7.400 10.300 9l-1.600 1.600'/%3E%3C/svg%3E");
   }
 
+  .ImgEmptyFolder {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3Cpath d='M6.600 7.400l2.800 2.800M9.400 7.400l-2.800 2.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgProperties {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 5h5.500M12 5h1.500M2.500 11H4M8 11h5.500'/%3E%3Ccircle cx='10' cy='5' r='1.700'/%3E%3Ccircle cx='6' cy='11' r='1.700'/%3E%3C/svg%3E");
+  }
+
   .ImgNewFolder {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3Cpath d='M8 7.200v3.600M6.200 9h3.600'/%3E%3C/svg%3E");
   }
@@ -388,6 +449,18 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ctext y='11.400' font-weight='600' x='8' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='13.500' fill='black' stroke='none'%3ES%3C/text%3E%3Cpath d='M4 14h8'/%3E%3C/svg%3E");
   }
 
+  .ImgStrikeThru {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ctext y='12.600' font-weight='600' x='8' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='13.500' fill='black' stroke='none'%3ET%3C/text%3E%3Cpath d='M3 8.400h10'/%3E%3C/svg%3E");
+  }
+
+  .ImgSuperScript {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 5.500l6 8M8.500 5.500l-6 8M10.800 3.300c.2-.8.800-1.200 1.500-1.200.8 0 1.400.5 1.400 1.200 0 1.200-2.700 2-2.900 3.400h3'/%3E%3C/svg%3E");
+  }
+
+  .ImgSubscript {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.500 2.500l6 8M8.500 2.500l-6 8M10.800 10.300c.2-.8.800-1.200 1.500-1.200.8 0 1.400.5 1.400 1.200 0 1.200-2.700 2-2.900 3.400h3'/%3E%3C/svg%3E");
+  }
+
   .ImgFontColor {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.300 12.500 8 3.200l3.700 9.300M5.600 9.300h4.800'/%3E%3C/svg%3E");
   }
@@ -441,6 +514,50 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 6.200h12M2 9.800h12M6 2.500v11M10 2.500v11'/%3E%3C/svg%3E");
   }
 
+  .ImgInsertRowBefore {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='8.500' width='12' height='5' rx='1'/%3E%3Cpath d='M8 2.200v4M6 4.200h4'/%3E%3C/svg%3E");
+  }
+
+  .ImgInsertRowAfter {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.500' width='12' height='5' rx='1'/%3E%3Cpath d='M8 9.800v4M6 11.800h4'/%3E%3C/svg%3E");
+  }
+
+  .ImgInsertColBefore {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8.500' y='2' width='5' height='12' rx='1'/%3E%3Cpath d='M2.200 8h4M4.200 6v4'/%3E%3C/svg%3E");
+  }
+
+  .ImgInsertColAfter {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.500' y='2' width='5' height='12' rx='1'/%3E%3Cpath d='M9.800 8h4M11.800 6v4'/%3E%3C/svg%3E");
+  }
+
+  .ImgDeleteRow {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='8.500' width='12' height='5' rx='1'/%3E%3Cpath d='M6.400 2.600l3.200 3.200M9.600 2.600 6.400 5.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgDeleteCol {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8.500' y='2' width='5' height='12' rx='1'/%3E%3Cpath d='M2.600 6.400l3.200 3.200M5.800 6.400 2.600 9.600'/%3E%3C/svg%3E");
+  }
+
+  .ImgDeleteTable {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M5.800 5.800l4.400 4.400M10.200 5.800l-4.400 4.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgMergeCells {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M4 8h3M5.800 6.600 7.200 8 5.800 9.400M12 8H9M10.200 6.600 8.800 8l1.400 1.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgSplitCells {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M8 2.500v11M6 8H4M5 6.800 3.800 8 5 9.200M10 8h2M11 6.800 12.200 8 11 9.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgTableProperties {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Cpath d='M2 6.200h12M6 6.200v7.300'/%3E%3C/svg%3E");
+  }
+
+  .ImgCellProperties {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2.5' width='12' height='11' rx='1.500'/%3E%3Crect x='5' y='5.500' width='6' height='5' rx='.8' fill='black' fill-opacity='.45'/%3E%3C/svg%3E");
+  }
+
   .ImgGlobe {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M2.400 8h11.200M8 2.400c-2.300 2-2.300 9.200 0 11.200M8 2.400c2.300 2 2.300 9.200 0 11.200'/%3E%3C/svg%3E");
   }
@@ -472,6 +589,10 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7.100 8.200 5.700 9.600l1.400 1.400M8.900 8.200l1.400 1.400-1.400 1.400'/%3E%3C/svg%3E");
   }
 
+  .ImgCheckout {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M8 7.300v4M6.300 9.700 8 11.400l1.700-1.700'/%3E%3C/svg%3E");
+  }
+
   .ImgNewDoc {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M8 7.800v3.400M6.300 9.500h3.400'/%3E%3C/svg%3E");
   }
@@ -488,7 +609,11 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.300 13 4v4c0 2.900-2 4.900-5 5.800C5 12.900 3 10.900 3 8V4zM5.900 8l1.500 1.500 2.800-3'/%3E%3C/svg%3E");
   }
 
-  .ImgSharedContact {
+  .ImgSharedContact,
+  .ImgSharedMailFolder,
+  .ImgSharedContactsFolder,
+  .ImgSharedCalendarFolder,
+  .ImgSharedTaskList {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='4.300' cy='8' r='1.700'/%3E%3Ccircle cx='11.500' cy='4' r='1.700'/%3E%3Ccircle cx='11.500' cy='12' r='1.700'/%3E%3Cpath d='M5.800 7.200 10 4.800M5.800 8.800l4.200 2.400'/%3E%3C/svg%3E");
   }
 
@@ -517,7 +642,8 @@
   }
 
   .ImgSentFolder,
-  .ImgMsgStatusSent {
+  .ImgMsgStatusSent,
+  .ImgSend {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13.500 2.500 2.500 7l4.200 1.800 1.800 4.700zM13.500 2.500 6.700 8.800'/%3E%3C/svg%3E");
   }
 
@@ -535,7 +661,8 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='2.400'/%3E%3Cpath d='M10.400 5.600v3.200c0 1 .8 1.700 1.700 1.700s1.700-.8 1.700-2.100c0-3.300-2.600-5.900-5.800-5.900a5.800 5.800 0 1 0 3.300 10.600'/%3E%3C/svg%3E");
   }
 
-  .ImgTime {
+  .ImgTime,
+  .ImgVersionHistory {
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='8' r='5.600'/%3E%3Cpath d='M8 4.800V8l2.200 1.400'/%3E%3C/svg%3E");
   }
 
@@ -707,6 +834,110 @@
     --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 4' fill='none' stroke='black' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 .7 3.500 3 6 .7'/%3E%3C/svg%3E");
   }
 
+  .ImgMSWordDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EW%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSWordDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EW%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSExcelDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EX%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSExcelDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EX%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSPowerpointDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EP%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSPowerpointDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EP%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSVisioDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EV%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSVisioDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Ctext x='8' y='12.200' text-anchor='middle' font-family='Segoe UI,Helvetica Neue,Arial,Liberation Sans,sans-serif' font-size='6.500' font-weight='bold' fill='black' stroke='none'%3EV%3C/text%3E%3C/svg%3E");
+  }
+
+  .ImgMSProjectDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M5.500 8h3M7 10h3.500M5.500 12h2'/%3E%3C/svg%3E");
+  }
+
+  .ImgMSProjectDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M5.500 8h3M7 10h3.500M5.500 12h2'/%3E%3C/svg%3E");
+  }
+
+  .ImgPDFDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath fill='black' d='M3.500 9.500h9V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5z'/%3E%3C/svg%3E");
+  }
+
+  .ImgPDFDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath fill='black' d='M3.500 9.500h9V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5z'/%3E%3C/svg%3E");
+  }
+
+  .ImgImageDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3' width='12' height='10' rx='1.500'/%3E%3Ccircle cx='5.700' cy='6.500' r='1'/%3E%3Cpath d='M2.500 11.300 6 8.400l2.400 2 2-1.700 3.100 2.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgImageDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3' width='12' height='10' rx='1.500'/%3E%3Ccircle cx='5.700' cy='6.500' r='1'/%3E%3Cpath d='M2.500 11.300 6 8.400l2.400 2 2-1.700 3.100 2.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgAudioDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7 11.400V8l3-.7v3.400'/%3E%3Ccircle cx='6.200' cy='11.400' r='.8'/%3E%3Ccircle cx='9.200' cy='10.700' r='.8'/%3E%3C/svg%3E");
+  }
+
+  .ImgAudioDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7 11.400V8l3-.7v3.400'/%3E%3Ccircle cx='6.200' cy='11.400' r='.8'/%3E%3Ccircle cx='9.200' cy='10.700' r='.8'/%3E%3C/svg%3E");
+  }
+
+  .ImgVideoDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath fill='black' d='M6.800 8 10 9.800l-3.200 1.800z'/%3E%3C/svg%3E");
+  }
+
+  .ImgVideoDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath fill='black' d='M6.800 8 10 9.800l-3.200 1.800z'/%3E%3C/svg%3E");
+  }
+
+  .ImgZipDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7 7.500h1M8 9h1M7 10.500h1M8 12h1'/%3E%3C/svg%3E");
+  }
+
+  .ImgZipDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7 7.500h1M8 9h1M7 10.500h1M8 12h1'/%3E%3C/svg%3E");
+  }
+
+  .ImgExeDoc {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M5.800 8.200 7.400 9.600l-1.600 1.400M8.600 11.200h1.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgExeDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M5.800 8.200 7.400 9.600l-1.600 1.400M8.600 11.200h1.800'/%3E%3C/svg%3E");
+  }
+
+  .ImgGenericDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgUnknownDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3C/svg%3E");
+  }
+
+  .ImgHtmlDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 2.500h5.300l3.200 3.200V13c0 .3-.2.5-.5.5H4c-.3 0-.5-.2-.5-.5V3c0-.3.2-.5.5-.5zM9.300 2.500v3.200h3.200'/%3E%3Cpath d='M7.100 8.200 5.700 9.600l1.400 1.400M8.900 8.200l1.400 1.400-1.400 1.400'/%3E%3C/svg%3E");
+  }
+
+  .ImgMessageDoc_48 {
+    --zm-i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3.500' width='12' height='9' rx='1.500'/%3E%3Cpath d='M2.600 5.200 8 9l5.400-3.800'/%3E%3C/svg%3E");
+  }
+
   /* Icônes qui portent un sens par leur couleur */
   .ImgTaskViewCompleted {
     background: var(--zm-success);
@@ -778,6 +1009,54 @@
     background: var(--zm-accent);
   }
 
+  .ImgMSWordDoc {
+    background: var(--zm-accent);
+  }
+
+  .ImgMSWordDoc_48 {
+    background: var(--zm-accent);
+  }
+
+  .ImgMSExcelDoc {
+    background: var(--zm-success);
+  }
+
+  .ImgMSExcelDoc_48 {
+    background: var(--zm-success);
+  }
+
+  .ImgMSPowerpointDoc {
+    background: var(--zm-warning);
+  }
+
+  .ImgMSPowerpointDoc_48 {
+    background: var(--zm-warning);
+  }
+
+  .ImgMSVisioDoc {
+    background: var(--zm-accent);
+  }
+
+  .ImgMSVisioDoc_48 {
+    background: var(--zm-accent);
+  }
+
+  .ImgMSProjectDoc {
+    background: var(--zm-success);
+  }
+
+  .ImgMSProjectDoc_48 {
+    background: var(--zm-success);
+  }
+
+  .ImgPDFDoc {
+    background: var(--zm-danger);
+  }
+
+  .ImgPDFDoc_48 {
+    background: var(--zm-danger);
+  }
+
   .ImgFolder {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234d6177' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23fff3c4' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
     mask: none;
@@ -825,12 +1104,48 @@
     mask: none;
   }
 
+  /* Dossier auquel l'utilisateur a donné une couleur : rien ne le signale dans la page,
+     content.js lit donc la teinte de l'image et pose data-zm-tint. L'animation, sans
+     effet visible, sert seulement à l'avertir qu'une image vient d'apparaître.
+     :where() laisse la priorité aux icônes reconnues ci-dessous. */
+  td.imageCell > img {
+    animation: zm-folder-probe 1ms;
+  }
+
+  td.imageCell > img:where([data-zm-tint]) {
+    filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
+    object-fit: fill;
+    object-position: 50% 50%;
+    background: none;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-opacity='.28' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* De même dans le choix de couleur des dialogues « Créer un dossier », « Créer un
+     carnet d'adresses »… : le bouton, et le menu qui suit le dialogue dans la page. */
+  td[id$="_colorSelect"] .ZLeftIcon img,
+  .DwtDialog:has([id$="_colorSelect"]) + .ZmColorMenu .ZLeftIcon img {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-opacity='.28' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* « Propriétés du dossier » : même dessin pour le bouton de couleur et son menu. Le
+     dialogue sert aussi aux calendriers et aux carnets, que rien ne distingue ici. */
+  .DwtPropertySheet .ZLeftIcon img,
+  .DwtDialog:has(.DwtPropertySheet) + .ZmColorMenu .ZLeftIcon img {
+    filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-opacity='.28' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
   /* Dossiers système du mail, reconnus à leur numéro, fixe dans Zimbra :
      2 = Réception, 5 = Envoyé. */
   td[id="zti__main_Mail__2_imageCell"].imageCell > img,
   td[id="zti__main_Mail__5_imageCell"].imageCell > img,
   td[id*="Contacts"].imageCell > img,
   td[id*="Tasks"].imageCell > img {
+    /* L'image reste hors cadre, même si sa teinte l'a fait prendre pour un dossier de
+       couleur. */
+    filter: none;
+    object-fit: none;
+    object-position: -99px -99px;
     background: var(--zm-icon);
     mask: var(--zm-i) center / contain no-repeat;
   }
@@ -895,5 +1210,11 @@
   .ActionMenu:has(.ImgTagStack) + .ZmColorMenu .ZLeftIcon img {
     filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-rule='evenodd' d='M2.500 3.600c0-.6.5-1.100 1.100-1.100h3.900l6 6c.4.4.4 1.100 0 1.500l-3.500 3.500c-.4.4-1.100.4-1.500 0l-6-6zM5.600 3.900a1.700 1.700 0 1 0 0 3.400 1.700 1.700 0 0 0 0-3.400z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
+
+@keyframes zm-folder-probe {
+  from {
+    outline-color: transparent;
   }
 }

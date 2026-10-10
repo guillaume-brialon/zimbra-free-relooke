@@ -98,6 +98,37 @@
     color: var(--zm-text);
   }
 
+  /* --- Porte-documents : en-tête de l'aperçu d'un fichier ---
+     Le fond gris est écrit en ligne par Zimbra, d'où « !important ». */
+  .ZmPreviewView .MsgHeaderTable td[style*="background-color"] {
+    background-color: var(--zm-surface-alt) !important;
+    border-bottom: 1px solid var(--zm-border-soft);
+  }
+
+  .PreviewViewHeader {
+    padding: 4px 8px;
+  }
+
+  /* L'icône du type de fichier, puis de l'air avant le nom */
+  .PreviewViewHeader td[width="60px"] {
+    padding-right: 12px;
+    vertical-align: middle;
+  }
+
+  .PreviewViewHeader .itemName {
+    color: var(--zm-text);
+    font-family: var(--zm-font-display);
+    font-size: var(--zm-font-size-lg);
+    font-weight: 600;
+  }
+
+  .PreviewViewHeader .itemMeta,
+  .PreviewViewHeader .itemTime {
+    padding-top: 2px;
+    color: var(--zm-text-muted);
+    font-size: var(--zm-font-size-sm);
+  }
+
   /* Fiche d'une tâche (même vue, sans pastilles) : les valeurs sont du texte nu, que la
      marge haute des libellés laissait 4 px au-dessus. Libellé et valeur partagent ici
      la même ligne de base. */
@@ -527,6 +558,8 @@
   .ZmHtmlEditorFooter td {
     border: 0;
     color: var(--zm-text-muted);
+    font-family: var(--zm-font);
+    font-size: var(--zm-font-size-sm);
   }
 
   .ZmMailConfirmView .Summary {
