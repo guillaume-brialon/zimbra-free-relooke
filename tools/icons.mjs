@@ -232,17 +232,15 @@ function dataUri({ svg, box = "0 0 16 16", width = 1.3, stroke = "black" }) {
   return `url("data:image/svg+xml,${doc.replace(/%/g, "%25").replace(/#/g, "%23").replace(/</g, "%3C").replace(/>/g, "%3E")}")`;
 }
 
-// Dossier ordinaire : seule icône à deux couleurs (contour gris, intérieur jaune très
-// clair). Un masque ne porte qu'une couleur ; ce dessin-ci est donc posé tel quel, avec
-// ses couleurs écrites en dur. Le contour doit rester égal à --zm-icon (tokens.css).
-const ICON_STROKE = "#4d6177";
-const FOLDER_FILL = "#fff3c4";
-const FOLDER_PAINTED = dataUri({ svg: FOLDER.replace("<path ", `<path fill='${FOLDER_FILL}' `), stroke: ICON_STROKE });
-
-// Dossier de couleur : contour plein, intérieur à peine teinté, à l'image du dossier
-// ordinaire (contour sombre, intérieur clair).
+// Dossier de couleur : contour plein, intérieur à peine teinté. Le dossier sans couleur
+// est une icône comme les autres, au seul contour.
 const FOLDER_MASK = `${dataUri({ svg: FOLDER.replace("<path ", "<path fill='black' fill-opacity='.28' ") })} center / contain no-repeat`;
 const CALENDAR_MASK = `${dataUri({ svg: CALENDAR_SOLID, width: 1.5 })} center / contain no-repeat`;
+// Carnet d'adresses de couleur : comme le dossier, contour plein et intérieur teinté.
+const ADDRESS_BOOK_MASK = `${dataUri({ svg: `<path fill='black' fill-opacity='.28' stroke='none' d='M4.500 2.500H12c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5H4.500c-.6 0-1-.4-1-1v-9c0-.6.4-1 1-1z'/>${ADDRESS_BOOK}` })} center / contain no-repeat`;
+// Liste de tâches de couleur : case pleine, la coche en réserve. L'image d'origine est
+// surtout blanche et donne une teinte pâle, qu'un simple contour rendrait illisible.
+const TASK_LIST_MASK = `${dataUri({ svg: "<mask id='m'><rect width='16' height='16' fill='white' stroke='none'/><path stroke='black' stroke-width='1.500' d='M5.200 8.200l2 2L10.800 6'/></mask><rect x='2' y='2' width='12' height='12' rx='2.500' fill='black' stroke='none' mask='url(#m)'/>" })} center / contain no-repeat`;
 const TAG_MASK = `${dataUri({ svg: TAG_SOLID, width: 1 })} center / contain no-repeat`;
 
 for (const { name, svg, color } of DOC_TYPES) {
@@ -260,6 +258,21 @@ const colors = ICONS.filter((icon) => icon.color)
   .map((icon) => `  ${selector(icon.classes)} {\n    background: ${icon.color};\n  }`)
   .join("\n\n");
 
+// « Propriétés du dossier » : dessin des couleurs selon l'icône de l'entrée « Aucune ».
+const typedColors = [
+  ["ImgContactsFolder", ADDRESS_BOOK_MASK],
+  ["ImgTaskList", TASK_LIST_MASK],
+  ["ImgCalendarFolder", CALENDAR_MASK],
+]
+  .map(
+    ([type, mask]) => `  .ZmColorMenu:has(.${type}) .ZLeftIcon img,
+  :has(~ .ZmColorMenu .${type}) .DwtPropertySheet .ZLeftIcon img,
+  .ZmColorMenu:has(.${type}) ~ * .DwtPropertySheet .ZLeftIcon img {
+    mask: ${mask};
+  }`,
+  )
+  .join("\n\n");
+
 const css = `/* Fichier généré par tools/icons.mjs : ne pas le modifier à la main.
    Icônes redessinées. Le dessin (--zm-i) sert de masque, la couleur est celle du fond. */
 :root:not(#zm, [data-zm-off]) {
@@ -272,11 +285,6 @@ ${shapes}
 
   /* Icônes qui portent un sens par leur couleur */
 ${colors}
-
-  .ImgFolder {
-    background: ${FOLDER_PAINTED} center / contain no-repeat;
-    mask: none;
-  }
 
   /* L'onglet de l'application en cours a son icône en couleur de marque. */
   .ZSelected .ZAppTabBorder .ZLeftIcon div {
@@ -316,8 +324,8 @@ ${colors}
     filter: none;
     object-fit: none;
     object-position: -99px -99px;
-    background: ${FOLDER_PAINTED} center / contain no-repeat;
-    mask: none;
+    background: var(--zm-icon);
+    mask: ${dataUri({ svg: FOLDER })} center / contain no-repeat;
   }
 
   /* Dossier auquel l'utilisateur a donné une couleur : rien ne le signale dans la page,
@@ -343,13 +351,19 @@ ${colors}
     mask: ${FOLDER_MASK};
   }
 
-  /* « Propriétés du dossier » : même dessin pour le bouton de couleur et son menu. Le
-     dialogue sert aussi aux calendriers et aux carnets, que rien ne distingue ici. */
+  /* « Propriétés du dossier » sert à tous les types d'objets : dossier de courrier,
+     carnet d'adresses, liste de tâches, calendrier, porte-documents. Son menu de couleurs
+     est le seul à proposer « Aucune », entrée qui porte l'icône (à classe) du type : c'est
+     elle qui dit quel dessin donner aux couleurs. Par défaut, un dossier. */
   .DwtPropertySheet .ZLeftIcon img,
-  .DwtDialog:has(.DwtPropertySheet) + .ZmColorMenu .ZLeftIcon img {
+  .ZmColorMenu:has(:where(.ZLeftIcon > div[class^="Img"])) .ZLeftIcon img {
     filter: ${TINT};
     mask: ${FOLDER_MASK};
   }
+
+  /* Les autres types. Le bouton du dialogue se règle sur ce même menu, que Zimbra crée
+     à côté du dialogue dans la page. */
+${typedColors}
 
   /* Dossiers système du mail, reconnus à leur numéro, fixe dans Zimbra :
      2 = Réception, 5 = Envoyé. */

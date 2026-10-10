@@ -1057,11 +1057,6 @@
     background: var(--zm-danger);
   }
 
-  .ImgFolder {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234d6177' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23fff3c4' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: none;
-  }
-
   /* L'onglet de l'application en cours a son icône en couleur de marque. */
   .ZSelected .ZAppTabBorder .ZLeftIcon div {
     background: var(--zm-accent);
@@ -1100,8 +1095,8 @@
     filter: none;
     object-fit: none;
     object-position: -99px -99px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%234d6177' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%23fff3c4' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: none;
+    background: var(--zm-icon);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
   /* Dossier auquel l'utilisateur a donné une couleur : rien ne le signale dans la page,
@@ -1127,12 +1122,34 @@
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-opacity='.28' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
-  /* « Propriétés du dossier » : même dessin pour le bouton de couleur et son menu. Le
-     dialogue sert aussi aux calendriers et aux carnets, que rien ne distingue ici. */
+  /* « Propriétés du dossier » sert à tous les types d'objets : dossier de courrier,
+     carnet d'adresses, liste de tâches, calendrier, porte-documents. Son menu de couleurs
+     est le seul à proposer « Aucune », entrée qui porte l'icône (à classe) du type : c'est
+     elle qui dit quel dessin donner aux couleurs. Par défaut, un dossier. */
   .DwtPropertySheet .ZLeftIcon img,
-  .DwtDialog:has(.DwtPropertySheet) + .ZmColorMenu .ZLeftIcon img {
+  .ZmColorMenu:has(:where(.ZLeftIcon > div[class^="Img"])) .ZLeftIcon img {
     filter: blur(4px) saturate(4) brightness(.75) contrast(1.6);
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-opacity='.28' d='M2 4.6c0-.6.5-1.1 1.1-1.1h2.8l1.4 1.5h5.600c.6 0 1.100.5 1.100 1.100v5.800c0 .6-.5 1.100-1.100 1.100H3.100c-.6 0-1.100-.5-1.100-1.100z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* Les autres types. Le bouton du dialogue se règle sur ce même menu, que Zimbra crée
+     à côté du dialogue dans la page. */
+  .ZmColorMenu:has(.ImgContactsFolder) .ZLeftIcon img,
+  :has(~ .ZmColorMenu .ImgContactsFolder) .DwtPropertySheet .ZLeftIcon img,
+  .ZmColorMenu:has(.ImgContactsFolder) ~ * .DwtPropertySheet .ZLeftIcon img {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='black' fill-opacity='.28' stroke='none' d='M4.500 2.500H12c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5H4.500c-.6 0-1-.4-1-1v-9c0-.6.4-1 1-1z'/%3E%3Cpath d='M4.500 2.500H12c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5H4.500c-.6 0-1-.4-1-1v-9c0-.6.4-1 1-1zM2.300 5.500h1.200M2.300 8h1.200M2.300 10.500h1.200M5.700 10.600c.3-1.200 1.200-1.800 2.300-1.800s2 .6 2.300 1.800'/%3E%3Ccircle cx='8' cy='6.500' r='1.500'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .ZmColorMenu:has(.ImgTaskList) .ZLeftIcon img,
+  :has(~ .ZmColorMenu .ImgTaskList) .DwtPropertySheet .ZLeftIcon img,
+  .ZmColorMenu:has(.ImgTaskList) ~ * .DwtPropertySheet .ZLeftIcon img {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cmask id='m'%3E%3Crect width='16' height='16' fill='white' stroke='none'/%3E%3Cpath stroke='black' stroke-width='1.500' d='M5.200 8.200l2 2L10.800 6'/%3E%3C/mask%3E%3Crect x='2' y='2' width='12' height='12' rx='2.500' fill='black' stroke='none' mask='url(%23m)'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .ZmColorMenu:has(.ImgCalendarFolder) .ZLeftIcon img,
+  :has(~ .ZmColorMenu .ImgCalendarFolder) .DwtPropertySheet .ZLeftIcon img,
+  .ZmColorMenu:has(.ImgCalendarFolder) ~ * .DwtPropertySheet .ZLeftIcon img {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3' width='11' height='10.5' rx='1.5'/%3E%3Cpath fill='black' d='M2.500 4.500c0-.8.7-1.500 1.500-1.500h8c.8 0 1.500.7 1.500 1.500v2.300h-11z'/%3E%3Cpath d='M5.500 1.800v2.400M10.500 1.800v2.400'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
   /* Dossiers système du mail, reconnus à leur numéro, fixe dans Zimbra :
