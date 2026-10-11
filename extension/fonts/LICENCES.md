@@ -11,6 +11,6 @@ par brialon.com : polices variables au format WOFF2, découpées en « latin » 
 | `figtree-latin.woff2`, `figtree-latin-ext.woff2` | Figtree | Copyright 2022 The Figtree Project Authors (https://github.com/erikdkennedy/figtree) |
 | `chivo-mono-latin.woff2`, `chivo-mono-latin-ext.woff2` | Chivo Mono | Copyright 2019 The Chivo Project Authors (https://github.com/Omnibus-Type/Chivo) |
 
-Avant toute diffusion publique de l'extension, joindre ici le texte intégral de la
-licence de chaque famille (fichier `OFL.txt` de son dépôt) : la licence l'exige pour
-toute redistribution.
+Le texte intégral de la licence de chaque famille, que la licence exige pour toute
+redistribution, est joint dans ce dossier : `OFL-Archivo.txt`, `OFL-Figtree.txt` et
+`OFL-Chivo-Mono.txt`. Ce sont les fichiers `OFL.txt` des dépôts cités ci-dessus.
