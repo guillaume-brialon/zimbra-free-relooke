@@ -1,5 +1,6 @@
 // Banc d'essai hors ligne : sert le snapshot site.html avec les feuilles de style
-// de l'extension injectées comme le ferait Firefox.
+// de l'extension injectées comme le ferait Firefox. Les snapshots et les feuilles de
+// style de Zimbra sont lus dans reference/, dossier non suivi.
 //
 //   node tools/bench.mjs            puis http://localhost:8765/
 //   http://localhost:8765/?theme=off   rendu d'origine, pour comparer
@@ -19,6 +20,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = normalize(join(fileURLToPath(import.meta.url), "..", ".."));
 const EXT = join(ROOT, "extension");
+const SNAPSHOTS = join(ROOT, "reference");
 const PORT = Number(process.env.PORT) || 8765;
 
 const TYPES = {
@@ -36,7 +38,7 @@ const BROWSER_STUB = `<script>window.browser = { runtime: { getURL: (path) => "/
 `;
 
 async function page(themed, snapshot, skinCss, withScript) {
-  let html = await readFile(join(ROOT, snapshot), "utf8");
+  let html = await readFile(join(SNAPSHOTS, snapshot), "utf8");
   const manifest = JSON.parse(await readFile(join(EXT, "manifest.json"), "utf8"));
 
   html = html
@@ -83,7 +85,7 @@ createServer(async (req, res) => {
       setTimeout(() => res.writeHead(204).end(), 1500);
       return;
     } else if (path === "/site.css" || path === "/site-simple.css" || path === "/Zimlets-nodev_all.css") {
-      body = await file(ROOT, path.slice(1));
+      body = await file(SNAPSHOTS, path.slice(1));
     } else if (path === "/bench.js" || path === "/bench.css") {
       body = await file(join(ROOT, "tools"), path.slice(1));
     } else if (path.startsWith("/ext/")) {
